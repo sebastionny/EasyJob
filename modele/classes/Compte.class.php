@@ -2,7 +2,7 @@
 /**
  * Description of CompteDAO.class
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Amï¿½lia, Assia et Sï¿½bastien
  */
 class Compte{
     private $idCompte;
@@ -11,14 +11,30 @@ class Compte{
     private $motDePasse;
     private $courriel;
     private $active;
+    private $estEmploye;
+
+
+    public function getEstEmploye()
+    {
+        return $this->estEmploye;
+    }
+
+    public function setEstEmploye($estEmploye)
+    {
+        $this->estEmploye = $estEmploye;
+    }
+
+
+
     //constructeur
-  /*  function __construct($idCompte, $nom, $prenom, $motDePasse, $courriel, $active) {
+  /*  function __construct($idCompte, $nom, $prenom, $motDePasse, $courriel, $active, $estEmploye) {
         $this->idCompte = $idCompte;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->motDePasse = $motDePasse;
         $this->courriel = $courriel;
         $this->active = $active;
+        $this->estEmploye = $estEmploye;
     }*/
     function getIdCompte() {
         return $this->idCompte;
@@ -76,6 +92,7 @@ class Compte{
         $this->motDePasse = $tab["motPasse"];
         $this->courriel = $tab["couriel"];
         $this->active = $tab["active"];
+        $this->estEmploye = $tab ["estEmploye"];
 	}
        
 	public function loadFromObject($x)
@@ -86,7 +103,7 @@ class Compte{
         $this->motDePasse = $x->motPasse;
         $this->courriel =$x->couriel;
         $this->active =$x->active;
-	
+        $this->estEmploye ->$x->estEmploye;
 	}	
 
 }

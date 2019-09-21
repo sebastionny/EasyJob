@@ -2,9 +2,9 @@
 /**
  * Description of Database.class
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Amï¿½lia, Assia et Sï¿½bastien
  */
-require_once('./modele/configs/config.php');
+require_once('/modele/configs/config.php');
 class Database
 {	
 	private static $instance = null;

@@ -4,34 +4,33 @@
  *
  * @author Meryem, Amélia, Assia et Sébastien
  */
-include_once('./modele/classes/Database.class.php');
-include_once('./modele/classes/Compte.class.php');
+/*include_once('./classes/Database.class.php');
+include_once('./classes/Compte.class.php');*/
+include_once('modele/classes/Database.class.php');
+include_once('modele/classes/Compte.class.php');
 class CompteDAO {
-    public static function find($couriel)
+    public static function find($courriel)
     {
             $db = Database::getInstance();
-            try {
+
                 $pstmt = $db->prepare("SELECT * FROM compte WHERE couriel = :x");
-                $pstmt->execute(array(':x' => $couriel));
-
+                $pstmt->execute(array(':x' => $courriel));
                 $result = $pstmt->fetch(PDO::FETCH_OBJ);
-
+                $c= new Compte();
                 if ($result)
                 {
-					$c = new Compte();
-					$c->loadFromObject($result);
-					$pstmt->closeCursor();
-					$pstmt = NULL;
-					Database::close();
+					/*$c = new Compte();*/
+
+                    $c->setCourriel($result->couriel);
+                    $c->setMotDePasse($result->motPasse);
+                    $c->setEstEmploye($result->estEmploye);
+                  /*  $c->setNom($result->nom);*/
+                   /* $c->setPrenom($result->prenom);*/
+                  /*  $pstmt->closeCursor();*/
 					return $c;
                 }
                 $pstmt->closeCursor();
                 $pstmt = NULL;
-                Database::close();
-            }
-            catch (PDOException $ex){
-            }             
-            return NULL;
     }
     public static function findAll()
     {

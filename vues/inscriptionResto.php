@@ -1,4 +1,4 @@
-<?php     require_once('./vues/include/headResto.php'); ?>
+<?php     require_once('./vues/include/head.php'); ?>
     <div class="container-fluid ">
         <div class="banner2 ">
             <div class="row">

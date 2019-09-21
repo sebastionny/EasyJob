@@ -26,6 +26,9 @@ body{
 .item p {
     margin-bottom: 5px !important;
 }
+.warningMessage {
+    color: red;
+}
 /**************************/
 
 /* font */

@@ -2,11 +2,11 @@
 /**
  * Description of DisponibiliteDAO
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Amï¿½lia, Assia et Sï¿½bastien
  */
 include_once('./classes/Database.class.php');
 include_once('./classes/Disponibilite.class.php');
-class CompteDAO {
+class DisponibiliteDAO {
     public static function find($id)
     {
             $db = Database::getInstance();

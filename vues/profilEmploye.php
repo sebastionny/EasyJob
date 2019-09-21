@@ -1,6 +1,4 @@
-<?php require_once('./vues/include/headEmploye.php');
-
-var_dump($_SESSION);?>
+<?php require_once('./vues/include/headTest.php'); ?>
 
          <div class="container-fluid space100 ">
 

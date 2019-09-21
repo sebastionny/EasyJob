@@ -20,7 +20,7 @@
 
             <nav class="navbar  fixed-top navbar-expand-lg  navbar-light ">
                     <a class="navbar-brand" href="?action=default">
-                        <img src="./img/logo.jpg" width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
+                        <img src="./img/logo.jpg"  width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
                     
                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -28,9 +28,11 @@
                     
                     <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                         
-                                <a class="nav-link btn btn-primary btn-lg" href="?action=profilResto">Trouver un employé</a>
-                                <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=profilEmploye">Offrir mes services</a>
-                                <a class="nav-link btn login" href="?action=connecter">ME CONECTER</a>
+                                <a class="nav-link btn btn-primary btn-lg" href="?action=SingInResto">Trouver un employé</a>
+                                <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=SingInEmploye">Offrir mes services</a>
+                                <a class="nav-link btn login" href="?action=connecter" ">ME CONECTER</a>
+
+
                     </div>
             </nav>
         </header>

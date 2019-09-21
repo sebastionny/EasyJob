@@ -2,12 +2,12 @@
 /**
  * Description of CompteDAO.class
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Amï¿½lia, Assia et Sï¿½bastien
  */
 interface config
 	{	
 		const DB_HOST = "localhost";
-		const DB_USER = "sebastian";
-		const DB_PWD = "1032384604";
+		const DB_USER = "root";
+		const DB_PWD = "";
 		const DB_NAME = "easyjob";
 	}

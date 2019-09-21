@@ -1,5 +1,5 @@
 
- <?php require_once('./vues/include/head.php'); ?>
+ <?php require_once('./vues/include/headTest.php'); ?>
 
        <div class="banner">
                 <div class="row">

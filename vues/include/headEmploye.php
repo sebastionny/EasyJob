@@ -25,7 +25,7 @@
         <header>
 
             <nav class="navbar  fixed-top navbar-expand-lg  navbar-light ">
-                    <a class="navbar-brand" href="?action=default">
+                    <a class="navbar-brand" href="#">
                         <img src="img/logo.jpg" width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
                     
                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
                         
                                 <a class="nav-link btn btn-primary btn-lg" href="#">Postuler une offre</a>
                                 <a class="nav-link btn login" href="#">Mon Profil</a>
-                                <a class="nav-link btn login" href="?action=connecter">Me déconnecter</a>
+                                <a class="nav-link btn login" onclick="loadDoc()" href="?action=logout">Me déconnecter</a>
 
                     </div>
             </nav>

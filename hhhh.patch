@@ -1,0 +1,710 @@
+Index: controleur/ProfilEmployeAction.class.php
+===================================================================
+--- controleur/ProfilEmployeAction.class.php	(date 1569029249000)
++++ controleur/ProfilEmployeAction.class.php	(date 1569029249000)
+@@ -1,9 +0,0 @@
+-<?php
+-require_once('./controleur/Action.Interface.php');
+-class ProfilEmployeAction implements Action {
+-    public function execute()
+-    {
+-        return "profilEmploye";
+-    }
+-}
+-?>
+\ No newline at end of file
+Index: controleur/ProfilRestoAction.class.php
+===================================================================
+--- controleur/ProfilRestoAction.class.php	(date 1569029249000)
++++ controleur/ProfilRestoAction.class.php	(date 1569029249000)
+@@ -1,9 +0,0 @@
+-<?php
+-require_once('./controleur/Action.Interface.php');
+-class ProfilRestoAction implements Action {
+-    public function execute()
+-    {
+-        return "profilResto";
+-    }
+-}
+-?>
+\ No newline at end of file
+Index: vues/employeDemandes.php
+===================================================================
+--- vues/employeDemandes.php	(date 1569029249000)
++++ vues/employeDemandes.php	(date 1569029249000)
+@@ -1,68 +0,0 @@
+-<html lang="en">
+-<?php require_once('include/headEmploye.php'); ?>
+-
+-<div class="container-fluid space100 ">
+-
+-    <div class="row">
+-        <div class="col-md-3">
+-            <img src="img/pp.jpg" alt="Profil de ..." class="img-thumbnail profil ">
+-
+-            <form class="space30 fontCenter">
+-                <div class="form-group">
+-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+-                </div>
+-                <button type="submit" class="btn btn-primary ">Changer </button>
+-            </form>
+-
+-            <div class="space100 font2 fontGrand3 ">
+-                <a href="#" class="btn btn-line1 btn-block color1 "> Mon Profil</a>
+-                <a href="#" class="btn btn-line1 btn-block color1 activeLine"> Choisir mes employés</a>
+-                <a href="#" class="btn btn-line1 btn-block color1"> Mes offres de service</a>
+-                <a href="#" class="btn btn-line1 btn-block color1"> Mes commentaires</a>
+-                <a href="#" class="btn btn-line1 btn-block color1"> Me  déconnecter</a>
+-            </div>
+-        </div>
+-
+-        <section class="col-md-9 lineCote">
+-            <div class="container">
+-                <div class="col space30 pb-3">
+-                    <h3 class="font1 fontGrand1 color2">Mes services</h3>
+-                </div>
+-                <div class="row resto">
+-
+-                    <div class="col-md-12 ">
+-                        <div class="item color1">
+-                            <img src="img/resto3.png" class="img-fluid" alt="Cette image n'est pas disponible">
+-                            <div class="color1">
+-                                <h5 class="font1 fontGrand2" >
+-                                <a href="https://www.google.ca" > <span class="color1" style="position: absolute; top: 20px; left: 100px;"> Tacos Amelia </span></a>
+-                                </h5>
+-                                    <p> <i class="fas fa-map-pin"></i> 3479 Boulevard Rosemont, Montréal, H1T 3GJ, CA </p>
+-                                    <p> <i class="far fa-calendar-check"></i> Date: <span> 23/09/2019 </span>  </p>
+-                                    <p> <i class="far fa-clock"></i> Début: <span>12h</span> <span style="position: absolute; left: 250px;">Départ: </span> <span style="position: absolute; left: 310px;"> 18h </span>
+-                                    <p ><i class="fas fa-dollar-sign"></i> Salaire: 14/h</p>
+-                                    <h4 class="font1 fontGrand4 space30">Description </h4>
+-                                    <div class="monbloc">
+-                                    <p class="font2">Je chercher une serveuse sympa et qui aime travailler avec le public</p>
+-                                    </div>
+-                                    <hr color="white">
+-                                    <div class="float-right">
+-                                        <button type="submit" class="btn btn-outline-primary btn-lg btn-line1" > REFUSER</button>
+-                                        <button type="submit" class="btn btn-primary btn-lg "> ACCEPTER</button>
+-                                    </div>
+-                                    </div>
+-                        </div>
+-                    </div>
+-
+-            </div>
+-        </section>
+-
+-    </div>
+-</div>
+-</div>
+-
+-
+-
+-
+-<?php     require_once('include/footer.php'); ?>
+-</html>
+\ No newline at end of file
+Index: hhh.php
+===================================================================
+--- hhh.php	(date 1569029249000)
++++ hhh.php	(date 1569029249000)
+@@ -1,1 +0,0 @@
+-<?php
+Index: vues/default.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vues/default.php	(date 1569029249000)
++++ vues/default.php	(date 1568931154000)
+@@ -1,5 +1,5 @@
+ 
+- <?php require_once('./vues/include/head.php'); ?>
++ <?php require_once('./vues/include/headTest.php'); ?>
+ 
+        <div class="banner">
+                 <div class="row">
+Index: vues/connection.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vues/connection.php	(date 1569029249000)
++++ vues/connection.php	(date 1568931152000)
+@@ -2,16 +2,17 @@
+     <div class="container-fluid ">
+             <div class="banner">
+                     <div class="row">
+-                            <div class="col-md-7">
++                            <div class="col-md-6">
++
++
+ 
+                             </div>
+-                            <div class="col-md-5">
+-                                <div class="col-md-12">
+-                                        <?php require_once('./vues/include/usager/connectionUsager.php');?>
++                            <div class="col-md-6">
++                                <div class="col-col-md-5 offset-md-6">
++                                        <?php require_once('/vues/include/usager/connectionUsager.php');?>
+                                 </div>
+                             </div>
+                     </div>
+             </div>
+     </div>
+-   </div> <!-- Ce div ferme tout le container-fluid-->
+ <?php  require_once('./vues/include/footer.php'); ?>
+\ No newline at end of file
+Index: vues/include/usager/connectionUsager.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vues/include/usager/connectionUsager.php	(date 1569029249000)
++++ vues/include/usager/connectionUsager.php	(date 1568931184000)
+@@ -1,64 +1,47 @@
+-<?php
+-require_once ('./modele/CompteDAO.class.php');
+-$userDAO = new CompteDAO();
+-$txt = 'hols';
+-$user = $userDAO->find("tallernait@gmail.com");
+-?>
+-
+-<h3 class="color1 font2 col-sm-12">Se connecter comme</h3>
++<h3 class="color1">Se connecter comme</h3> 
+ <div class="container h-100">
+-		<div class="justify-content-center h-100">
+-			<div class="user_card rounded-lg">
+-				<div class="justify-content-center form_container p-4 ">
+ 
+                     <?php
+-                    $user = "";
++                    if (ISSET($_REQUEST["global_message"]))
++                        $msg="<span class=\"warningMessage\">".$_REQUEST["global_message"]."</span>";
++                    $u = "";
+                     if (ISSET($_REQUEST["username"]))
+-                        $user = $_REQUEST["username"];
++                        $u = $_REQUEST["username"];
+                     ?>
+-
+                     <form action="" method="post">
+-                            <div class="form-group input-group">
+-                                <?php if (ISSET($_REQUEST["field_messages"]["username"]))
+-                                    echo "<br /><span class=\"warningMessage\">".$_REQUEST["field_messages"]["username"]."</span>";
+-                                ?>
+-                                <div class="input-group-prepend">
+-                                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+-                                 </div>
+-                                <input  class="form-control" placeholder="mery84@gmail.com" type="email" autocomplete="off"
+-                                        name="username" value="<?=$user?>">
+-                            </div> <!-- form-group// -->
+-
+-                            <div class="form-group input-group">
+-                                <?php if (ISSET($_REQUEST["field_messages"]["password"]))
+-                                    echo "<br /><span class=\"warningMessage\">".$_REQUEST["field_messages"]["password"]."</span>";
+-                                ?>
+-                                <div class="input-group-prepend">
+-                                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+-                                </div>
+-                                <input class="form-control" placeholder="Entrer le mot de passe" type="password" autocomplete="off"
+-                                        name="password" >
+-                            </div> <!-- form-group// -->
++    <div class="form-group input-group">
++    	<div class="input-group-prepend">
++		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
++            <input name="username" class="form-control" type="email" value="<?php echo $u ?>">
++        </div>
++        <div>
++        <?php if (ISSET($_REQUEST["field_messages"]["username"]))
++            echo "</br><span class=\"warningMessage\">".$_REQUEST["field_messages"]["username"]."</span>";
++        ?>
++        </div>
++    </div> <!-- form-group// -->
++    
++    <div class="form-group input-group">
++    	<div class="input-group-prepend">
++            <span for="password" class="input-group-text"> <i class="fa fa-lock"></i> </span>
++        <input name="password" class="form-control"  type="password">
++        </div>
++        <?php if (ISSET($_REQUEST["field_messages"]["password"]))
++            echo "<br /><span class=\"warningMessage\">".$_REQUEST["field_messages"]["password"]."</span>";
++        ?>
++    </div> <!-- form-group// -->
+ 
+-                            <div class="form-group">
+-                                <div class="row">
+-                                    <div class="col-sm-7">
+-                                        <a href class=""> Créer un compte  </a>
+-                                    </div>
+-                                    <div class="col-sm-5">
+-                                        <input type="hidden" name="action" value="connecter" >
+-                                        <button type="submit" class="btn btn-primary btn-block" value = "OK"> Suivant  </button>
+-                                    </div>
+-                                </div>
+-                            </div> <!-- form-group// -->
++    <div class="form-group">
++        <div class="row">
++        <div class="col-md-7">
++                <a href class=""> Créer un compte  </a>
++            </div>
++            <div class="col-md-5">
++                <input name="action" value="connecter" type="hidden" />
++                <button type="submit" class="btn btn-primary btn-block"> Suivant  </button>
+                     </form>
++ <!-- form-group// -->
+ 
+-                    <?php var_dump($user); ?>
+ 
+-                </div>
+-            </div>
+-        </div>
+-</div>
+-<div class="col-sm-12 space30">
+-    <a href><h6 class="color1">Nous joindre</h6> </a>
+-</div>
+\ No newline at end of file
++
++</div> </div> </div> </div><a href><h6 class="color1">Nous joindre</h6> </a>
+\ No newline at end of file
+Index: controleur/LoginAction.class.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- controleur/LoginAction.class.php	(date 1569029249000)
++++ controleur/LoginAction.class.php	(date 1568931168000)
+@@ -1,42 +1,48 @@
+ <?php
+ require_once('./controleur/Action.Interface.php');
+-require_once ('./modele/CompteDAO.class.php');
+-
+-class LoginAction implements Action {
++class LoginAction implements Action
++{
+     public function execute()
+     {
+-        if (!ISSET($_REQUEST['username']))
++        if (!ISSET ($_REQUEST ["username"])) {
+             return "connection";
+-        if (!$this->valide()){
+-            return  'connection';
++        }
++        if (!$this->valide()) {
++            return "connection";
++        }
++        require_once('/modele/CompteDAO.class.php');
++        $udao = new CompteDAO();
++        $user = $udao->find($_REQUEST ["username"]);
++        if ($user == null) {
++            $_REQUEST ["field_messages"] ["username"] = "Utilisateur inexistant";
++            return "connection";
++        } elseif ($user->getMotDePasse() != $_REQUEST ["password"]) {
++            $_REQUEST ["field_messages"] ["password"] = "Mot de passe incorrect";
++            return "connection";
+         }
+ 
+-        $userDAO = new CompteDAO();
+-        $user = $userDAO->find($_REQUEST['username']);
+-        if($user == NULL){
+-            $_REQUEST['field_messages']['username'] = 'Utilisateur inexistant.';
+-            return 'connection';
+-        }else if($user->getMotDePasse() != $_REQUEST['password']){
+-            $_REQUEST['field_messages']['password'] = 'Mot de passe incorrect.';
+-            return 'connection';
++        if (!ISSET ($_SESSION))
++            session_start();
++        $_SESSION ["connected"] = $_REQUEST ["username"];
++        if ($user->getEstEmploye() ==1){
++            return "profilEmploye";
+         }
+-        if (!ISSET($_SESSION)) session_start();
+-        $_SESSION['connected'] = $_REQUEST['username'];
++        else {
++            return "profilResto";
++        }
+ 
+-        return 'profilEmploye';
+     }
++
+ 
+     public function valide()
+     {
+         $result = true;
+-        if ($_REQUEST['username'] == "")
+-        {
+-            $_REQUEST["field_messages"]["username"] = "Donnez votre nom d'utilisateur";
++        if ($_REQUEST ['username'] == "") {
++            $_REQUEST ["field_messages"] ["username"] = "Donnez votre nom d'utilisateur";
+             $result = false;
+         }
+-        if ($_REQUEST['password'] == "")
+-        {
+-            $_REQUEST["field_messages"]["password"] = "Mot de passe obligatoire";
++        if ($_REQUEST ['password'] == "") {
++            $_REQUEST ["field_messages"] ["password"] = "Donnez votre mot de passe";
+             $result = false;
+         }
+         return $result;
+Index: controleur/DefaultAction.class.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- controleur/DefaultAction.class.php	(date 1569029249000)
++++ controleur/DefaultAction.class.php	(date 1568931168000)
+@@ -1,5 +1,5 @@
+ <?php
+-require_once('./controleur/Action.Interface.php');
++require_once('/controleur/Action.Interface.php');
+ class DefaultAction implements Action {
+     public function execute(){
+         return "default";
+Index: controleur/ActionBuilder.class.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- controleur/ActionBuilder.class.php	(date 1569029249000)
++++ controleur/ActionBuilder.class.php	(date 1568931168000)
+@@ -1,8 +1,9 @@
+ <?php
+-require_once('./controleur/DefaultAction.class.php');
+-require_once('./controleur/LoginAction.class.php');
+-require_once('./controleur/ProfilRestoAction.class.php');
+-require_once('./controleur/ProfilEmployeAction.class.php');
++require_once('/controleur/DefaultAction.class.php');
++require_once('/controleur/LoginAction.class.php');
++require_once('/controleur/SignInRestoAction.class.php');
++require_once('/controleur/SignInEmployeAction.class.php');
++require_once('/controleur/LogoutAction.class.php');
+ 
+ class ActionBuilder{
+     public static function getAction($nomAction){
+@@ -11,15 +12,15 @@
+             case "connecter" :
+                 return new LoginAction();
+                 break;
+-
+-            case "profilResto" :
+-                return new ProfilRestoAction();
++            case "singInResto":
++                return new SignInRestoAction();
+                 break;
+-
+-            case "profilEmploye" :
+-                return new ProfilEmployeAction();
++            case "singInEmploye":
++                return new SignInEmployeAction();
++                break;
++            case "logout":
++                return new LogoutAction();
+                 break;
+-
+             default :
+                 return new DefaultAction();
+         }
+Index: vues/include/headResto.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vues/include/headResto.php	(date 1569029249000)
++++ vues/include/headResto.php	(date 1568931172000)
+@@ -22,7 +22,7 @@
+         <header>
+ 
+             <nav class="navbar  fixed-top navbar-expand-lg  navbar-light ">
+-                    <a class="navbar-brand" href="?action=default">
++                    <a class="navbar-brand" href="#">
+                         <img src="img/logo.jpg" width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
+                     
+                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+@@ -34,7 +34,7 @@
+                                 <a class="nav-link btn btn-primary btn-lg" href="#">Postuler une offre</a>
+                                 <a class="nav-link btn login" href="#">Mon Profil</a>
+                                 <a class="nav-link btn login" href="#">Mes offres de service</a>
+-                                <a class="nav-link btn login" href="?action=connecter">Me déconnecter</a>
++                                <a class="nav-link btn login" href="#">Me déconnecter</a>
+ 
+                     </div>
+             </nav>
+Index: modele/configs/config.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- modele/configs/config.php	(date 1569029249000)
++++ modele/configs/config.php	(date 1568931172000)
+@@ -7,7 +7,7 @@
+ interface config
+ 	{	
+ 		const DB_HOST = "localhost";
+-		const DB_USER = "sebastian";
+-		const DB_PWD = "1032384604";
++		const DB_USER = "root";
++		const DB_PWD = "";
+ 		const DB_NAME = "easyjob";
+ 	}
+Index: vues/include/headEmploye.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vues/include/headEmploye.php	(date 1569029249000)
++++ vues/include/headEmploye.php	(date 1568931172000)
+@@ -25,7 +25,7 @@
+         <header>
+ 
+             <nav class="navbar  fixed-top navbar-expand-lg  navbar-light ">
+-                    <a class="navbar-brand" href="?action=default">
++                    <a class="navbar-brand" href="#">
+                         <img src="img/logo.jpg" width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
+                     
+                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+@@ -36,7 +36,7 @@
+                         
+                                 <a class="nav-link btn btn-primary btn-lg" href="#">Postuler une offre</a>
+                                 <a class="nav-link btn login" href="#">Mon Profil</a>
+-                                <a class="nav-link btn login" href="?action=connecter">Me déconnecter</a>
++                                <a class="nav-link btn login" onclick="loadDoc()" href="?action=logout">Me déconnecter</a>
+ 
+                     </div>
+             </nav>
+Index: vues/include/head.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vues/include/head.php	(date 1569029249000)
++++ vues/include/head.php	(date 1568931172000)
+@@ -20,7 +20,7 @@
+ 
+             <nav class="navbar  fixed-top navbar-expand-lg  navbar-light ">
+                     <a class="navbar-brand" href="?action=default">
+-                        <img src="./img/logo.jpg" width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
++                        <img src="./img/logo.jpg"  width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
+                     
+                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                         <span class="navbar-toggler-icon"></span>
+@@ -28,9 +28,11 @@
+                     
+                     <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                         
+-                                <a class="nav-link btn btn-primary btn-lg" href="?action=profilResto">Trouver un employé</a>
+-                                <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=profilEmploye">Offrir mes services</a>
+-                                <a class="nav-link btn login" href="?action=connecter">ME CONECTER</a>
++                                <a class="nav-link btn btn-primary btn-lg" href="?action=SingInResto">Trouver un employé</a>
++                                <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=SingInEmploye">Offrir mes services</a>
++                                <a class="nav-link btn login" href="?action=connecter" ">ME CONECTER</a>
++
++
+                     </div>
+             </nav>
+         </header>
+\ No newline at end of file
+Index: modele/classes/Database.class.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- modele/classes/Database.class.php	(date 1569029249000)
++++ modele/classes/Database.class.php	(date 1568931172000)
+@@ -4,7 +4,7 @@
+  *
+  * @author Meryem, Am�lia, Assia et S�bastien
+  */
+-require_once('./modele/configs/config.php');
++require_once('/modele/configs/config.php');
+ class Database
+ {	
+ 	private static $instance = null;
+Index: modele/classes/Compte.class.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- modele/classes/Compte.class.php	(date 1569029249000)
++++ modele/classes/Compte.class.php	(date 1568931172000)
+@@ -11,14 +11,30 @@
+     private $motDePasse;
+     private $courriel;
+     private $active;
++    private $estEmploye;
++
++
++    public function getEstEmploye()
++    {
++        return $this->estEmploye;
++    }
++
++    public function setEstEmploye($estEmploye)
++    {
++        $this->estEmploye = $estEmploye;
++    }
++
++
++
+     //constructeur
+-  /*  function __construct($idCompte, $nom, $prenom, $motDePasse, $courriel, $active) {
++  /*  function __construct($idCompte, $nom, $prenom, $motDePasse, $courriel, $active, $estEmploye) {
+         $this->idCompte = $idCompte;
+         $this->nom = $nom;
+         $this->prenom = $prenom;
+         $this->motDePasse = $motDePasse;
+         $this->courriel = $courriel;
+         $this->active = $active;
++        $this->estEmploye = $estEmploye;
+     }*/
+     function getIdCompte() {
+         return $this->idCompte;
+@@ -76,6 +92,7 @@
+         $this->motDePasse = $tab["motPasse"];
+         $this->courriel = $tab["couriel"];
+         $this->active = $tab["active"];
++        $this->estEmploye = $tab ["estEmploye"];
+ 	}
+        
+ 	public function loadFromObject($x)
+@@ -86,7 +103,7 @@
+         $this->motDePasse = $x->motPasse;
+         $this->courriel =$x->couriel;
+         $this->active =$x->active;
+-	
++        $this->estEmploye ->$x->estEmploye;
+ 	}	
+ 
+ }
+\ No newline at end of file
+Index: modele/DisponibiliteDAO.class.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- modele/DisponibiliteDAO.class.php	(date 1569029249000)
++++ modele/DisponibiliteDAO.class.php	(date 1568931158000)
+@@ -6,7 +6,7 @@
+  */
+ include_once('./classes/Database.class.php');
+ include_once('./classes/Disponibilite.class.php');
+-class CompteDAO {
++class DisponibiliteDAO {
+     public static function find($id)
+     {
+             $db = Database::getInstance();
+Index: modele/CompteDAO.class.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- modele/CompteDAO.class.php	(date 1569029249000)
++++ modele/CompteDAO.class.php	(date 1568931156000)
+@@ -4,34 +4,33 @@
+  *
+  * @author Meryem, Amélia, Assia et Sébastien
+  */
+-include_once('./modele/classes/Database.class.php');
+-include_once('./modele/classes/Compte.class.php');
++/*include_once('./classes/Database.class.php');
++include_once('./classes/Compte.class.php');*/
++include_once('modele/classes/Database.class.php');
++include_once('modele/classes/Compte.class.php');
+ class CompteDAO {
+-    public static function find($couriel)
++    public static function find($courriel)
+     {
+             $db = Database::getInstance();
+-            try {
++
+                 $pstmt = $db->prepare("SELECT * FROM compte WHERE couriel = :x");
+-                $pstmt->execute(array(':x' => $couriel));
+-
++                $pstmt->execute(array(':x' => $courriel));
+                 $result = $pstmt->fetch(PDO::FETCH_OBJ);
+-
+-                if ($result)
+-                {
+-					$c = new Compte();
+-					$c->loadFromObject($result);
+-					$pstmt->closeCursor();
+-					$pstmt = NULL;
+-					Database::close();
++                $c= new Compte();
++                if ($result)
++                {
++					/*$c = new Compte();*/
++
++                    $c->setCourriel($result->couriel);
++                    $c->setMotDePasse($result->motPasse);
++                    $c->setEstEmploye($result->estEmploye);
++                  /*  $c->setNom($result->nom);*/
++                   /* $c->setPrenom($result->prenom);*/
++                  /*  $pstmt->closeCursor();*/
+ 					return $c;
+                 }
+                 $pstmt->closeCursor();
+                 $pstmt = NULL;
+-                Database::close();
+-            }
+-            catch (PDOException $ex){
+-            }             
+-            return NULL;
+     }
+     public static function findAll()
+     {
+Index: vues/profilEmploye.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vues/profilEmploye.php	(date 1569029249000)
++++ vues/profilEmploye.php	(date 1568931154000)
+@@ -1,6 +1,4 @@
+-<?php require_once('./vues/include/headEmploye.php');
+-
+-var_dump($_SESSION);?>
++<?php require_once('./vues/include/headTest.php'); ?>
+ 
+          <div class="container-fluid space100 ">
+ 
+Index: vues/inscriptionResto.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vues/inscriptionResto.php	(date 1569029249000)
++++ vues/inscriptionResto.php	(date 1568931154000)
+@@ -1,4 +1,4 @@
+-<?php     require_once('./vues/include/headResto.php'); ?>
++<?php     require_once('./vues/include/head.php'); ?>
+     <div class="container-fluid ">
+         <div class="banner2 ">
+             <div class="row">
+Index: css/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- css/style.css	(date 1569029249000)
++++ css/style.css	(date 1568931168000)
+@@ -26,6 +26,9 @@
+ .item p {
+     margin-bottom: 5px !important;
+ }
++.warningMessage {
++    color: red;
++}
+ /**************************/
+ 
+ /* font */
+Index: vues/inscriptionEmploye.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- vues/inscriptionEmploye.php	(date 1569029249000)
++++ vues/inscriptionEmploye.php	(date 1568931154000)
+@@ -1,5 +1,5 @@
+ <html lang="en">
+-    <?php     require_once('./vues/include/headEmploye.php'); ?>
++    <?php     require_once('./vues/include/headTest.php'); ?>
+     <div class="container-fluid ">
+             <div class="banner">
+ 
