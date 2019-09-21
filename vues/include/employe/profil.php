@@ -9,84 +9,87 @@
 
                             <div class="justify-content-center">
                                 <div class="col-md-12 font2">
+                                <form method="post">
 
-                                <form>
-                                        
+                                    <?php
+                                    $jours = null;
+                                    if (ISSET($_REQUEST["field_messages"]["checkedDay"]))
+                                        echo "<col-sm-12 class=\"warningMessage text-center \">".$_REQUEST["field_messages"]["checkedDay"]."</col-sm-12>";
+                                    ?>
+
                                         <div class="form-group row">
                                             <label for="dispoLundi" class="col-sm-3 col-form-label">
-                                                <input type="checkbox" class="form-check-input" id="dispoLundi"> Lundi</label>
+                                                <input type="checkbox" class="form-check-input" id="dispoLundi"
+                                                name="jours[]" value="0"> Lundi</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="rangePrimary" name="rangePrimary" value="" />    
-                                            <p id="priceRangeSelected"></P>
+                                                <input type="text" class="rangePrimary" id="lundi" name="tabHeure[]" value="" />
                                             </div>
                                         </div>
 
 
                                         <div class="form-group row">
-                                            <label for="dispoLundi" class="col-sm-3 col-form-label">
-                                                <input type="checkbox" class="form-check-input" id="dispoLundi"> Mardi</label>
+                                            <label for="dispoMardi" class="col-sm-3 col-form-label">
+                                                <input type="checkbox" class="form-check-input" id="dispoMardi"
+                                                       name="jours[]" value="1"> Mardi</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="rangePrimary" name="rangePrimary" value="" />    
-                                            <p id="priceRangeSelected"></P>
+                                                <input type="text" class="rangePrimary" id="mardi" name="tabHeure[]" value="" />
                                             </div>
                                         </div>
 
 
                                         <div class="form-group row">
-                                            <label for="dispoLundi" class="col-sm-3 col-form-label">
-                                                <input type="checkbox" class="form-check-input" id="dispoLundi"> Mercredi</label>
+                                            <label for="dispoMercredi" class="col-sm-3 col-form-label">
+                                                <input type="checkbox" class="form-check-input" id="dispoMercredi"
+                                                       name="jours[]" value="2"> Mercredi</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="rangePrimary" name="rangePrimary" value="" />    
-                                            <p id="priceRangeSelected"></P>
+                                                <input type="text" class="rangePrimary" id="mercredi" name="tabHeure[]" value="" />
                                             </div>
                                         </div>
 
 
                                         <div class="form-group row">
-                                            <label for="dispoLundi" class="col-sm-3 col-form-label">
-                                                <input type="checkbox" class="form-check-input" id="dispoLundi"> Jeudi</label>
+                                            <label for="dispoJeudi" class="col-sm-3 col-form-label">
+                                                <input type="checkbox" class="form-check-input" id="dispoJeudi"
+                                                       name="jours[]" value="3"> Jeudi</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="rangePrimary" name="rangePrimary" value="" />    
-                                            <p id="priceRangeSelected"></P>
+                                                <input type="text" class="rangePrimary" id="jeudi" name="tabHeure[]" value="" />
                                             </div>
                                         </div>
 
 
                                         <div class="form-group row">
-                                            <label for="dispoLundi" class="col-sm-3 col-form-label">
-                                                <input type="checkbox" class="form-check-input" id="dispoLundi"> Vendredi</label>
+                                            <label for="dispoVendredi" class="col-sm-3 col-form-label">
+                                                <input type="checkbox" class="form-check-input" id="dispoVendredi"
+                                                       name="jours[]" value="4"> Vendredi</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="rangePrimary" name="rangePrimary" value="" />    
-                                            <p id="priceRangeSelected"></P>
+                                                <input type="text" class="rangePrimary" id="vendredi"  name="tabHeure[]" value="" />
                                             </div>
                                         </div>
 
 
                                         <div class="form-group row">
-                                            <label for="dispoLundi" class="col-sm-3 col-form-label">
-                                                <input type="checkbox" class="form-check-input" id="dispoLundi"> Samedi</label>
+                                            <label for="dispoSamedi" class="col-sm-3 col-form-label">
+                                                <input type="checkbox" class="form-check-input" id="dispoSamedi"
+                                                       name="jours[]" value="5"> Samedi</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="rangePrimary" name="rangePrimary" value="" />    
-                                            <p id="priceRangeSelected"></P>
+                                                <input type="text" class="rangePrimary"  id="samedi"  name="tabHeure[]" value="" />
                                             </div>
                                         </div>
 
 
                                         <div class="form-group row">
-                                            <label for="dispoLundi" class="col-sm-3 col-form-label">
-                                                <input type="checkbox" class="form-check-input" id="dispoLundi"> Dimache</label>
+                                            <label for="dispoDimache" class="col-sm-3 col-form-label">
+                                                <input type="checkbox" class="form-check-input" id="dispoDimache"
+                                                       name="jours[]" value="6">Dimache</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="rangePrimary" name="rangePrimary" value="" />    
-                                            <p id="priceRangeSelected"></P>
+                                                <input type="text" class="rangePrimary"  id="dimache" name="tabHeure[]" value="" />
                                             </div>
                                         </div>
-                                
-                                    
-
 
                                         <div class="form-group row">
                                             <label for="inputEmail3" class="col-md-5 col-form-label"></label>
                                             <div class="col-md-7">
+                                                <input name="action" value="profilEmploye" type="hidden" />
                                                 <button type="submit" class="nav-link btn btn-primary ">SAUVEGARDER</button>
                                             </div>
                                         </div>
@@ -379,12 +382,12 @@
 		forceParse: 0
     });
 
-    var custom_values = [ "1H", "2H","3H","4H","5H","6H","7H","8H","9H","10H","11H","12H","13H","14H","15H","16H","17H","18H","29H","20H","21H","22H","23H","24H"];
-    
+    var custom_values = [ "0H","1H", "2H","3H","4H","5H","6H","7H","8H","9H","10H","11H","12H","13H","14H","15H","16H","17H","18H","29H","20H","21H","22H","23H","24H"];
+
     // be careful! FROM and TO should be index of values array
     var my_from = custom_values.indexOf("18H");
     var my_to = custom_values.indexOf("24H");
-    
+
     $(".rangePrimary").ionRangeSlider({
         type: "int",
         grid: true,
@@ -392,5 +395,13 @@
         to: my_to ,
         values: custom_values
     });
-	
+
+    // Affiher le changemente
+    // var slider = $("#mardi").data("ionRangeSlider");
+    //
+    // slider.update({
+    //     from:  custom_values.indexOf("8H"),
+    //     to:  custom_values.indexOf("9H")
+    // });
+
 </script>

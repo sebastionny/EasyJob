@@ -19,19 +19,14 @@ class CompteDAO {
                 $c= new Compte();
                 if ($result)
                 {
-					/*$c = new Compte();*/
-
-                    $c->setCourriel($result->couriel);
-                    $c->setMotDePasse($result->motPasse);
-                    $c->setEstEmploye($result->estEmploye);
-                  /*  $c->setNom($result->nom);*/
-                   /* $c->setPrenom($result->prenom);*/
-                  /*  $pstmt->closeCursor();*/
+					$c->loadFromObject($result);
 					return $c;
                 }
                 $pstmt->closeCursor();
                 $pstmt = NULL;
     }
+
+
     public static function findAll()
     {
             $db = Database::getInstance();

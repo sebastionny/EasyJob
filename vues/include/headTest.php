@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/2559a64823.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Paytone+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="./img/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
     <link rel="stylesheet" href="./css/style.css">
     <link href="./css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
@@ -23,7 +23,7 @@
 
         <header>
 
-            <nav class="navbar  fixed-top navbar-expand-lg  navbar-light ">
+            <nav class="navbar   navbar-expand-lg  navbar-light ">
                 <a class="navbar-brand" href="?">
                     <img src="./img/logo.jpg"  width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,27 +31,24 @@
                 </button>
                 <?php
                 if (!ISSET($_SESSION)) session_start();
-                if (ISSET($_SESSION["connected"]))
-                {
-                    if (ISSET ($SESSION ["estEmploye"])))
-               ?>
+                if (ISSET($_SESSION["connected"])) {
 
-
-                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-                    <a class="nav-link btn btn-primary btn-lg" href="#">Postuler une offre</a>
-                    <a class="nav-link btn login" href="#">Mon Profil</a>
-                    <a class="nav-link btn login" href="?action=logout">Me déconnecter</a>
-                </div>
-                <?php
+                    $user = $_SESSION["connected"];
+                        ?>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                            <a class="nav-link btn btn-primary btn-lg" href="#">Mes offres de service</a>
+                            <a class="nav-link btn login" href="?action=profilEmploye">Mon Profil <?= $user?> </a>
+                            <a class="nav-link btn login" href="?action=logout">Me déconnecter</a>
+                        </div>
+                        <?php
                 }
-                else
-                {
-                ?>
-                  <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-                    <a class="nav-link btn btn-primary btn-lg" href="?action=singInResto">Trouver un employé</a>
-                    <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=singInEmploye">Offrir mes services</a>
-                    <a class="nav-link btn login" href="?action=connecter" ">ME CONNECTER</a>
-                </div>
+                else {
+                    ?>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                        <a class="nav-link btn btn-primary btn-lg" href="?action=singInResto"> M'inscrire comme restaurant </a>
+                        <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=singInEmploye">M'inscrire comme Employé</a>
+                        <a class="nav-link btn login" href="?action=connecter" ">ME CONNECTER</a>
+                    </div>
                     <?php
                 }
                 ?>

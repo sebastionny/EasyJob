@@ -1,9 +1,10 @@
 <?php
-require_once('/controleur/DefaultAction.class.php');
-require_once('/controleur/LoginAction.class.php');
-require_once('/controleur/SignInRestoAction.class.php');
-require_once('/controleur/SignInEmployeAction.class.php');
-require_once('/controleur/LogoutAction.class.php');
+require_once('./controleur/DefaultAction.class.php');
+require_once('./controleur/LoginAction.class.php');
+require_once('./controleur/SignInRestoAction.class.php');
+require_once('./controleur/SignInEmployeAction.class.php');
+require_once('./controleur/LogoutAction.class.php');
+require_once('./controleur/ProfilEmployeAction.class.php');
 
 class ActionBuilder{
     public static function getAction($nomAction){
@@ -20,6 +21,9 @@ class ActionBuilder{
                 break;
             case "logout":
                 return new LogoutAction();
+                break;
+            case "profilEmploye":
+                return new ProfilEmployeAction();
                 break;
             default :
                 return new DefaultAction();

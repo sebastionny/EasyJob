@@ -4,7 +4,7 @@
  *
  * @author Meryem, Am�lia, Assia et S�bastien
  */
-require_once('/modele/configs/config.php');
+require_once('./modele/configs/config.php');
 class Database
 {	
 	private static $instance = null;

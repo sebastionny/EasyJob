@@ -4,13 +4,14 @@ class LoginAction implements Action
 {
     public function execute()
     {
+
         if (!ISSET ($_REQUEST ["username"])) {
             return "connection";
         }
         if (!$this->valide()) {
             return "connection";
         }
-        require_once('/modele/CompteDAO.class.php');
+        require_once('./modele/CompteDAO.class.php');
         $udao = new CompteDAO();
         $user = $udao->find($_REQUEST ["username"]);
         if ($user == null) {
@@ -20,19 +21,18 @@ class LoginAction implements Action
             $_REQUEST ["field_messages"] ["password"] = "Mot de passe incorrect";
             return "connection";
         }
-
-        if (!ISSET ($_SESSION))
+            if (!ISSET ($_SESSION))
             session_start();
-        $_SESSION ["connected"] = $_REQUEST ["username"];
-        if ($user->getEstEmploye() ==1){
-            return "profilEmploye";
-        }
-        else {
-            return "profilResto";
-        }
+            $_SESSION ["connected"] = $_REQUEST ["username"];
+            if ($user->getEstEmploye() == 1) {
+                $_REQUEST["estEmploye"] = true;
+                return "profilEmploye";
+            } else {
+                $_REQUEST ["estEmploye"] = false;
+                return "profilResto";
+            }
 
     }
-
 
     public function valide()
     {
@@ -47,5 +47,19 @@ class LoginAction implements Action
         }
         return $result;
     }
+
+  /*  public function verifierEmploye (){
+        $resultE = true;
+        require_once('./modele/CompteDAO.class.php');
+        $udao = new CompteDAO();
+        $user = $udao->find($_REQUEST ["username"]);
+        if ($user->getEstEmploye()==1){
+            $resultE = true;
+        }
+        else {
+            $resultE = false;
+        }
+        return $resultE;
+    }*/
 }
 ?>

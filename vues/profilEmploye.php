@@ -4,7 +4,7 @@
 
          <div class="row">
              <div class="col-md-3">
-             <img src="img/pp.jpg" alt="Profil de ..." class="img-thumbnail profil ">
+             <img src="./img/pp.jpg" alt="Profil de ..." class="img-thumbnail profil ">
 
              <form class="space30 fontCenter">
                 <div class="form-group">
@@ -26,7 +26,12 @@
              <section class="col-md-9 lineCote">
                  <div class="container">
 
-                 <?php require_once('./vues/include/employe/profil.php');?>
+                 <?php
+                 if (!ISSET($_SESSION)) session_start();
+                 if (ISSET($_SESSION["connected"])) {
+                     require_once('./vues/include/employe/profil.php');
+                 } else
+                     echo '<h1>NO HAY SECCION ACTIVA</h1>'?>
 
                 </div>
              </section>

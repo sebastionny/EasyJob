@@ -11,8 +11,8 @@ class Disponibilite{
     private $heureFin;
     private $idEmploye;
     //constructeur
-    function __construct($idDispo, $jour, $heureDebut, $heureFin, $idEmploye) {
-        $this->idDispo = $idDispo;
+
+    function __construct($jour, $heureDebut, $heureFin, $idEmploye) {
         $this->jour = $jour;
         $this->heureDebut = $heureDebut;
         $this->heureFin = $heureFin;
@@ -29,20 +29,20 @@ class Disponibilite{
         return $this->idEmploye;
     }
 
+    function getHeureDebut() {
+        return $this->heureDebut;
+    }
+
+    function getHeureFin() {
+        return $this->heureFin;
+    }
+
     function setIdDispo($idDispo) {
         $this->idDispo = $idDispo;
     }
 
     function setIdEmploye($idEmploye) {
         $this->idEmploye = $idEmploye;
-    }
-
-        function getHeureDebut() {
-        return $this->heureDebut;
-    }
-
-    function getHeureFin() {
-        return $this->heureFin;
     }
 
     function setJour($jour) {
@@ -56,7 +56,8 @@ class Disponibilite{
     function setHeureFin($heureFin) {
         $this->heureFin = $heureFin;
     }
-        public function loadFromArray($tab)
+
+    public function loadFromArray($tab)
 	{
         $this->idDispo = $tab["idDispo"];    
         $this->jour = $tab["jour"];
@@ -71,6 +72,6 @@ class Disponibilite{
         $this->heureDebut =$x->deHeure;
         $this->heureFin =$x->aHeure;
          $this->idEmploye = $x->idEmploye;
-               }	
+	}
     
 }

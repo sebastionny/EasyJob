@@ -1,4 +1,4 @@
-<?php require_once('./vues/include/head.php'); ?>
+<?php require_once('./vues/include/headTest.php'); ?>
     <div class="container-fluid ">
             <div class="banner">
                     <div class="row">
@@ -9,7 +9,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="col-col-md-5 offset-md-6">
-                                        <?php require_once('/vues/include/usager/connectionUsager.php');?>
+                                        <?php require_once('./vues/include/usager/connectionUsager.php');?>
                                 </div>
                             </div>
                     </div>

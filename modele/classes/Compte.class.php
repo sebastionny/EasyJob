@@ -103,7 +103,7 @@ class Compte{
         $this->motDePasse = $x->motPasse;
         $this->courriel =$x->couriel;
         $this->active =$x->active;
-        $this->estEmploye ->$x->estEmploye;
+        $this->estEmploye =$x->estEmploye;
 	}	
 
 }
