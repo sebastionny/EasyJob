@@ -1,0 +1,419 @@
+/* GENERAL */
+
+body{
+    font-size: 0.9rem;
+}
+.form-control{
+    font-size: 0.9rem;
+}
+
+/* COLOR */
+
+.color1{  color: #fff;}
+.color2{  color: #ee3168;}
+.color3{  color: #41133c;}
+
+
+/* Space */
+
+.space30{    margin: 30px 0px;}
+.space100{    margin: 100px 0px;}
+
+
+/*Amelia css*/
+.space1 {margin-top: 0px}
+
+.item p {
+    margin-bottom: 5px !important;
+}
+/**************************/
+
+/* font */
+
+.font2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.font1{
+    font-family: 'Paytone One', sans-serif;
+}
+
+.fontGrand1{font-size: calc(1.825rem + 0.9vw);}
+.fontGrand2{font-size: calc(1.625rem + 0.9vw);}
+.fontGrand3{font-size: calc(1.125rem + 0.9vw);}
+.fontGrand4{font-size: calc(0.5rem + 0.9vw);}
+
+.fontCenter{text-align: center;}
+.fontRigth{text-align: right;}
+
+
+
+/*****************************************************************************************************mery css*/
+/**banner*/
+.banner2{
+    background: url(../img/buffet2.jpg) no-repeat;
+    display: block;
+    width: 100%;
+    padding: 100px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 80px;
+}
+/* sur connectionUsager.php*/
+.user_card {
+    height: 250px;
+    width: 400px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+
+.input-group-text {
+    background: #ee3168 !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+/*sur les chekbox des formulaire*/
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #ee3168 !important;
+}
+
+.rating-header {
+    margin-top: 1px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.btn-warning {
+    color: #ffc107;
+    background-color: #ee3168;
+    border-color: #ee3168;
+}
+
+/*****************************************************************************************************mery css*/
+
+/* Style personalisé sur le    MENU */
+
+
+
+
+
+/* Style personalisé sur le    MENU */
+
+
+nav{
+    background-color: #fff;
+    border-bottom: #ee3168 solid 2px!important;
+    font-family: 'Paytone One', sans-serif;
+}
+
+header .justify-content-end a{
+    margin:5px;
+}
+.btn-primary , .active{  
+    background: #ee3168;
+    border: 2px solid #ee3168;}
+.btn-primary:hover , .active:hover{  
+    background: #41133c;
+    border: 2px solid #ee3168;
+    color: #fff;}
+
+.btn-line{
+    border: 2px solid #ee3168;
+    background: #fff;
+    color:  #ee3168;
+    width: 95%;
+}
+header .btn-line{
+    width: auto;
+}
+
+.btn-line1{
+    border: 2px solid #41133c;
+    background: #fff;
+    color:  #41133c;
+}
+.container-fluid .btn{font-size: 0.8rem;}
+
+.activeLine{
+    border: 2px solid #41133c;
+    background: #ee3168;
+    border: 2px solid #ee3168;
+    color:#fff;
+}
+
+.login{
+    padding: 11px 15px;
+    color: #41133c;
+    border: 2px solid transparent;
+    font-size: 1em;
+}
+.navbar-collapse a:hover{
+    color: #ee3168!important;
+    background: #41133c!important;
+    border: solid 2px #ee3168!important; 
+}
+
+.login:hover{
+    padding: 11px 15px;
+    color: #ee3168;
+    border: 2px solid #ee3168;
+    background: #41133c;
+    border-radius: 6px;
+}
+
+.btn-line:hover, .btn-line1:hover{
+    border: 2px solid #ee3168;
+    background: #ee3168;
+    color:  #fff;
+}
+.banner{
+    background: url(../img/bannerBlack.jpg) #300c2d  no-repeat;
+    display: block;
+    width: 100%;
+    padding: 100px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 80px;
+    background-blend-mode: exclusion;
+}
+
+
+
+/* Liste du tout monde gagne */
+
+.liste ul{
+    font-size: 1.3em;
+    padding-top: 20px;
+}
+.liste ul li{
+    list-style-image: url(../img/x.png);
+    margin: 20px;
+}
+.liste ul li:hover{
+    list-style-image: url(../img/xHover.png);
+}
+.liste .col:last-child, .lineCote{
+    border-left: #ee3168 2px dotted;
+}
+
+
+
+
+
+/* Liste de dernier resto */
+
+
+.resto .item, .callAction{
+    display: inline-block;
+    background: #41133c;
+    padding: 96px 10px 10px 10px;
+    border-radius: 5px 20px 5px 30px;
+    width: 90%;
+}
+.resto .item  .color1{
+    padding-left: 10px;
+}
+.resto .item > img{
+    display: block;
+    position: absolute;
+    top: -15px;
+    left: -10px;
+}
+
+.date.form_date.form-control {
+    padding: 0px!important;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: #fff;
+    opacity: 1;
+}
+.date.form_date.form-control .form-control {
+    background: #fff0;
+    border: #fff0;
+}
+table {
+    font-size: 12px;
+}
+
+
+.carousel-inner{ border-radius: 5px 20px 5px 30px;}
+
+.fonde1 {
+    background: #41133c;
+    border-radius: 5px 20px 5px 30px;
+    width: 50%;
+    position: absolute;
+    right: 0px;
+    bottom: 20px;
+    z-index: 10;
+    color: #fff;
+    text-align: center;
+    padding-top: 0px; 
+    padding-bottom: 0px;
+    padding-right: 20px;
+    left: auto;
+}
+
+
+/* Footer */
+
+footer{
+background: #41133c;
+padding: 80px;
+}
+footer ul a{
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+}
+footer ul li{
+    margin-bottom: 8px;
+}
+
+footer ul a:hover{
+    color: #fff;
+    padding: 8px;
+    background: #ee3168;
+    text-decoration: none;
+    border-radius: 3px 8px 2px 8px;
+}
+
+footer i { font-size: 30px;
+    margin: 10px;}
+
+section .rounded{
+    border-radius: 20px!important;
+    border: #fff 4px solid;
+    transition: all 0.4s;
+}
+
+section.col-md-9 {
+    padding: 2.5rem;
+}
+
+section.col-md-9  .rounded:hover  {
+    border: #ee3168 4px solid;
+    transition: all 0.7s;
+}
+
+
+
+/* Personalisation profil */
+
+.form-check {
+    display: inline;
+}
+
+
+
+
+.commentaire{
+    display: inline-block;
+    border: 10px solid #41133c;
+    padding: 3% 9%;
+    border-radius: 5px 20px 5px 30px;
+    width: 90%;
+
+}
+
+.commentaire > img {
+    display: block;
+    position: absolute;
+    top: -20px;
+    left: -10px;
+}
+
+.blockCommentaire{
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1200px) {
+    legend {
+        font-size: calc(1.275rem + 0.3vw);
+    }
+    h1,
+    .h1 {
+        font-size: calc(1.375rem + 1.5vw);
+    }
+    h2,
+    .h2 {
+        font-size: calc(1.325rem + 0.9vw);
+    }
+    h3,
+    .h3 {
+        font-size: calc(1.3rem + 0.6vw);
+    }
+    h4,
+    .h4 {
+        font-size: calc(1.275rem + 0.3vw);
+    }
+    .display-1 {
+        font-size: calc(1.725rem + 5.7vw);
+    }
+    .display-2 {
+        font-size: calc(1.675rem + 5.1vw);
+    }
+    .display-3 {
+        font-size: calc(1.575rem + 3.9vw);
+    }
+    .display-4 {
+        font-size: calc(1.475rem + 2.7vw);
+    }
+    .close {
+        font-size: calc(1.275rem + 0.3vw);
+    }
+    }
+
+.profil{
+    border-radius: 100%;
+    width: 200px;
+    margin: 0px auto;
+    display: block;
+}
+
+    
+@media (max-width: 450px) {
+ 
+    .resto .item{
+        width: 70%;
+        margin: 20px 13%;
+    }
+    .resto .item img {
+        top: 6px;
+        left: 52px;
+    }
+    .callAction{
+        width: 72%;
+        margin-left: 13%;
+    }
+    footer img {
+        width: 95%;
+    }
+    .banner {
+        padding: 35px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(238, 49, 104, 0.5)), url("../img/bannerBlack.jpg");
+    }
+
+}
+
+
