@@ -13,7 +13,7 @@ $HeureDe=18;
 $Heure=8;
 $salaire=12;
 
-require_once('./vues/include/headEmploye.php'); ?>
+require_once('vues/include/headEmploye.php'); ?>
 
 <div class="container-fluid space100 ">
 
@@ -39,9 +39,9 @@ require_once('./vues/include/headEmploye.php'); ?>
         </div>
 
         <section class="col-md-9 lineCote">
-            <?php     require_once('./vues/include/employe/commentaire.php'); ?>
+            <?php     require_once('vues/include/employe/commentaire.php'); ?>
         </section>
     </div>
 </div>
 </div>
-<?php     require_once('./vues/include/footer.php'); ?>
+<?php     require_once('vues/include/footer.php'); ?>

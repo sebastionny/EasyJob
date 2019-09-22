@@ -1,6 +1,6 @@
 
 <html lang="en">
-    <?php require_once('./vues/include/headTest.php'); ?>
+    <?php require_once('vues/include/headTest.php'); ?>
 
          <div class="container-fluid space100 ">
 
@@ -27,7 +27,7 @@
              <section class="col-md-9 lineCote">
                  <div class="container">
 
-                 <?php require_once('./vues/include/resto/profil.php');?>
+                 <?php require_once('vues/include/resto/profil.php');?>
 
                 </div>
              </section>
@@ -37,5 +37,5 @@
 </div>
          
 
-<?php     require_once('./vues/include/footer.php'); ?>
+<?php     require_once('vues/include/footer.php'); ?>
 </html>

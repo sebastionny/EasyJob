@@ -4,14 +4,14 @@
  *
  * @author Meryem, Amélia, Assia et Sébastien
  */
-include_once('./classes/Database.class.php');
-include_once('./classes/Restaurant.class.php');
+include_once('classes/Database.class.php');
+include_once('classes/Restaurant.class.php');
 class RestaurantDAO {
     public static function find($id)
     {
             $db = Database::getInstance();
             try {
-                $pstmt = $db->prepare("SELECT * FROM restaurant WHERE idRestaurant = :x");
+                $pstmt = $db->prepare("SELECT * FROM restaurant WHERE idRest = :x");
                 $pstmt->execute(array(':x' => $id));
 
                 $result = $pstmt->fetch(PDO::FETCH_OBJ);
@@ -61,13 +61,16 @@ class RestaurantDAO {
 			$n = 0;
             try {
          
-                $pstmt = $db->prepare("INSERT INTO restaurant (idRestaurant, nomRestaurant, adrRestaurant, telRestaurant, descRestaurant,idEmployeur)".
-                                                  " VALUES (:ir,:nr,:ar,:tr,:dr,:ie)");
+                $pstmt = $db->prepare("INSERT INTO restaurant (idRest, nomRest, adresseRest, telRest, descRest, provinceRest, villeRest, codePostalRest, idEmployeur)".
+                                                  " VALUES (:ir,:nr,:ar,:tr,:dr,:pr,:vr,:cpr,:ie)");
                 $n = $pstmt->execute(array(':ir' => $rest->getIdRest(),
                                             ':nr' => $rest->getNomRest(),
-					   ':ar' => $rest->getAdresseRest(),
+					                        ':ar' => $rest->getAdresseRest(),
                                            ':tr' => $rest->getTelRest(),
                                             ':dr' => $rest->getDescRest(),
+                                            ':pr' => $rest->getProvinceRest(),
+                                            ':vr' => $rest->getVilleRest(),
+                                            ':cpr' => $rest->getCodePostalRest(),
                                             ':ie' => $rest->getIdEmployeur()));
                                             
                     
@@ -84,7 +87,7 @@ class RestaurantDAO {
             $db = Database::getInstance();
 	 $n = 0;
             try {
-                $pstmt = $db->prepare("DELETE FROM restaurant WHERE idRestaurant=:id");
+                $pstmt = $db->prepare("DELETE FROM restaurant WHERE idRest=:id");
                 $n = $pstmt->execute(array(':id' => $rest->getIdRest()));
 
                 $pstmt->closeCursor();
@@ -98,7 +101,7 @@ class RestaurantDAO {
     public static function deleteById($id)
     {
         $r= new Restaurant();
-        $r->setIdRestaurant($id);
+        $r->setIdRes($id);
         self::delete($r);
                    
     }  
@@ -107,12 +110,15 @@ class RestaurantDAO {
             $db = Database::getInstance();
 			$n = 0;
             try {
-                $pstmt = $db->prepare("UPDATE restaurant SET nomRestaurant=:nr, adrRestaurant=:ar, telRestaurant=:tr, descRestaurant=:dr, idEmployeur=:ie WHERE idRestaurant=:id");
+                $pstmt = $db->prepare("UPDATE restaurant SET nomRest=:nr, adresseRest=:ar, telRest=:tr, descRest=:dr,provinceRest=:pr, villeRest=:vr, codePostalRest=:cpr, idEmployeur=:ie WHERE idRest=:id");
                 $n = $pstmt->execute(array(':id' => $rest->getIdRest(),
                                            ':nr' => $rest->getNomRest(),
-					   ':ar' => $rest->getAdresseRest(),
+                                            ':ar' => $rest->getAdresseRest(),
                                            ':tr' => $rest->getTelRest(),
                                             ':dr' => $rest->getDescRest(),
+                                            ':pr' => $rest->getProvinceRest(),
+                                            ':vr' => $rest->getVilleRest(),
+                                            ':cpr' => $rest->getCodePostalRest(),
                                             ':ie' => $rest->getIdEmployeur()));
                 $pstmt->closeCursor();
                 $pstmt = NULL;

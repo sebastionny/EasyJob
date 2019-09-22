@@ -4,8 +4,8 @@
  *
  * @author Meryem, Amélia, Assia et Sébastien
  */
-include_once('./classes/Database.class.php');
-include_once('./classes/Service.class.php');
+include_once('classes/Database.class.php');
+include_once('classes/Service.class.php');
 class ServiceDAO {
     public static function find($id)
     {
@@ -60,11 +60,11 @@ class ServiceDAO {
             $db = Database::getInstance();
 			$n = 0;
             try {
-                $pstmt = $db->prepare("INSERT INTO service (idService, typeService, date, heureDebut, heureFin, sexe,renumHeure, description, experience, active,idEmployeur)".
+                $pstmt = $db->prepare("INSERT INTO service (idService, typeService, date, heureDebut, heureFin, sexe,remuneration, description, experience, active,idEmployeur)".
                                                   " VALUES (:is,:ts,:d,:hd,:hf,:s,:rh,:de,:e,:a,:ie)");
                 $n = $pstmt->execute(array(':is' => $service->getIdService(),
                                             ':ts' => $service->getTypeService(),
-					   ':d' => $service->getDate(),
+					                        ':d' => $service->getDate(),
                                            ':hd' => $service->getHeureDebut(),
                                             ':hf' => $service->getHeureFin(),
                                             ':s' => $service->getSexe(),
@@ -111,10 +111,10 @@ class ServiceDAO {
             $db = Database::getInstance();
 			$n = 0;
             try {
-                $pstmt = $db->prepare("UPDATE service SET typeService=:ts, date=:d, heureDebut=:hd, heureFin=:hf, sexe=:s, renumHeure=:rh, description=:de, experience=:e, active=:a, idEmployeur=:ie WHERE idService=:id");
+                $pstmt = $db->prepare("UPDATE service SET typeService=:ts, date=:d, heureDebut=:hd, heureFin=:hf, sexe=:s, remuneration=:rh, description=:de, experience=:e, active=:a, idEmployeur=:ie WHERE idService=:id");
                 $n = $pstmt->execute(array(':id' => $service->getIdService(),
                                             ':ts' => $service->getTypeService(),
-					   ':d' => $service->getDate(),
+					                        ':d' => $service->getDate(),
                                            ':hd' => $service->getHeureDebut(),
                                             ':hf' => $service->getHeureFin(),
                                             ':s' => $service->getSexe(),

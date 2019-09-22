@@ -1,6 +1,6 @@
 <?php
-require_once('./controleur/Action.Interface.php');
-require_once('./modele/DisponibiliteDAO.class.php');
+require_once('controleur/Action.Interface.php');
+require_once('modele/DisponibiliteDAO.class.php');
 class ProfilEmployeAction implements Action {
     public function execute(){
 

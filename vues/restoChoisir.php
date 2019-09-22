@@ -1,5 +1,5 @@
 
-<?php require_once('./vues/include/headResto.php');
+<?php require_once('vues/include/headResto.php');
 $nom="Amelia";
 $nbreEtoile=4;
 ?>
@@ -146,4 +146,4 @@ $nbreEtoile=4;
 </div>
 </div>
 
-<?php     require_once('./vues/include/footer.php'); ?>
+<?php     require_once('vues/include/footer.php'); ?>

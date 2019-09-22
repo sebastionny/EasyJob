@@ -1,5 +1,6 @@
 <?php
-require_once('./controleur/Action.Interface.php');
+require_once('controleur/Action.Interface.php');
+require_once('modele/CompteDAO.class.php');
 class LoginAction implements Action
 {
     public function execute()
@@ -11,7 +12,6 @@ class LoginAction implements Action
         if (!$this->valide()) {
             return "connection";
         }
-        require_once('./modele/CompteDAO.class.php');
         $udao = new CompteDAO();
         $user = $udao->find($_REQUEST ["username"]);
         if ($user == null) {
@@ -31,8 +31,8 @@ class LoginAction implements Action
                 $_REQUEST ["estEmploye"] = false;
                 return "profilResto";
             }
-
     }
+
 
     public function valide()
     {
@@ -50,7 +50,7 @@ class LoginAction implements Action
 
   /*  public function verifierEmploye (){
         $resultE = true;
-        require_once('./modele/CompteDAO.class.php');
+        require_once('modele/CompteDAO.class.php');
         $udao = new CompteDAO();
         $user = $udao->find($_REQUEST ["username"]);
         if ($user->getEstEmploye()==1){

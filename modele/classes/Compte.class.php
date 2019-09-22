@@ -89,8 +89,8 @@ class Compte{
         $this->idCompte = $tab["idCompte"];
         $this->nom =$tab["nom"];
         $this->prenom = $tab["prenom"];
-        $this->motDePasse = $tab["motPasse"];
-        $this->courriel = $tab["couriel"];
+        $this->motDePasse = $tab["motDePasse"];
+        $this->courriel = $tab["courriel"];
         $this->active = $tab["active"];
         $this->estEmploye = $tab ["estEmploye"];
 	}
@@ -100,8 +100,8 @@ class Compte{
         $this->idCompte = $x->idCompte;
         $this->nom =$x->nom;
         $this->prenom = $x->prenom;
-        $this->motDePasse = $x->motPasse;
-        $this->courriel =$x->couriel;
+        $this->motDePasse = $x->motDePasse;
+        $this->courriel =$x->courriel;
         $this->active =$x->active;
         $this->estEmploye =$x->estEmploye;
 	}	

@@ -4,8 +4,8 @@
  *
  * @author Meryem, Amélia, Assia et Sébastien
  */
-include_once('./classes/Database.class.php');
-include_once('./classes/Accepte.class.php');
+include_once('classes/Database.class.php');
+include_once('classes/Accepte.class.php');
 class AccepteDAO {
     public static function find($idE,$idS)
     {

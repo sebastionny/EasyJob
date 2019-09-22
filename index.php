@@ -1,6 +1,6 @@
 <?php
 // -- Controleur frontal --
-require_once('./controleur/ActionBuilder.class.php');
+require_once('controleur/ActionBuilder.class.php');
 if (ISSET($_REQUEST["action"]))
 {
   $action = ActionBuilder::getAction($_REQUEST["action"]);

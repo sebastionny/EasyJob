@@ -1,5 +1,5 @@
 <html lang="en">
-    <?php     require_once('./vues/include/headTest.php'); ?>
+    <?php     require_once('vues/include/headTest.php'); ?>
     <div class="container-fluid ">
             <div class="banner">
 
@@ -20,11 +20,11 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="col-col-md-5 offset-md-4">
-                                        <?php require_once('./vues/include/employe/inscriptionE.php');?>
+                                        <?php require_once('vues/include/employe/inscriptionE.php');?>
                                 </div>
                             </div>
                 </div>
         </div>
 </div>
 
-<?php     require_once('./vues/include/footer.php'); ?>
+<?php     require_once('vues/include/footer.php'); ?>

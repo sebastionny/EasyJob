@@ -7,7 +7,7 @@
               . "The restaurent had a homey ambience and the prix fixe menu was an experience your taste buds will never forget."
               . " Not to slight a sommelier's dream of a wine list. et goûteux!";
       $nbreEtoile=3;
-    require_once('./vues/include/headEmploye.php'); ?>
+    require_once('vues/include/headEmploye.php'); ?>
 
          <div class="container-fluid space100 ">
 
@@ -90,5 +90,5 @@
 </div>
          
 
-<?php     require_once('./vues/include/footer.php'); ?>
+<?php     require_once('vues/include/footer.php'); ?>
 

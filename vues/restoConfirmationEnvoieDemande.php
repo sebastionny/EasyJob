@@ -1,6 +1,6 @@
 <?php
       $trouve=23;
-    require_once('./vues/include/headResto.php'); ?>
+    require_once('vues/include/headResto.php'); ?>
 
 	 <div class="container " >
 	    <div class="row space100">
@@ -22,5 +22,5 @@
 	</div>
 </div> <!-- This DIV closed the container Fluid-->
 
-<?php     require_once('./vues/include/footer.php'); ?>
+<?php     require_once('vues/include/footer.php'); ?>
     

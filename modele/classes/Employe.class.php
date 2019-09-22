@@ -14,9 +14,15 @@ class Employe{
     private $qualite;
     private $nomRef;
     private $telRef;
+    private $sexe;
+    private $adresse;
+    private $province;
+    private $ville;
+    private $codePostal;
     private $idCompte;
     //constructeur
-    function __construct($idEmploye, $dateNaissance, $photo, $tel, $fonction, $experience, $qualite, $nomRef, $telRef, $idCompte) {
+    public function __construct($idEmploye, $dateNaissance, $photo, $tel, $fonction, $experience, $qualite, $nomRef, $telRef, $sexe, $adresse, $province, $ville, $codePostal, $idCompte)
+    {
         $this->idEmploye = $idEmploye;
         $this->dateNaissance = $dateNaissance;
         $this->photo = $photo;
@@ -26,8 +32,94 @@ class Employe{
         $this->qualite = $qualite;
         $this->nomRef = $nomRef;
         $this->telRef = $telRef;
+        $this->sexe = $sexe;
+        $this->adresse = $adresse;
+        $this->province = $province;
+        $this->ville = $ville;
+        $this->codePostal = $codePostal;
         $this->idCompte = $idCompte;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * @param mixed $sexe
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param mixed $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProvince()
+    {
+        return $this->province;
+    }
+
+    /**
+     * @param mixed $province
+     */
+    public function setProvince($province)
+    {
+        $this->province = $province;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param mixed $ville
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodePostal()
+    {
+        return $this->codePostal;
+    }
+
+    /**
+     * @param mixed $codePostal
+     */
+    public function setCodePostal($codePostal)
+    {
+        $this->codePostal = $codePostal;
+    }
+
     function getIdEmploye() {
         return $this->idEmploye;
     }
@@ -111,7 +203,7 @@ class Employe{
         public function loadFromArray($tab)
 	{
         $this->idEmploye = $tab["idEmploye"];
-        $this->dateNaissance = $tab["dateNais"];
+        $this->dateNaissance = $tab["dateNaissance"];
         $this->photo = $tab["photo"];
         $this->tel = $tab["tel"];
         $this->fonction = $tab["fonction"];
@@ -119,12 +211,17 @@ class Employe{
         $this->qualite = $tab["qualite"];
         $this->nomRef = $tab["nomRef"];
         $this->telRef = $tab["telRef"];
+        $this->adresse = $tab["adresse"];
+        $this->province = $tab["province"];
+        $this->ville = $tab["ville"];
+        $this->codePostal = $tab["codePostal"];
+        $this->sexe = $tab["sexe"];
         $this->idCompte =$tab["idCompte"];
         	}	
 	public function loadFromObject($x)
 	{
         $this->idEmploye = $x->idEmploye;
-        $this->dateNaissance = $x->dateNais;
+        $this->dateNaissance = $x->dateNaissance;
         $this->photo = $x->photo;
         $this->tel = $x->tel;
         $this->fonction = $x->fonction;
@@ -132,6 +229,11 @@ class Employe{
         $this->qualite = $x->qualite;
         $this->nomRef = $x->nomRef;
         $this->telRef = $x->telRef;
+        $this->adresse = $x->adresse;
+        $this->province = $x->province;
+        $this->ville = $x->ville;
+        $this->codePostal = $x->codePostal;
+        $this->sexe = $x->sexe;
         $this->idCompte =$x->idCompte;
                 
        }	

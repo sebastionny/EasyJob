@@ -1,4 +1,4 @@
-<?php require_once('./vues/include/headEmploye.php'); ?>
+<?php require_once('vues/include/headEmploye.php'); ?>
 
 <div class="container-fluid space100 ">
 
@@ -23,7 +23,7 @@
 
         <section class="col-md-9 lineCote">
             <div class="container">
-                <?php require_once('./vues/include/employe/staffDemandeService.php');?>
+                <?php require_once('vues/include/employe/staffDemandeService.php');?>
             </div>
         </section>
 
@@ -32,4 +32,4 @@
 </div>
 
 
-<?php     require_once('./vues/include/footer.php'); ?>
+<?php     require_once('vues/include/footer.php'); ?>
