@@ -8,6 +8,7 @@ class ProfilEmployeAction implements Action {
         if (!ISSET($_SESSION)) session_start();
         if (ISSET($_SESSION["connected"])){
             $disDAO     = new DisponibiliteDAO();
+
             if(ISSET($_SESSION['dispo']) && sizeof($_SESSION['dispo']) != 0) {
 
                 $Employe = $_SESSION['dispo'][0];
@@ -20,13 +21,32 @@ class ProfilEmployeAction implements Action {
                 $this->dispoNew($disDAO);
             }
 
-            return "profilEmploye";
+            if (!$this->valideMesExp())
+            {   return "profilEmploye";
+            }else{
+                $eDAO = new EmployeDAO();
+                $employe = $eDAO->findByIdCompte( $_SESSION["compteUser"]->getidCompte());
+                var_dump( $employe);
+                $employe->setFonction($_REQUEST["fonction"]);
+                $employe->setQualite($_REQUEST["quantiter"]);
+                $employe->setQualite($_REQUEST["description"]   . ' Experience ' .$_REQUEST["experience"] );
+                var_dump( $employe);
+                $eDAO->update($employe);
+            }
 
+            return "profilEmploye";
         } else{
             return "connection";
         }
 
     }
+
+
+
+
+
+
+
 
     public function dispoNew($disDAO){
         $this->valide();
@@ -70,5 +90,16 @@ class ProfilEmployeAction implements Action {
             return "profilEmploye";
         }
     }
+
+    public function valideMesExp(){
+        $result = true;
+        if ($_REQUEST['fonction'] == "" || $_REQUEST['quantiter'] == "" || $_REQUEST['experience'] == "" )
+        {
+            $_REQUEST["field_messages"]["mesExp"] = "Il faut choisir la fonction et la quantité de mois ou années d'expérience.";
+            $result = false;
+        }
+        return $result;
+    }
+
 }
 ?>

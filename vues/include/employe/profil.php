@@ -25,7 +25,7 @@
                                     } else{
                                         function cherchedDay($dayOk){
                                             return "";
-
+                                        }
                                     }
 
                                     if (ISSET($_REQUEST["field_messages"]["checkedDay"]))
@@ -125,13 +125,33 @@
                             <div class="justify-content-center">
                                 <div class="col-md-12 font2">
 
-                                    <form>
-                                            
+                                    <?php
+                                    $f = $t = $m = $d = "";
+
+                                    if (ISSET($_REQUEST["fonction"]))
+                                        $f = $_REQUEST["fonction"];
+
+                                    if (ISSET($_REQUEST["quantiter"]))
+                                        $t = $_REQUEST["quantiter"];
+
+                                    if (ISSET($_REQUEST["experience"]))
+                                        $m = $_REQUEST["experience"];
+
+                                    if (ISSET($_REQUEST["qualite"]))
+                                        $d = $_REQUEST["quatite"];
+                                    ?>
+                                    <?php if (ISSET($_REQUEST["field_messages"]["mesExp"]))
+                                        echo "<br/><span class=\"warningMessage\">".$_REQUEST["field_messages"]["mesExp"]."</span>";
+                                    ?><br/>
+
+                                    <form action ="" method="post">
+
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Fonction</label>
                                                 <div class="col-md-7">
-                                                <select id="inputState" class="form-control" name="Fonction">
-                                                    <option selected>Serveur(se)</option>
+                                                <select id="inputState" class="form-control" name="fonction">
+                                                    <option selected>Choisir votre poste</option>
+                                                    <option >Serveur(se)</option>
                                                     <option >Cuisinier</option>
                                                     <option >Patissiere(ere)</option>
                                                     <option >Service au comptoir</option>
@@ -146,31 +166,31 @@
                                                 <div class="col-md-7">
                                                     <div class="row">
                                                         <div class="col-sm-4">
-                                                            <select id="inputState" class="form-control">
-                                                                <option selected>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
-                                                                <option>6</option>
-                                                                <option>7</option>
-                                                                <option>8</option>
-                                                                <option>9</option>
-                                                                <option>10</option>
-                                                                <option>11</option>
-                                                                <option>12</option>
+                                                            <select id="inputState" class="form-control" name="quantiter" >
+                                                                <option value="1" >1</option>
+                                                                <option value="2" >2</option>
+                                                                <option value="3" >3</option>
+                                                                <option value="4" >4</option>
+                                                                <option value="5" >5</option>
+                                                                <option value="6" >6</option>
+                                                                <option value="7" >7</option>
+                                                                <option value="8" >8</option>
+                                                                <option value="9" >9</option>
+                                                                <option value="10" >10</option>
+                                                                <option value="11" >11</option>
+                                                                <option value="12" >12</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-8">
                                                             <div class="col-sm-12">
                                                                 <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="anne" checked>
+                                                                <input class="form-check-input" type="radio" name="experience" id="mois" value="anne" >
                                                                 <label class="form-check-label" for="gridRadios1">
                                                                     année(s)  
                                                                 </label>
                                                                 </div>
                                                                 <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="mois">
+                                                                <input class="form-check-input" type="radio" name="experience" id="anne" value="mois" >
                                                                 <label class="form-check-label" for="gridRadios2">
                                                                     mois
                                                                 </label>
@@ -187,17 +207,18 @@
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Description</label>
                                                 <div class="col-md-7">
-                                                <textarea class="form-control" n  rows="5"></textarea>
+                                                <textarea class="form-control" name="description"  rows="5"></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label"></label>
                                                 <div class="col-md-7">
-                                                    <button type="submit" class="nav-link btn btn-primary ">SAUVEGARDER</button>
+                                                    <input name="action" value="profilEmploye" type="hidden" />
+                                                    <button type="submit" class="nav-link btn btn-primary " onclick="return checked();">SAUVEGARDER</button>
                                                 </div>
                                             </div>
-                                        
+
                                     </form>
 
                                 </div>
@@ -430,7 +451,15 @@
     //     to:  custom_values.indexOf("9H")
     // });
 
+    function checked(){
 
+        if(document.getElementById("mois").checked || document.getElementById("anne").checked)
+            return true;
+        else{
+            alert("Avez-vous oublié coché l'année ou le mois ?");
+            return false;
+        }
+    }
 </script>
 
 <!--Affiher le changemente-->

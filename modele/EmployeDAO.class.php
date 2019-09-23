@@ -141,7 +141,6 @@ class EmployeDAO {
         $e= new Employe();
         $e->setIdEmploye($id);
         self::delete($e);
-                   
     } 
     public static function update($employe)
     {
@@ -152,7 +151,7 @@ class EmployeDAO {
                 $n = $pstmt->execute(array(':id' => $employe->getIdEmploye(),
                                             ':dn' => $employe->getDateNaissance(),
 					                        ':p' => $employe->getPhoto(),
-                                           ':t' => $employe->getTel(),
+                                            ':t' => $employe->getTel(),
                                             ':f' => $employe->getFonction(),
                                             ':e' => $employe->getExperience(),
                                             ':q' => $employe->getQualite(),
@@ -171,5 +170,7 @@ class EmployeDAO {
             catch (PDOException $ex){
             }           
 			return $n;			
-    }     
+    }
+
+
 }
