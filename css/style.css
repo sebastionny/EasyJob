@@ -29,6 +29,14 @@ body{
 .warningMessage {
     color: red;
 }
+
+.invFond{
+    padding: 15px;
+    border-radius: 15px;
+    border-top: 2px solid #ee3168;
+    box-shadow: 0 0.2rem 2rem rgba(0,0,0,.175)!important;
+    margin-bottom: 20px;
+}
 /**************************/
 
 /* font */

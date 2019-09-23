@@ -21,18 +21,33 @@ class ProfilEmployeAction implements Action {
                 $this->dispoNew($disDAO);
             }
 
-            if (!$this->valideMesExp())
-            {   return "profilEmploye";
-            }else{
-                $eDAO = new EmployeDAO();
-                $employe = $eDAO->findByIdCompte( $_SESSION["compteUser"]->getidCompte());
-                var_dump( $employe);
-                $employe->setFonction($_REQUEST["fonction"]);
-                $employe->setQualite($_REQUEST["quantiter"]);
-                $employe->setQualite($_REQUEST["description"]   . ' Experience ' .$_REQUEST["experience"] );
-                var_dump( $employe);
-                $eDAO->update($employe);
-            }
+                if (isset($_REQUEST['mesExperiences'])) {
+                    if (!$this->valideInfoCompte(1))
+                    {   return "profilEmploye";}
+                    else {
+                        $eDAO = new EmployeDAO();
+                        $employe = $eDAO->findByIdCompte($_SESSION["compteUser"]->getidCompte());
+                        $employe->setFonction($_REQUEST["fonction"]);
+                        $employe->setQualite($_REQUEST["quantiter"]);
+                        $employe->setQualite($_REQUEST["description"] . ' Experience ' . $_REQUEST["experience"]);
+                        $eDAO->update($employe);
+                    }
+                }
+
+                if (isset($_REQUEST['mesReference'])){
+                    if (!$this->valideInfoCompte(2))
+                    {   return "profilEmploye";}
+                    else {
+                        $eDAO = new EmployeDAO();
+                        $employe = $eDAO->findByIdCompte($_SESSION["compteUser"]->getidCompte());
+                        $employe->setNomRef($_REQUEST["nomRef"]);
+                        $employe->setTelRef($_REQUEST["telRef"]);
+                        $eDAO->update($employe);
+
+                    }
+                }
+
+            $_SESSION["infoEmploye"]  = $eDAO->find($employe->getIdEmploye());
 
             return "profilEmploye";
         } else{
@@ -42,12 +57,6 @@ class ProfilEmployeAction implements Action {
     }
 
 
-
-
-
-
-
-
     public function dispoNew($disDAO){
         $this->valide();
         if (ISSET($_REQUEST ["jours"])) {
@@ -55,7 +64,6 @@ class ProfilEmployeAction implements Action {
             $hours = $_REQUEST["tabHeure"];
 
             $empDAO = new EmployeDAO();
-
             $objEmplo = $empDAO->findByIdCompte($_SESSION["compteUser"]->getidCompte());
             for ($i = 0; $i < sizeof($days); $i++) {
                 $d = $this->today($days[$i]);
@@ -91,12 +99,20 @@ class ProfilEmployeAction implements Action {
         }
     }
 
-    public function valideMesExp(){
+    public function valideInfoCompte($section){
         $result = true;
-        if ($_REQUEST['fonction'] == "" || $_REQUEST['quantiter'] == "" || $_REQUEST['experience'] == "" )
-        {
-            $_REQUEST["field_messages"]["mesExp"] = "Il faut choisir la fonction et la quantité de mois ou années d'expérience.";
-            $result = false;
+        switch ($section){
+
+            case 1:
+                if(!isset($_REQUEST['fonction']) || !isset($_REQUEST['quantiter'])  || !isset($_REQUEST['experience']) ){
+                    $_REQUEST["field_messages"]["mesExp"] = "Il faut choisir la fonction et la quantité de mois ou années d'expérience.";
+                    $result = false;
+                }
+                return $result;
+            case 2:
+                if(!isset($_REQUEST['telRef']) || !isset($_REQUEST['nomRef'])){
+                    $result = false;
+                }
         }
         return $result;
     }

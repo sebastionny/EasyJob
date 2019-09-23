@@ -34,7 +34,10 @@ class LoginAction implements Action
                 $empDAO     = new EmployeDAO();
                 $objEmplo   = $empDAO->findByIdCompte($user->getIdCompte());
                 $_SESSION["compteUser"]  = $user;
-                $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
+                $_SESSION["infoEmploye"] = $objEmplo;
+                if(isset($_SESSION["dispo"])){
+                    $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
+                }
                 // ------------------- fin
                 return "profilEmploye";
             } else {

@@ -14,7 +14,6 @@
                                     <?php
                                     $jours = null;
                                     if(ISSET($_SESSION["dispo"])){
-
                                         function cherchedDay($dayOk){
                                             for($i = 0; $i < sizeof( $_SESSION["dispo"]); $i++ ){
                                                 if($dayOk ==  $_SESSION["dispo"][$i]->getJour()){
@@ -129,6 +128,7 @@
                                     $f = $t = $m = $d = "";
 
                                     if (ISSET($_REQUEST["fonction"]))
+                                    if (ISSET($_REQUEST["fonction"]))
                                         $f = $_REQUEST["fonction"];
 
                                     if (ISSET($_REQUEST["quantiter"]))
@@ -167,31 +167,25 @@
                                                     <div class="row">
                                                         <div class="col-sm-4">
                                                             <select id="inputState" class="form-control" name="quantiter" >
-                                                                <option value="1" >1</option>
-                                                                <option value="2" >2</option>
-                                                                <option value="3" >3</option>
-                                                                <option value="4" >4</option>
-                                                                <option value="5" >5</option>
-                                                                <option value="6" >6</option>
-                                                                <option value="7" >7</option>
-                                                                <option value="8" >8</option>
-                                                                <option value="9" >9</option>
-                                                                <option value="10" >10</option>
-                                                                <option value="11" >11</option>
-                                                                <option value="12" >12</option>
+                                                                <?php
+                                                                    for ($i=1; $i < 13 ; $i++){
+                                                                ?>
+                                                                <option value="<?= $i?>"><?= $i?></option>
+                                                                <?php }
+                                                                ?>
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-8">
                                                             <div class="col-sm-12">
                                                                 <div class="form-check">
                                                                 <input class="form-check-input" type="radio" name="experience" id="mois" value="anne" >
-                                                                <label class="form-check-label" for="gridRadios1">
-                                                                    année(s)  
+                                                                <label class="form-check-label" for="mois">
+                                                                    année(s)
                                                                 </label>
                                                                 </div>
                                                                 <div class="form-check">
                                                                 <input class="form-check-input" type="radio" name="experience" id="anne" value="mois" >
-                                                                <label class="form-check-label" for="gridRadios2">
+                                                                <label class="form-check-label" for="anne">
                                                                     mois
                                                                 </label>
                                                                 </div>
@@ -203,7 +197,7 @@
                                             </div>
 
 
-
+                                        <?php ?>
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Description</label>
                                                 <div class="col-md-7">
@@ -215,11 +209,27 @@
                                                 <label for="inputEmail3" class="col-md-5 col-form-label"></label>
                                                 <div class="col-md-7">
                                                     <input name="action" value="profilEmploye" type="hidden" />
+                                                    <input name="mesExperiences" type="hidden" />
                                                     <button type="submit" class="nav-link btn btn-primary " onclick="return checked();">SAUVEGARDER</button>
                                                 </div>
                                             </div>
 
                                     </form>
+
+                                    <div class="col-sm-12 invFond">
+                                        <h4 >Information enregistrer</h4>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <span class="color2">Fonction: </span> <?= $_SESSION['infoEmploye']->getFonction();?>
+                                                <span class="color2">Experience: </span> <?= $_SESSION['infoEmploye']->getExperience();?>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="color2">Descripción</div>
+                                                <p><?= $_SESSION['infoEmploye']->getQualite();?></p>
+                                            </div>
+
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -235,11 +245,11 @@
                             <div class=" justify-content-center">
                                 <div class="col-md-12 font2">
 
-                                    <form>
+                                    <form action="" method="post">
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Nom</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control" >
+                                                <input type="text" class="form-control" name="nomRef" >
                                                 </div>
                                             </div>
 
@@ -247,7 +257,7 @@
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Téléphone</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control" >
+                                                <input type="text" class="form-control" name="telRef">
                                                 </div>
                                             </div>
 
@@ -255,20 +265,28 @@
                                                 <label for="inputEmail3" class="col-md-5 col-form-label"></label>
                                                 <div class="col-md-7">
                                                     <div class="row">
-                                                        <div class="col-lg-6 col-md-7">
-                                                            <button type="submit" class="nav-link btn btn-line1 ">SAUVEGARDER</button>
+                                                        <div class="col-lg-6 col-md-5">
+
                                                         </div>
-                                                        <div class="col-lg-6 col-md-4">
-                                                            <button type="submit" class="nav-link btn btn-primary ">AJOUTER</button>
+                                                        <div class="col-lg-6 col-md-7">
+                                                            <input name="action" value="profilEmploye" type="hidden" />
+                                                            <input name="mesReference" type="hidden" />
+                                                            <button type="submit" class="nav-link btn btn-primary ">SAUVEGARDER</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                           
-
-                                        
                                     </form>
+
+                                    <div class="col-sm-12 invFond">
+                                        <h4 >Information enregistrer</h4>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <span class="color2">Nom: </span> <?= $_SESSION['infoEmploye']->getNomRef();?>
+                                                <span class="color2">Téléphone: </span> <?= $_SESSION['infoEmploye']->getTelRef();?>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>

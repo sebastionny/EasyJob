@@ -23,7 +23,7 @@ class SignInEmployeAction implements Action {
 		$compte->setPrenom($_REQUEST["prenom"]);
 		$compte->setMotDePasse($_REQUEST["motPasse"]);
 		$compte->setCourriel($_REQUEST["email"]);
-		$compte->setIdCompte(rand(1,10000));
+		$compte->setIdCompte();
 		$compte->setActive(1);
 		$compte->setEstEmploye(1);
 		
