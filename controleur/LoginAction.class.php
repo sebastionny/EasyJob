@@ -1,6 +1,8 @@
 <?php
 require_once('controleur/Action.Interface.php');
 require_once('modele/CompteDAO.class.php');
+require_once('modele/DisponibiliteDAO.class.php');
+require_once('modele/EmployeDAO.class.php');
 class LoginAction implements Action
 {
     public function execute()
@@ -26,6 +28,14 @@ class LoginAction implements Action
             $_SESSION ["connected"] = $_REQUEST ["username"];
             if ($user->getEstEmploye() == 1) {
                 $_REQUEST["estEmploye"] = true;
+
+                //---- Il aide a chargé la disponibilité si il y a.
+                $disDAO     = new DisponibiliteDAO();
+                $empDAO     = new EmployeDAO();
+                $objEmplo   = $empDAO->findByIdCompte($user->getIdCompte());
+                $_SESSION["compteUser"]  = $user;
+                $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
+                // ------------------- fin
                 return "profilEmploye";
             } else {
                 $_REQUEST ["estEmploye"] = false;

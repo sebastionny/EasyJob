@@ -11,15 +11,9 @@ class Disponibilite{
     private $heureFin;
     private $idEmploye;
     //constructeur
-    function __construct( ) {
+    function __construct() {
     }
 
-//    function __construct( $jour, $heureDebut, $heureFin, $idEmploye) {
-//        $this->jour = $jour;
-//        $this->heureDebut = $heureDebut;
-//        $this->heureFin = $heureFin;
-//        $this->idEmploye = $idEmploye;
-//    }
     function getJour() {
         return $this->jour;
     }

@@ -38,28 +38,27 @@ class DisponibiliteDAO {
     public static function findEmploye($id)
     {
         $db = Database::getInstance();
+        $dispoArr = Array();
         try {
-            $pstmt = $db->prepare("SELECT * FROM disponibilite WHERE idEmployer = :x");
+            $pstmt = $db->prepare("SELECT * FROM disponibilite WHERE idEmploye = :x");
             $pstmt->execute(array(':x' => $id));
 
-            $result = $pstmt->fetch(PDO::FETCH_OBJ);
-
-            if ($result)
+            while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
             {
                 $d = new Disponibilite();
                 $d->loadFromObject($result);
-                $pstmt->closeCursor();
-                $pstmt = NULL;
-                Database::close();
-                return $d;
+                array_push($dispoArr, $d);
             }
+
             $pstmt->closeCursor();
             $pstmt = NULL;
             Database::close();
         }
         catch (PDOException $ex){
+            return 'Erreur en DAO Dispo';
         }
-        return NULL;
+        return $dispoArr;
+
     }
 
     public static function findAll()
@@ -84,6 +83,9 @@ class DisponibiliteDAO {
             }
             return $dispo;
     }
+
+
+
     public static function create($dispo)
     {
             $db = Database::getInstance();
@@ -112,9 +114,8 @@ class DisponibiliteDAO {
             $db = Database::getInstance();
 	 $n = 0;
             try {
-                $pstmt = $db->prepare("DELETE FROM disponibilite WHERE idDispo=:id");
-                $n = $pstmt->execute(array(':id' => $dispo->getIdDispo()));
-
+                $pstmt = $db->prepare("DELETE FROM disponibilite WHERE idEmploye= :id ");
+                $n = $pstmt->execute(array(':id' => $dispo->getIdEmploye()));
                 $pstmt->closeCursor();
                 $pstmt = NULL;
                 Database::close();
@@ -123,12 +124,12 @@ class DisponibiliteDAO {
             }
             return $n;
     }
+
     public static function deleteById($id)
     {
-        $d= new Compte();
-        $d->setIdDispo($id);
+        $d= new Employe();
+        $d->setIdEmploye($id);
         self::delete($d);
-
     }
 
     public static function update($dispo)

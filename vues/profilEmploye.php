@@ -26,7 +26,9 @@
              <section class="col-md-9 lineCote">
                  <div class="container">
 
-                 <?php require_once('vues/include/employe/profil.php'); ?>
+                 <?php
+                 if (!ISSET($_SESSION)) session_start();
+                 require_once('vues/include/employe/profil.php'); ?>
 
                 </div>
              </section>

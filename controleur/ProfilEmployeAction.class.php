@@ -7,39 +7,50 @@ class ProfilEmployeAction implements Action {
 
         if (!ISSET($_SESSION)) session_start();
         if (ISSET($_SESSION["connected"])){
-
             $disDAO     = new DisponibiliteDAO();
-            $empDAO     = new EmployeDAO();
-            $compDAO    = new CompteDAO();
-            $_SESSION["dispo"]  = $disDAO->findAll();
+            if(ISSET($_SESSION['dispo']) && sizeof($_SESSION['dispo']) != 0) {
 
+                $Employe = $_SESSION['dispo'][0];
 
-            if ( ISSET($_REQUEST ["jours"]) == null){
-                $_REQUEST ["field_messages"] ["checkedDay"] = "Il faut selectionner le(s) jour(s) pour mettre a jour votre disponibilite";
-                return "profilEmploye";
+                // Il enlève tous les registres de la table disponibilité qui appartient à  l'employé
+                $disDAO->deleteById($Employe->getIdEmploye());
+                $this->dispoNew($disDAO);
+
+            } else {
+                $this->dispoNew($disDAO);
             }
-            if (ISSET($_REQUEST ["jours"])) {
-                $days = $_REQUEST ["jours"];
-                $hours = $_REQUEST["tabHeure"];
-                $user       = $compDAO->find($_SESSION["connected"]);
-                $objEmplo   = $empDAO->findByIdCompte($user->getIdCompte());
 
-                for ($i=0; $i < sizeof($days); $i++) {
-                    $d = $this->today($days[$i]);
-                    $hd = $this->hourStartEnd($hours[$days[$i]]);
-                    $dispo = new Disponibilite($d,$hd[0],$hd[1],$objEmplo->getIdEmploye());
-                    $disDAO->create($dispo);
-                }
-            }
             return "profilEmploye";
+
         } else{
             return "connection";
         }
 
-
-
-
     }
+
+    public function dispoNew($disDAO){
+        $this->valide();
+        if (ISSET($_REQUEST ["jours"])) {
+            $days = $_REQUEST ["jours"];
+            $hours = $_REQUEST["tabHeure"];
+
+            $empDAO = new EmployeDAO();
+
+            $objEmplo = $empDAO->findByIdCompte($_SESSION["compteUser"]->getidCompte());
+            for ($i = 0; $i < sizeof($days); $i++) {
+                $d = $this->today($days[$i]);
+                $hd = $this->hourStartEnd($hours[$days[$i]]);
+                $dObj = new Disponibilite();
+                $dObj->setJour($d);
+                $dObj->setHeureDebut($hd[0]);
+                $dObj->setHeureFin($hd[1]);
+                $dObj->setIdEmploye($objEmplo->getIdEmploye());
+                $disDAO->create($dObj);
+                $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
+            }
+        }
+    }
+
 
     public function today($day){
         $res =  array ("lundi","mardi", "mercredi" , "jeudi" , "vendredi" , "samedi", "dimache");
@@ -51,6 +62,13 @@ class ProfilEmployeAction implements Action {
         $res = array( $s = substr($hours_arr[0], 0,-1),
                       $e = substr($hours_arr[1] , 0, -1));
         return $res;
+    }
+
+    public function valide(){
+        if ( ISSET($_REQUEST ["jours"]) == null){
+            $_REQUEST ["field_messages"] ["checkedDay"] = "Il faut selectionner le(s) jour(s) pour mettre a jour votre disponibilite";
+            return "profilEmploye";
+        }
     }
 }
 ?>

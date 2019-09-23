@@ -13,22 +13,19 @@
 
                                     <?php
                                     $jours = null;
-
                                     if(ISSET($_SESSION["dispo"])){
-                                        var_dump($_SESSION["dispo"]);
+
                                         function cherchedDay($dayOk){
                                             for($i = 0; $i < sizeof( $_SESSION["dispo"]); $i++ ){
                                                 if($dayOk ==  $_SESSION["dispo"][$i]->getJour()){
                                                     return "checked";
                                                 }
-                                                return "";
                                             }
-
                                         }
                                     } else{
                                         function cherchedDay($dayOk){
                                             return "";
-                                        }
+
                                     }
 
                                     if (ISSET($_REQUEST["field_messages"]["checkedDay"]))
@@ -133,9 +130,13 @@
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Fonction</label>
                                                 <div class="col-md-7">
-                                                <select id="inputState" class="form-control">
-                                                    <option selected>Serveur(se)...</option>
-                                                    <option>...</option>
+                                                <select id="inputState" class="form-control" name="Fonction">
+                                                    <option selected>Serveur(se)</option>
+                                                    <option >Cuisinier</option>
+                                                    <option >Patissiere(ere)</option>
+                                                    <option >Service au comptoir</option>
+                                                    <option >Plongeur</option>
+                                                    <option >commis entretien </option>
                                                 </select>
                                                 </div>
                                             </div>
@@ -151,18 +152,25 @@
                                                                 <option>3</option>
                                                                 <option>4</option>
                                                                 <option>5</option>
+                                                                <option>6</option>
+                                                                <option>7</option>
+                                                                <option>8</option>
+                                                                <option>9</option>
+                                                                <option>10</option>
+                                                                <option>11</option>
+                                                                <option>12</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-8">
                                                             <div class="col-sm-12">
                                                                 <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="anne" checked>
                                                                 <label class="form-check-label" for="gridRadios1">
                                                                     année(s)  
                                                                 </label>
                                                                 </div>
                                                                 <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="mois">
                                                                 <label class="form-check-label" for="gridRadios2">
                                                                     mois
                                                                 </label>
@@ -179,7 +187,7 @@
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Description</label>
                                                 <div class="col-md-7">
-                                                <textarea class="form-control"  rows="5"></textarea>
+                                                <textarea class="form-control" n  rows="5"></textarea>
                                                 </div>
                                             </div>
 
