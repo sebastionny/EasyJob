@@ -4,8 +4,8 @@
  *
  * @author Meryem, Amélia, Assia et Sébastien
  */
-include_once('./classes/Database.class.php');
-include_once('./classes/Employeur.class.php');
+include_once('classes/Database.class.php');
+include_once('classes/Employeur.class.php');
 class EmployeurDAO {
     public static function find($id)
     {
@@ -61,13 +61,12 @@ class EmployeurDAO {
 			$n = 0;
             try {
           
-                $pstmt = $db->prepare("INSERT INTO employeur (idEmployeur, photo, telephone, adresse,idCompte)".
-                                                  " VALUES (:i,:p,:t,:a,:ic)");
+                $pstmt = $db->prepare("INSERT INTO employeur (idEmployeur, photo, tel,idCompte)".
+                                                  " VALUES (:i,:p,:t,:ic)");
                 $n = $pstmt->execute(array(':i' => $employeur->getIdEmployeur(),
                                            ':p' => $employeur->getPhoto(),
                                            ':t' => $employeur->getTel(),
-                                            ':a' => $employeur->getAdresse(),
-                                            ':ic' => $employeur->getIdCompte()));
+                                           ':ic' => $employeur->getIdCompte()));
                                             
              
                 $pstmt->closeCursor();
@@ -106,12 +105,11 @@ class EmployeurDAO {
             $db = Database::getInstance();
 			$n = 0;
             try {
-                $pstmt = $db->prepare("UPDATE employeur SET  photo=:p, telephone=:t, adresse=:a, idCompte=:ic WHERE IdEmployeur=:id");
+                $pstmt = $db->prepare("UPDATE employeur SET  photo=:p, tel=:t, idCompte=:ic WHERE IdEmployeur=:id");
                 $n = $pstmt->execute(array(':id' => $employeur->getIdEmployeur(),
                                             ':p' => $employeur->getPhoto(),
                                            ':t' => $employeur->getTel(),
-                                            ':a' => $employeur->getAdresse(),
-                                            ':ic' => $employeur->getIdCompte()));
+                                           ':ic' => $employeur->getIdCompte()));
                 $pstmt->closeCursor();
                 $pstmt = NULL;
                 Database::close();

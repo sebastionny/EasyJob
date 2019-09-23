@@ -45,3 +45,4 @@
 
 
 </div> </div> </div> </div><a href><h6 class="color1">Nous joindre</h6> </a>
+</div>

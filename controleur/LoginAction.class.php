@@ -1,5 +1,8 @@
 <?php
-require_once('./controleur/Action.Interface.php');
+require_once('controleur/Action.Interface.php');
+require_once('modele/CompteDAO.class.php');
+require_once('modele/DisponibiliteDAO.class.php');
+require_once('modele/EmployeDAO.class.php');
 class LoginAction implements Action
 {
     public function execute()
@@ -11,7 +14,6 @@ class LoginAction implements Action
         if (!$this->valide()) {
             return "connection";
         }
-        require_once('./modele/CompteDAO.class.php');
         $udao = new CompteDAO();
         $user = $udao->find($_REQUEST ["username"]);
         if ($user == null) {
@@ -26,13 +28,24 @@ class LoginAction implements Action
             $_SESSION ["connected"] = $_REQUEST ["username"];
             if ($user->getEstEmploye() == 1) {
                 $_REQUEST["estEmploye"] = true;
+
+                //---- Il aide a chargé la disponibilité si il y a.
+                $disDAO     = new DisponibiliteDAO();
+                $empDAO     = new EmployeDAO();
+                $objEmplo   = $empDAO->findByIdCompte($user->getIdCompte());
+                $_SESSION["compteUser"]  = $user;
+                $_SESSION["infoEmploye"] = $objEmplo;
+                if(isset($_SESSION["dispo"])){
+                    $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
+                }
+                // ------------------- fin
                 return "profilEmploye";
             } else {
                 $_REQUEST ["estEmploye"] = false;
                 return "profilResto";
             }
-
     }
+
 
     public function valide()
     {
@@ -50,7 +63,7 @@ class LoginAction implements Action
 
   /*  public function verifierEmploye (){
         $resultE = true;
-        require_once('./modele/CompteDAO.class.php');
+        require_once('modele/CompteDAO.class.php');
         $udao = new CompteDAO();
         $user = $udao->find($_REQUEST ["username"]);
         if ($user->getEstEmploye()==1){

@@ -1,5 +1,5 @@
 
- <?php require_once('./vues/include/headTest.php'); ?>
+ <?php require_once('vues/include/headTest.php'); ?>
 
        <div class="banner">
                 <div class="row">
@@ -137,4 +137,4 @@
             </div>
         </div>
     <div class="space100"></div>
-<?php require_once('./vues/include/footer.php'); ?>
+<?php require_once('vues/include/footer.php'); ?>

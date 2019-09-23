@@ -126,7 +126,7 @@ class Service{
         $this->heureDebut = $tab["heureDebut"];
         $this->heureFin = $tab["heureFin"];
         $this->sexe = $tab["sexe"];
-        $this->remuneration = $tab["renumHeure"];
+        $this->remuneration = $tab["remuneration"];
         $this->description = $tab["description"];
         $this->experience = $tab["experience"];
         $this->active = $tab["active"];
@@ -141,7 +141,7 @@ class Service{
         $this->heureDebut = $x->heureDebut;
         $this->heureFin = $x->heureFin;
         $this->sexe = $x->sexe;
-        $this->remuneration = $x->renumHeure;
+        $this->remuneration = $x->remuneration;
         $this->description = $x->description;
         $this->experience = $x->experience;
         $this->active = $x->active;

@@ -1,4 +1,4 @@
-<?php require_once('./vues/include/headTest.php'); ?>
+<?php require_once('vues/include/headTest.php'); ?>
 
          <div class="container-fluid space100 ">
 
@@ -28,10 +28,7 @@
 
                  <?php
                  if (!ISSET($_SESSION)) session_start();
-                 if (ISSET($_SESSION["connected"])) {
-                     require_once('./vues/include/employe/profil.php');
-                 } else
-                     echo '<h1>NO HAY SECCION ACTIVA</h1>'?>
+                 require_once('vues/include/employe/profil.php'); ?>
 
                 </div>
              </section>
@@ -41,4 +38,4 @@
 </div>
          
 
-<?php     require_once('./vues/include/footer.php'); ?>
+<?php     require_once('vues/include/footer.php'); ?>

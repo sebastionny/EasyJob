@@ -8,14 +8,14 @@ class Employeur{
     private $idEmployeur;
     private $photo;
     private $tel;
-    private $adresse;
+    //private $adresse;
     private $idCompte;
     //constructeur
-    function __construct($idEmployeur, $photo, $tel, $adresse, $idCompte) {
+    function __construct($idEmployeur, $photo, $tel, $idCompte) {
         $this->idEmployeur = $idEmployeur;
         $this->photo = $photo;
         $this->tel = $tel;
-        $this->adresse = $adresse;
+       // $this->adresse = $adresse;
         $this->idCompte = $idCompte;
     }
 
@@ -39,9 +39,9 @@ class Employeur{
         return $this->tel;
     }
 
-    function getAdresse() {
+  /*  function getAdresse() {
         return $this->adresse;
-    }
+    }*/
 
     function setIdEmployeur($idEmployeur) {
         $this->idEmployeur = $idEmployeur;
@@ -56,24 +56,24 @@ class Employeur{
         $this->tel = $tel;
     }
 
-    function setAdresse($adresse) {
+   /* function setAdresse($adresse) {
         $this->adresse = $adresse;
-    }
+    }*/
 
         public function loadFromArray($tab)
 	{
         $this->idEmployeur = $tab["idEmployeur"];
         $this->photo = $tab["photo"];
-        $this->tel = $tab["telephone"];
-        $this->adresse = $tab["adresse"];
+        $this->tel = $tab["tel"];
+        //$this->adresse = $tab["adresse"];
         $this->idCompte = $tab["idCompte"];
         	}	
 	public function loadFromObject($x)
 	{
         $this->idEmployeur = $x->idEmployeur;
         $this->photo = $x->photo;
-        $this->tel = $x->telephone;
-        $this->adresse = $x->adresse;
+        $this->tel = $x->tel;
+       // $this->adresse = $x->adresse;
         $this->idCompte = $x->idCompte;
                 
        }	

@@ -4,8 +4,8 @@
  *
  * @author Meryem, Amélia, Assia et Sébastien
  */
-/*include_once('./classes/Database.class.php');
-include_once('./classes/Compte.class.php');*/
+/*include_once('classes/Database.class.php');
+include_once('classes/Compte.class.php');*/
 include_once('modele/classes/Database.class.php');
 include_once('modele/classes/Compte.class.php');
 class CompteDAO {
@@ -13,13 +13,20 @@ class CompteDAO {
     {
             $db = Database::getInstance();
 
-                $pstmt = $db->prepare("SELECT * FROM compte WHERE couriel = :x");
+                $pstmt = $db->prepare("SELECT * FROM compte WHERE courriel = :x");
                 $pstmt->execute(array(':x' => $courriel));
                 $result = $pstmt->fetch(PDO::FETCH_OBJ);
                 $c= new Compte();
                 if ($result)
                 {
-					$c->loadFromObject($result);
+                    $c->setCourriel($result->courriel);
+                    $c->setMotDePasse($result->motDePasse);
+                    $c->setEstEmploye($result->estEmploye);
+                    $c->setNom($result->nom);
+                    $c->setPrenom($result->prenom);
+                    $c->setEstEmploye($result->estEmploye);
+                    $c->setIdCompte($result->idCompte);
+
 					return $c;
                 }
                 $pstmt->closeCursor();
@@ -54,14 +61,15 @@ class CompteDAO {
             $db = Database::getInstance();
 			$n = 0;
             try {
-                $pstmt = $db->prepare("INSERT INTO compte(idCompte, nom, prenom, motPasse, couriel, active)".
-                                                  " VALUES (:i,:n,:p,:m,:c,:a)");
+                $pstmt = $db->prepare("INSERT INTO compte(idCompte, nom, prenom, motDePasse, courriel, active, estEmploye)".
+                                                  " VALUES (:i,:n,:p,:m,:c,:a,:ee)");
                 $n = $pstmt->execute(array(':i' => $compte->getIdCompte(),
                                             ':n' => $compte->getNom(),
-					   ':p' => $compte->getPrenom(),
+					                        ':p' => $compte->getPrenom(),
                                            ':m' => $compte->getMotDePasse(),
                                             ':c' => $compte->getCourriel(),
-                                            ':a' => $compte->getActive()));
+                                            ':a' => $compte->getActive(),
+                                            ':ee' => $compte->getEstEmploye()));
                 $pstmt->closeCursor();
                 $pstmt = NULL;
                 Database::close();
@@ -91,19 +99,26 @@ class CompteDAO {
         $c= new Compte();
         $c->setIdCompte($id);
         self::delete($c);
-    } 
+    }
+    public static function deleteByCourriel($courriel)
+    {
+        $c= new Compte();
+        $c->setCourriel($courriel);
+        self::delete($c);
+    }
     public static function update($compte)
     {
             $db = Database::getInstance();
 			$n = 0;
             try {
-                $pstmt = $db->prepare("UPDATE compte SET nom=:n, prenom=:p, motPasse=:m, couriel=:c, active=:a WHERE idCompte=:id");
+                $pstmt = $db->prepare("UPDATE compte SET nom=:n, prenom=:p, motDePasse=:m, courriel=:c, active=:a, estEmploye=:ee WHERE idCompte=:id");
                 $n = $pstmt->execute(array(':id' => $compte->getIdCompte(),
 										    ':n' => $compte->getNom(),
 										    ':p' => $compte->getPrenom(),
-                                                                                    ':m' => $compte->getMotDePasse(),
-                                                                                    ':c' => $compte->getCourriel(),
-										    ':a' => $compte->getActive()));
+                                            ':m' => $compte->getMotDePasse(),
+                                            ':c' => $compte->getCourriel(),
+										    ':a' => $compte->getActive(),
+                                            ':ee' =>$compte->getEstEmploye()  ));
 
                 $pstmt->closeCursor();
                 $pstmt = NULL;

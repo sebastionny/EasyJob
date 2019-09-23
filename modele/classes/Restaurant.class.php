@@ -11,14 +11,84 @@ class Restaurant{
     private $telRest;
     private $descRest;
     private $idEmployeur;
-    function __construct($idRest, $nomRest, $adresseRest, $telRest, $descRest, $idEmployeur) {
+    private $provinceRest;
+    private $villeRest;
+    private $codePostalRest;
+    //construct
+
+    /**
+     * Restaurant constructor.
+     * @param $idRest
+     * @param $nomRest
+     * @param $adresseRest
+     * @param $telRest
+     * @param $descRest
+     * @param $idEmployeur
+     * @param $provinceRest
+     * @param $villeRest
+     * @param $codePostalRest
+     */
+    public function __construct($idRest, $nomRest, $adresseRest, $telRest, $descRest, $idEmployeur, $provinceRest, $villeRest, $codePostalRest)
+    {
         $this->idRest = $idRest;
         $this->nomRest = $nomRest;
         $this->adresseRest = $adresseRest;
         $this->telRest = $telRest;
         $this->descRest = $descRest;
         $this->idEmployeur = $idEmployeur;
+        $this->provinceRest = $provinceRest;
+        $this->villeRest = $villeRest;
+        $this->codePostalRest = $codePostalRest;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getProvinceRest()
+    {
+        return $this->provinceRest;
+    }
+
+    /**
+     * @param mixed $provinceRest
+     */
+    public function setProvinceRest($provinceRest)
+    {
+        $this->provinceRest = $provinceRest;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVilleRest()
+    {
+        return $this->villeRest;
+    }
+
+    /**
+     * @param mixed $villeRest
+     */
+    public function setVilleRest($villeRest)
+    {
+        $this->villeRest = $villeRest;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodePostalRest()
+    {
+        return $this->codePostalRest;
+    }
+
+    /**
+     * @param mixed $codePostalRest
+     */
+    public function setCodePostalRest($codePostalRest)
+    {
+        $this->codePostalRest = $codePostalRest;
+    }
+
     function getIdRest() {
         return $this->idRest;
     }
@@ -69,20 +139,26 @@ class Restaurant{
 
         public function loadFromArray($tab)
 	{
-        $this->idRest = $tab["idRestaurant"];
-        $this->nomRest = $tab["nomRestaurant"];
-        $this->adresseRest = $tab["adrRestaurant"];
-        $this->telRest = $tab["telRestaurant"];
-        $this->descRest = $tab["descRestaurant"];
+        $this->idRest = $tab["idRest"];
+        $this->nomRest = $tab["nomRest"];
+        $this->adresseRest = $tab["adresseRest"];
+        $this->telRest = $tab["telRest"];
+        $this->descRest = $tab["descRest"];
+        $this->provinceRest = $tab["provinceRest"];
+        $this->villeRest = $tab["villeRest"];
+        $this->codePostalRest = $tab["codePostalRest"];
         $this->idEmployeur =$tab["idEmployeur"];
         	}	
 	public function loadFromObject($x)
 	{
-        $this->idRest = $x->idRestaurant;
-        $this->nomRest = $x->nomRestaurant;
-        $this->adresseRest = $x->adrRestaurant;
-        $this->telRest = $x->telRestaurant;
-        $this->descRest = $x->descRestaurant;
+        $this->idRest = $x->idRest;
+        $this->nomRest = $x->nomRest;
+        $this->adresseRest = $x->adresseRest;
+        $this->telRest = $x->telRest;
+        $this->descRest = $x->descRest;
+        $this->provinceRest = $x->provinceRest;
+        $this->villeRest = $x->villeRest;
+        $this->codePostalRest = $x->codePostalRest;
         $this->idEmployeur = $x->idEmployeur;
                         
        }	

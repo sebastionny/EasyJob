@@ -13,6 +13,20 @@
 
                                     <?php
                                     $jours = null;
+                                    if(ISSET($_SESSION["dispo"])){
+                                        function cherchedDay($dayOk){
+                                            for($i = 0; $i < sizeof( $_SESSION["dispo"]); $i++ ){
+                                                if($dayOk ==  $_SESSION["dispo"][$i]->getJour()){
+                                                    return "checked";
+                                                }
+                                            }
+                                        }
+                                    } else{
+                                        function cherchedDay($dayOk){
+                                            return "";
+                                        }
+                                    }
+
                                     if (ISSET($_REQUEST["field_messages"]["checkedDay"]))
                                         echo "<col-sm-12 class=\"warningMessage text-center \">".$_REQUEST["field_messages"]["checkedDay"]."</col-sm-12>";
                                     ?>
@@ -20,7 +34,7 @@
                                         <div class="form-group row">
                                             <label for="dispoLundi" class="col-sm-3 col-form-label">
                                                 <input type="checkbox" class="form-check-input" id="dispoLundi"
-                                                name="jours[]" value="0"> Lundi</label>
+                                                name="jours[]" value="0" <?= cherchedDay('lundi')  ?> > Lundi</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="rangePrimary" id="lundi" name="tabHeure[]" value="" />
                                             </div>
@@ -30,7 +44,7 @@
                                         <div class="form-group row">
                                             <label for="dispoMardi" class="col-sm-3 col-form-label">
                                                 <input type="checkbox" class="form-check-input" id="dispoMardi"
-                                                       name="jours[]" value="1"> Mardi</label>
+                                                       name="jours[]" value="1" <?= cherchedDay("mardi")  ?> > Mardi</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="rangePrimary" id="mardi" name="tabHeure[]" value="" />
                                             </div>
@@ -40,7 +54,7 @@
                                         <div class="form-group row">
                                             <label for="dispoMercredi" class="col-sm-3 col-form-label">
                                                 <input type="checkbox" class="form-check-input" id="dispoMercredi"
-                                                       name="jours[]" value="2"> Mercredi</label>
+                                                       name="jours[]" value="2" <?= cherchedDay("mercredi")  ?>> Mercredi</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="rangePrimary" id="mercredi" name="tabHeure[]" value="" />
                                             </div>
@@ -50,7 +64,7 @@
                                         <div class="form-group row">
                                             <label for="dispoJeudi" class="col-sm-3 col-form-label">
                                                 <input type="checkbox" class="form-check-input" id="dispoJeudi"
-                                                       name="jours[]" value="3"> Jeudi</label>
+                                                       name="jours[]" value="3" <?= cherchedDay("jeudi")  ?>> Jeudi</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="rangePrimary" id="jeudi" name="tabHeure[]" value="" />
                                             </div>
@@ -60,7 +74,7 @@
                                         <div class="form-group row">
                                             <label for="dispoVendredi" class="col-sm-3 col-form-label">
                                                 <input type="checkbox" class="form-check-input" id="dispoVendredi"
-                                                       name="jours[]" value="4"> Vendredi</label>
+                                                       name="jours[]" value="4" <?= cherchedDay("vendredi")  ?>> Vendredi</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="rangePrimary" id="vendredi"  name="tabHeure[]" value="" />
                                             </div>
@@ -70,7 +84,7 @@
                                         <div class="form-group row">
                                             <label for="dispoSamedi" class="col-sm-3 col-form-label">
                                                 <input type="checkbox" class="form-check-input" id="dispoSamedi"
-                                                       name="jours[]" value="5"> Samedi</label>
+                                                       name="jours[]" value="5" <?= cherchedDay("samedi")  ?>> Samedi</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="rangePrimary"  id="samedi"  name="tabHeure[]" value="" />
                                             </div>
@@ -80,7 +94,7 @@
                                         <div class="form-group row">
                                             <label for="dispoDimache" class="col-sm-3 col-form-label">
                                                 <input type="checkbox" class="form-check-input" id="dispoDimache"
-                                                       name="jours[]" value="6">Dimache</label>
+                                                       name="jours[]" value="6" <?=cherchedDay("dimache")  ?>>Dimache</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="rangePrimary"  id="dimache" name="tabHeure[]" value="" />
                                             </div>
@@ -110,14 +124,39 @@
                             <div class="justify-content-center">
                                 <div class="col-md-12 font2">
 
-                                    <form>
-                                            
+                                    <?php
+                                    $f = $t = $m = $d = "";
+
+                                    if (ISSET($_REQUEST["fonction"]))
+                                    if (ISSET($_REQUEST["fonction"]))
+                                        $f = $_REQUEST["fonction"];
+
+                                    if (ISSET($_REQUEST["quantiter"]))
+                                        $t = $_REQUEST["quantiter"];
+
+                                    if (ISSET($_REQUEST["experience"]))
+                                        $m = $_REQUEST["experience"];
+
+                                    if (ISSET($_REQUEST["qualite"]))
+                                        $d = $_REQUEST["quatite"];
+                                    ?>
+                                    <?php if (ISSET($_REQUEST["field_messages"]["mesExp"]))
+                                        echo "<br/><span class=\"warningMessage\">".$_REQUEST["field_messages"]["mesExp"]."</span>";
+                                    ?><br/>
+
+                                    <form action ="" method="post">
+
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Fonction</label>
                                                 <div class="col-md-7">
-                                                <select id="inputState" class="form-control">
-                                                    <option selected>Serveur(se)...</option>
-                                                    <option>...</option>
+                                                <select id="inputState" class="form-control" name="fonction">
+                                                    <option selected>Choisir votre poste</option>
+                                                    <option >Serveur(se)</option>
+                                                    <option >Cuisinier</option>
+                                                    <option >Patissiere(ere)</option>
+                                                    <option >Service au comptoir</option>
+                                                    <option >Plongeur</option>
+                                                    <option >commis entretien </option>
                                                 </select>
                                                 </div>
                                             </div>
@@ -127,25 +166,26 @@
                                                 <div class="col-md-7">
                                                     <div class="row">
                                                         <div class="col-sm-4">
-                                                            <select id="inputState" class="form-control">
-                                                                <option selected>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                                <option>5</option>
+                                                            <select id="inputState" class="form-control" name="quantiter" >
+                                                                <?php
+                                                                    for ($i=1; $i < 13 ; $i++){
+                                                                ?>
+                                                                <option value="<?= $i?>"><?= $i?></option>
+                                                                <?php }
+                                                                ?>
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-8">
                                                             <div class="col-sm-12">
                                                                 <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                                                <label class="form-check-label" for="gridRadios1">
-                                                                    année(s)  
+                                                                <input class="form-check-input" type="radio" name="experience" id="mois" value="anne" >
+                                                                <label class="form-check-label" for="mois">
+                                                                    année(s)
                                                                 </label>
                                                                 </div>
                                                                 <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                                                <label class="form-check-label" for="gridRadios2">
+                                                                <input class="form-check-input" type="radio" name="experience" id="anne" value="mois" >
+                                                                <label class="form-check-label" for="anne">
                                                                     mois
                                                                 </label>
                                                                 </div>
@@ -157,22 +197,39 @@
                                             </div>
 
 
-
+                                        <?php ?>
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Description</label>
                                                 <div class="col-md-7">
-                                                <textarea class="form-control"  rows="5"></textarea>
+                                                <textarea class="form-control" name="description"  rows="5"></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label"></label>
                                                 <div class="col-md-7">
-                                                    <button type="submit" class="nav-link btn btn-primary ">SAUVEGARDER</button>
+                                                    <input name="action" value="profilEmploye" type="hidden" />
+                                                    <input name="mesExperiences" type="hidden" />
+                                                    <button type="submit" class="nav-link btn btn-primary " onclick="return checked();">SAUVEGARDER</button>
                                                 </div>
                                             </div>
-                                        
+
                                     </form>
+
+                                    <div class="col-sm-12 invFond">
+                                        <h4 >Information enregistrer</h4>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <span class="color2">Fonction: </span> <?= $_SESSION['infoEmploye']->getFonction();?>
+                                                <span class="color2">Experience: </span> <?= $_SESSION['infoEmploye']->getExperience();?>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="color2">Descripción</div>
+                                                <p><?= $_SESSION['infoEmploye']->getQualite();?></p>
+                                            </div>
+
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -188,11 +245,11 @@
                             <div class=" justify-content-center">
                                 <div class="col-md-12 font2">
 
-                                    <form>
+                                    <form action="" method="post">
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Nom</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control" >
+                                                <input type="text" class="form-control" name="nomRef" >
                                                 </div>
                                             </div>
 
@@ -200,7 +257,7 @@
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Téléphone</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control" >
+                                                <input type="text" class="form-control" name="telRef">
                                                 </div>
                                             </div>
 
@@ -208,20 +265,28 @@
                                                 <label for="inputEmail3" class="col-md-5 col-form-label"></label>
                                                 <div class="col-md-7">
                                                     <div class="row">
-                                                        <div class="col-lg-6 col-md-7">
-                                                            <button type="submit" class="nav-link btn btn-line1 ">SAUVEGARDER</button>
+                                                        <div class="col-lg-6 col-md-5">
+
                                                         </div>
-                                                        <div class="col-lg-6 col-md-4">
-                                                            <button type="submit" class="nav-link btn btn-primary ">AJOUTER</button>
+                                                        <div class="col-lg-6 col-md-7">
+                                                            <input name="action" value="profilEmploye" type="hidden" />
+                                                            <input name="mesReference" type="hidden" />
+                                                            <button type="submit" class="nav-link btn btn-primary ">SAUVEGARDER</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-                                           
-
-                                        
                                     </form>
+
+                                    <div class="col-sm-12 invFond">
+                                        <h4 >Information enregistrer</h4>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <span class="color2">Nom: </span> <?= $_SESSION['infoEmploye']->getNomRef();?>
+                                                <span class="color2">Téléphone: </span> <?= $_SESSION['infoEmploye']->getTelRef();?>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -396,7 +461,7 @@
         values: custom_values
     });
 
-    // Affiher le changemente
+
     // var slider = $("#mardi").data("ionRangeSlider");
     //
     // slider.update({
@@ -404,4 +469,53 @@
     //     to:  custom_values.indexOf("9H")
     // });
 
+    function checked(){
+
+        if(document.getElementById("mois").checked || document.getElementById("anne").checked)
+            return true;
+        else{
+            alert("Avez-vous oublié coché l'année ou le mois ?");
+            return false;
+        }
+    }
 </script>
+
+<!--Affiher le changemente-->
+
+    <?php
+    if(ISSET($_SESSION["dispo"])){
+
+        for($i = 0; $i < sizeof( $_SESSION["dispo"]); $i++ ){
+
+            ?>
+            <script type="text/javascript">
+            var slider = $("#<?= $_SESSION["dispo"][$i]->getJour()?>").data("ionRangeSlider");
+
+                    slider.update({
+                from:  custom_values.indexOf("<?=$_SESSION["dispo"][$i]->getHeureDebut()?>H"),
+                to:  custom_values.indexOf("<?=$_SESSION["dispo"][$i]->getHeureFin()?>H")
+            });
+            </script>
+            <?php
+        }
+
+
+//        for($i = 0; $i < sizeof( $_SESSION["dispo"]); $i++ ){
+//            $horair = array('day'=> $_SESSION["dispo"][$i]->getJour(),
+//                            'hourStart' => $_SESSION["dispo"][$i]->getHeureDebut(),
+//                            'hourEnd' => $_SESSION["dispo"][$i]->getHeureFin());
+//
+//        }
+//
+//        $json = json_encode($horair);
+//        $file = 'dispo.json';
+//        file_put_contents($file, $json);
+
+
+    }
+    ?>
+
+
+
+
+
