@@ -24,8 +24,6 @@ class Compte{
         $this->estEmploye = $estEmploye;
     }
 
-
-
     //constructeur
   /*  function __construct($idCompte, $nom, $prenom, $motDePasse, $courriel, $active, $estEmploye) {
         $this->idCompte = $idCompte;

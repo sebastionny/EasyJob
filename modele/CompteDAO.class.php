@@ -19,14 +19,14 @@ class CompteDAO {
                 $c= new Compte();
                 if ($result)
                 {
-					/*$c = new Compte();*/
-
                     $c->setCourriel($result->courriel);
                     $c->setMotDePasse($result->motDePasse);
                     $c->setEstEmploye($result->estEmploye);
-                  /*  $c->setNom($result->nom);*/
-                   /* $c->setPrenom($result->prenom);*/
-                  /*  $pstmt->closeCursor();*/
+                    $c->setNom($result->nom);
+                    $c->setPrenom($result->prenom);
+                    $c->setEstEmploye($result->estEmploye);
+                    $c->setIdCompte($result->idCompte);
+
 					return $c;
                 }
                 $pstmt->closeCursor();

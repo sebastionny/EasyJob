@@ -33,6 +33,38 @@ class EmployeDAO {
             }             
             return NULL;
     }
+
+//    Cette function returne lobjet employer cherché par Id de compte
+
+    public static function findByIdCompte($idComp)
+    {
+        $db = Database::getInstance();
+        try {
+            $pstmt = $db->prepare("SELECT * FROM employe WHERE idCompte = :x");
+            $pstmt->execute(array(':x' => $idComp));
+
+            $result = $pstmt->fetch(PDO::FETCH_OBJ);
+
+            if ($result)
+            {
+
+                $e = new Employe();
+                $e->loadFromObject($result);
+                $pstmt->closeCursor();
+                $pstmt = NULL;
+                Database::close();
+                return $e;
+            }
+            $pstmt->closeCursor();
+            $pstmt = NULL;
+            Database::close();
+        }
+        catch (PDOException $ex){
+        }
+        return NULL;
+    }
+
+
     public static function findAll()
     {
             $db = Database::getInstance();

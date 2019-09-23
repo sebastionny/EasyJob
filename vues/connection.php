@@ -4,8 +4,6 @@
                     <div class="row">
                             <div class="col-md-6">
 
-
-
                             </div>
                             <div class="col-md-6">
                                 <div class="col-col-md-5 offset-md-6">

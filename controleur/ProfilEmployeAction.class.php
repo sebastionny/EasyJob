@@ -1,48 +1,55 @@
 <?php
 require_once('controleur/Action.Interface.php');
 require_once('modele/DisponibiliteDAO.class.php');
+require_once('modele/EmployeDAO.class.php');
 class ProfilEmployeAction implements Action {
     public function execute(){
 
-        if ( ISSET($_REQUEST ["jours"]) == null){
-            $_REQUEST ["field_messages"] ["checkedDay"] = "Il faut selectionner le(s) jour(s) pour mettre a jour votre disponibilite";
-            return "profilEmploye";
-        }
-        if (ISSET($_REQUEST ["jours"])) {
-            $days = $_REQUEST ["jours"];
-            $hours = $_REQUEST["tabHeure"];
+        if (!ISSET($_SESSION)) session_start();
+        if (ISSET($_SESSION["connected"])){
 
-            var_dump($days);
-            var_dump($hours);
+            $disDAO     = new DisponibiliteDAO();
+            $empDAO     = new EmployeDAO();
+            $compDAO    = new CompteDAO();
+            $_SESSION["dispo"]  = $disDAO->findAll();
 
-            for ($i=0; $i < count($days); $i++) {
-                $d = $this->today($days[$i]);
-                $hd = $hours[$i];
-                echo $d;
-                echo $hd;
-                echo $i ."\n";
+
+            if ( ISSET($_REQUEST ["jours"]) == null){
+                $_REQUEST ["field_messages"] ["checkedDay"] = "Il faut selectionner le(s) jour(s) pour mettre a jour votre disponibilite";
+                return "profilEmploye";
             }
+            if (ISSET($_REQUEST ["jours"])) {
+                $days = $_REQUEST ["jours"];
+                $hours = $_REQUEST["tabHeure"];
+                $user       = $compDAO->find($_SESSION["connected"]);
+                $objEmplo   = $empDAO->findByIdCompte($user->getIdCompte());
+
+                for ($i=0; $i < sizeof($days); $i++) {
+                    $d = $this->today($days[$i]);
+                    $hd = $this->hourStartEnd($hours[$days[$i]]);
+                    $dispo = new Disponibilite($d,$hd[0],$hd[1],$objEmplo->getIdEmploye());
+                    $disDAO->create($dispo);
+                }
+            }
+            return "profilEmploye";
+        } else{
+            return "connection";
         }
 
-        return "profilEmploye";
+
+
+
     }
 
     public function today($day){
-        $res = "";
-        if ($day === 0)
-            return "lundi";
-        if ($day === 1)
-            return "mardi";
-        if ($day === 2)
-            return "mercredi";
-        if ($day === 3)
-            return "jeudi";
-        if ($day === 4)
-            return "vendredi";
-        if ($day === 5)
-            return "samedi";
-        if ($day === 6)
-            $res = "dimache";
+        $res =  array ("lundi","mardi", "mercredi" , "jeudi" , "vendredi" , "samedi", "dimache");
+        return $res[$day];
+    }
+
+    public function hourStartEnd($hours){
+        $hours_arr = explode(";", $hours);
+        $res = array( $s = substr($hours_arr[0], 0,-1),
+                      $e = substr($hours_arr[1] , 0, -1));
         return $res;
     }
 }

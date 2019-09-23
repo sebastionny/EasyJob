@@ -89,8 +89,7 @@ class DisponibiliteDAO {
             $db = Database::getInstance();
 			$n = 0;
             try {
-
-                $pstmt = $db->prepare("INSERT INTO disponibilite (jour, deHeure, aHeure, idEmploye)".
+                $pstmt = $db->prepare("INSERT INTO disponibilite (jour, heureDebut, heureFin, idEmploye)".
                                                   " VALUES (:j,:hd,:hf,:ie)");
                 $n = $pstmt->execute(array( ':j' => $dispo->getJour(),
 					                        ':hd' => $dispo->getHeureDebut(),

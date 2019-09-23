@@ -25,30 +25,31 @@
                 <?php
                 if (!ISSET($_SESSION)) session_start();
                 if (ISSET($_SESSION["connected"])) {
-                    if (!$_REQUEST["estEmploye"]) {
+                    if (!$_SESSION["connected"]) {
                         ?>
-            <nav class="navbar  fixed-top navbar-expand-lg  navbar-light ">
+<!--            fixed-top-->
+            <nav class="navbar   navbar-expand-lg  navbar-light ">
                 <a class="navbar-brand" href="?">
                     <img src="./img/logo.jpg"  width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-                            <a class="nav-link btn btn-primary btn-lg" href="#">Mes offres de service</a>
-                            <a class="nav-link btn login" href="?">Mon Profil</a>
-                            <a class="nav-link btn login" href="?action=logout">Me déconnecter</a>
+                            <a class="nav-link btn btn-primary btn-lg" href="?action=singInResto"> M'inscrire comme restaurant </a>
+                            <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=singInEmploye">M'inscrire comme Employé</a>
+                            <a class="nav-link btn login" href="?action=connecter" ">ME CONNECTER</a>
                         </div>
                         <?php
                     } else {
                         ?>
-            <nav class="navbar  fixed-top navbar-expand-lg  navbar-light ">
+            <nav class="navbar   navbar-expand-lg  navbar-light ">
                 <a class="navbar-brand" href="?">
                     <img src="./img/logo.jpg"  width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-                            <a class="nav-link btn login" href="#">Mon Profil</a>
+                            <a class="nav-link btn login" href="?action=profilEmploye"> Mon Profil <?= $_SESSION["connected"]; ?>  </a>
                             <a class="nav-link btn login"  href="?action=logout">Me déconnecter</a>
                         </div>
                         <?php
@@ -56,7 +57,7 @@
                 }
                 else {
                     ?>
-            <nav class="navbar  fixed-top navbar-expand-lg  navbar-light ">
+            <nav class="navbar  navbar-expand-lg  navbar-light ">
                 <a class="navbar-brand" href="?">
                     <img src="./img/logo.jpg"  width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">

@@ -20,25 +20,31 @@ class Employe{
     private $ville;
     private $codePostal;
     private $idCompte;
+
     //constructeur
-    public function __construct($idEmploye, $dateNaissance, $photo, $tel, $fonction, $experience, $qualite, $nomRef, $telRef, $sexe, $adresse, $province, $ville, $codePostal, $idCompte)
-    {
-        $this->idEmploye = $idEmploye;
-        $this->dateNaissance = $dateNaissance;
-        $this->photo = $photo;
-        $this->tel = $tel;
-        $this->fonction = $fonction;
-        $this->experience = $experience;
-        $this->qualite = $qualite;
-        $this->nomRef = $nomRef;
-        $this->telRef = $telRef;
-        $this->sexe = $sexe;
-        $this->adresse = $adresse;
-        $this->province = $province;
-        $this->ville = $ville;
-        $this->codePostal = $codePostal;
-        $this->idCompte = $idCompte;
-    }
+
+    public function __construct()
+    {    }
+
+
+//    public function __construct($idEmploye, $dateNaissance, $photo, $tel, $fonction, $experience, $qualite, $nomRef, $telRef, $sexe, $adresse, $province, $ville, $codePostal, $idCompte)
+//    {
+//        $this->idEmploye = $idEmploye;
+//        $this->dateNaissance = $dateNaissance;
+//        $this->photo = $photo;
+//        $this->tel = $tel;
+//        $this->fonction = $fonction;
+//        $this->experience = $experience;
+//        $this->qualite = $qualite;
+//        $this->nomRef = $nomRef;
+//        $this->telRef = $telRef;
+//        $this->sexe = $sexe;
+//        $this->adresse = $adresse;
+//        $this->province = $province;
+//        $this->ville = $ville;
+//        $this->codePostal = $codePostal;
+//        $this->idCompte = $idCompte;
+//    }
 
     /**
      * @return mixed
