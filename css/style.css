@@ -16,12 +16,12 @@ body{
 
 /* Space */
 
-.space30{    margin: 30px 0px;}
-.space100{    margin: 100px 0px;}
+.space30{    margin: 30px 0;}
+.space100{    margin: 100px 0;}
 
 
 /*Amelia css*/
-.space1 {margin-top: 0px}
+.space1 {margin-top: 0}
 
 .item p {
     margin-bottom: 5px !important;
@@ -157,7 +157,6 @@ header .btn-line{
 .activeLine{
     border: 2px solid #41133c;
     background: #ee3168;
-    border: 2px solid #ee3168;
     color:#fff;
 }
 
@@ -241,7 +240,7 @@ header .btn-line{
 }
 
 .date.form_date.form-control {
-    padding: 0px!important;
+    padding: 0!important;
 }
 .form-control:disabled, .form-control[readonly] {
     background-color: #fff;
@@ -263,13 +262,13 @@ table {
     border-radius: 5px 20px 5px 30px;
     width: 50%;
     position: absolute;
-    right: 0px;
+    right: 0;
     bottom: 20px;
     z-index: 10;
     color: #fff;
     text-align: center;
-    padding-top: 0px; 
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
     padding-right: 20px;
     left: auto;
 }
@@ -324,9 +323,11 @@ section.col-md-9  .rounded:hover  {
     display: inline;
 }
 
-
-
-
+.fixed{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 60px;
+}
 .commentaire{
     display: inline-block;
     border: 10px solid #41133c;
@@ -398,7 +399,7 @@ section.col-md-9  .rounded:hover  {
 .profil{
     border-radius: 100%;
     width: 200px;
-    margin: 0px auto;
+    margin: 0 auto;
     display: block;
 }
 

@@ -26,11 +26,37 @@ class CompteDAO {
                     $c->setPrenom($result->prenom);
                     $c->setEstEmploye($result->estEmploye);
                     $c->setIdCompte($result->idCompte);
+                    $c->setActive($result->active);
 
 					return $c;
                 }
                 $pstmt->closeCursor();
                 $pstmt = NULL;
+    }
+
+    public static function findById($id)
+    {
+        $db = Database::getInstance();
+
+        $pstmt = $db->prepare("SELECT * FROM compte WHERE idCompte = :x");
+        $pstmt->execute(array(':x' => $id));
+        $result = $pstmt->fetch(PDO::FETCH_OBJ);
+        $c= new Compte();
+        if ($result)
+        {
+            $c->setCourriel($result->courriel);
+            $c->setMotDePasse($result->motDePasse);
+            $c->setEstEmploye($result->estEmploye);
+            $c->setNom($result->nom);
+            $c->setPrenom($result->prenom);
+            $c->setEstEmploye($result->estEmploye);
+            $c->setIdCompte($result->idCompte);
+            $c->setActive($result->active);
+
+            return $c;
+        }
+        $pstmt->closeCursor();
+        $pstmt = NULL;
     }
 
 

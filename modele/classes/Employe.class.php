@@ -46,57 +46,38 @@ class Employe{
 //        $this->idCompte = $idCompte;
 //    }
 
-    /**
-     * @return mixed
-     */
+
     public function getSexe()
     {
         return $this->sexe;
     }
 
-    /**
-     * @param mixed $sexe
-     */
     public function setSexe($sexe)
     {
         $this->sexe = $sexe;
     }
 
-    /**
-     * @return mixed
-     */
     public function getAdresse()
     {
         return $this->adresse;
     }
-
-    /**
-     * @param mixed $adresse
-     */
     public function setAdresse($adresse)
     {
         $this->adresse = $adresse;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getProvince()
     {
         return $this->province;
     }
 
-    /**
-     * @param mixed $province
-     */
     public function setProvince($province)
     {
         $this->province = $province;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getVille()
     {
         return $this->ville;
@@ -110,9 +91,7 @@ class Employe{
         $this->ville = $ville;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getCodePostal()
     {
         return $this->codePostal;

@@ -41,9 +41,7 @@ class Restaurant{
         $this->codePostalRest = $codePostalRest;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getProvinceRest()
     {
         return $this->provinceRest;
@@ -57,9 +55,7 @@ class Restaurant{
         $this->provinceRest = $provinceRest;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getVilleRest()
     {
         return $this->villeRest;
@@ -73,9 +69,7 @@ class Restaurant{
         $this->villeRest = $villeRest;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getCodePostalRest()
     {
         return $this->codePostalRest;
