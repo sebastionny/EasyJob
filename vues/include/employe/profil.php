@@ -104,6 +104,7 @@
                                             <label for="inputEmail3" class="col-md-5 col-form-label"></label>
                                             <div class="col-md-7">
                                                 <input name="action" value="profilEmploye" type="hidden" />
+                                                <input name="saveDispo"  type="hidden" />
                                                 <button type="submit" class="nav-link btn btn-primary ">SAUVEGARDER</button>
                                             </div>
                                         </div>
@@ -304,84 +305,83 @@
 
                                     <form>
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Nom</label>
+                                                <label for="nom" class="col-md-5 col-form-label">Nom</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control" >
+                                                <input name="nom" type="text" class="form-control" >
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Prénom</label>
+                                                <label for="prenom" class="col-md-5 col-form-label">Prénom</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control" >
+                                                <input name="prenom" type="text" class="form-control" >
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Sexe</label>
+                                                <label for="sexeSelect" class="col-md-5 col-form-label">Sexe</label>
                                                 <div class="col-md-7">
-                                                <select id="inputState" class="form-control">
-                                                    <option selected>Femme</option>
-                                                    <option>Homme</option>
+                                                <select name="sexeSelect" id="inputState" class="form-control">
+                                                    <option selected value="f">Femme</option>
+                                                    <option value="h">Homme</option>
                                                 </select>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Date de naisance</label>
+                                                <label for="inputEmail3" class="col-md-5 col-form-label">Date de naissance</label>
                                                 <div class="col-md-7">
                                                  
-                                                            <div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                                                <input class="form-control" type="text" value="" readonly>
+                                                            <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" data-link-field="dateNaissance" data-link-format="yyyy-mm-dd">
+                                                                <input name="dateNaissance" class="form-control" type="text" value="" readonly>
                                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                                                             </div>
-                                                            <input type="hidden" id="dtp_input2" value="" /><br/>
-                                           
+                                                            <input type="hidden" id="dateNaissance" value="" /><br/>
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Courriel</label>
+                                                <label for="courriel" class="col-md-5 col-form-label">Courriel</label>
                                                 <div class="col-md-7">
-                                                    <input type="email" class="form-control" >
+                                                    <input name="courriel" type="email" class="form-control" >
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Mot de passe</label>
+                                                <label for="motDePasse" class="col-md-5 col-form-label">Mot de passe</label>
                                                 <div class="col-md-7">
-                                                <input type="password" class="form-control" >
+                                                <input name="motDePasse" type="password" class="form-control" >
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Télephone</label>
+                                                <label for="tel" class="col-md-5 col-form-label">Télephone</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control">
-                                                <div class="fontCenter">
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                    <label class="form-check-label" for="exampleCheck1">C'est un celluraire</label>
-                                                </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Adresse</label>
-                                                <div class="col-md-7">
-                                                <input type="text" class="form-control" >
+                                                <input name="tel" type="text" class="form-control">
+                                               <!--     <div class="fontCenter">
+                                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                        <label class="form-check-label" for="exampleCheck1">C'est un celluraire</label>
+                                                    </div> --->
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Province</label>
+                                                <label for="adresse" class="col-md-5 col-form-label">Adresse</label>
                                                 <div class="col-md-7">
-                                                <select id="inputState" class="form-control">
-                                                    <option selected>Quebec...</option>
+                                                <input name="adresse" type="text" class="form-control" >
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="provice" class="col-md-5 col-form-label">Province</label>
+                                                <div class="col-md-7">
+                                                <select name="provice" id="inputState" class="form-control">
+                                                    <option selected value="Quebéc">Quebec...</option>
                                                     <option>...</option>
                                                 </select>
                                                 </div>
@@ -389,10 +389,10 @@
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Ville</label>
+                                                <label for="ville" class="col-md-5 col-form-label">Ville</label>
                                                 <div class="col-md-7">
-                                                <select id="inputState" class="form-control">
-                                                    <option selected>Montréal...</option>
+                                                <select name="ville" id="inputState" class="form-control">
+                                                    <option selected value="Montréal">Montréal...</option>
                                                     <option>...</option>
                                                 </select>
                                                 </div>
@@ -400,23 +400,48 @@
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Code postal</label>
+                                                <label for="codePostal" class="col-md-5 col-form-label">Code postal</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control">
+                                                <input name="codePostal" type="text" class="form-control">
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label"></label>
                                                 <div class="col-md-7">
+                                                    <input name="action" value="profilEmploye" type="hidden" />
+                                                    <input name="monCompte" type="hidden" />
                                                     <button type="submit" class="nav-link btn btn-primary ">SAUVEGARDER</button>
                                                 </div>
                                             </div>
 
-                                           
-
-                                        
                                     </form>
+
+                                    <div class="col-sm-12 invFond">
+                                        <h4 >Information enregistrer</h4>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-12">
+                                                        <p><span class="color2">Nom: </span> <?= $_SESSION["infoCompte"]->getNom() . " ". $_SESSION["infoCompte"]->getPrenom() ;?></p>
+                                                        <p><span class="color2"> Sexe: </span> <?= $_SESSION['infoEmploye']->getSexe();?></p>
+                                                        <p><span class="color2"> Date de naissance: </span> <?= $_SESSION['infoEmploye']->getDateNaissance();?></p>
+                                                        <p><span class="color2"> Courriel: </span> <?= $_SESSION["infoCompte"]->getCourriel();?></p>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12">
+                                                        <p><span class="color2"> Téléphone: </span> <?= $_SESSION['infoEmploye']->getTel();?></p>
+                                                        <p><span class="color2"> Adresse: </span> <?= $_SESSION['infoEmploye']->getAdresse()  . " " . $_SESSION['infoEmploye']->getCodePostal();?></p>
+                                                        <p><span class="color2"> Province: </span> <?= $_SESSION['infoEmploye']->getProvince();?></p>
+                                                        <p><span class="color2"> Ville: </span> <?= $_SESSION['infoEmploye']->getVille();?></p>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -460,14 +485,6 @@
         to: my_to ,
         values: custom_values
     });
-
-
-    // var slider = $("#mardi").data("ionRangeSlider");
-    //
-    // slider.update({
-    //     from:  custom_values.indexOf("8H"),
-    //     to:  custom_values.indexOf("9H")
-    // });
 
     function checked(){
 
