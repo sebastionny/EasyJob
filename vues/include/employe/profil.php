@@ -333,7 +333,7 @@
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Date de naissance</label>
                                                 <div class="col-md-7">
                                                  
-                                                            <div class="input-group date form_date " data-date="" data-date-format="dd MM yyyy" data-link-field="dateNaissance" data-link-format="yyyy-mm-dd">
+                                                            <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" data-link-field="dateNaissance" data-link-format="yyyy-mm-dd">
                                                                 <input name="dateNaissance" class="form-control" type="text" value="" readonly>
                                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                                                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
@@ -423,10 +423,10 @@
                                             <div class="col-12">
                                                 <div class="row">
                                                     <div class="col-md-6 col-sm-12">
-                                                        <p><span class="color2">Nom: </span> <?= $_SESSION['compteUser']->getNom() . " ". $_SESSION['compteUser']->getPrenom() ;?></p>
+                                                        <p><span class="color2">Nom: </span> <?= $_SESSION["infoCompte"]->getNom() . " ". $_SESSION["infoCompte"]->getPrenom() ;?></p>
                                                         <p><span class="color2"> Sexe: </span> <?= $_SESSION['infoEmploye']->getSexe();?></p>
                                                         <p><span class="color2"> Date de naissance: </span> <?= $_SESSION['infoEmploye']->getDateNaissance();?></p>
-                                                        <p><span class="color2"> Courriel: </span> <?= $_SESSION['compteUser']->getCourriel();?></p>
+                                                        <p><span class="color2"> Courriel: </span> <?= $_SESSION["infoCompte"]->getCourriel();?></p>
                                                     </div>
                                                     <div class="col-md-6 col-sm-12">
                                                         <p><span class="color2"> Téléphone: </span> <?= $_SESSION['infoEmploye']->getTel();?></p>
@@ -485,14 +485,6 @@
         to: my_to ,
         values: custom_values
     });
-
-
-    // var slider = $("#mardi").data("ionRangeSlider");
-    //
-    // slider.update({
-    //     from:  custom_values.indexOf("8H"),
-    //     to:  custom_values.indexOf("9H")
-    // });
 
     function checked(){
 

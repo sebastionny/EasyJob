@@ -10,19 +10,19 @@
                      if (!ISSET($_SESSION)) session_start();
                      if (ISSET($_SESSION["connected"])) {
 
-                         echo php_ini_loaded_file();
                          ?>
-
-                         <img src="./img/pp.jpg" alt="Profil de ..." class="img-thumbnail profil ">
+                         <div class="profil">
+                            <img src="<?=$_SESSION['infoEmploye']->getPhoto()?>" alt="<?=$_SESSION['infoCompte']->getPrenom()?>" class="img-fluid ">
+                         </div>
                          <form action="" method="post" enctype="multipart/form-data" class="space30 fontCenter">
                              <div class="form-group">
-                                 <input type="file" class="form-control-file" name="photoProfil">
+                                 <input type="file" class="form-control-file" name="photoProfilFile">
                              </div>
-                             <button type="submit" class="btn btn-primary " name="uploadBtn" value="'photoProfil'">Changer </button>
+                             <button type="submit" class="btn btn-primary " name="uploadBtn" value="photoProfil">Changer </button>
                          </form>
 
                      <?php }else {  ?>
-                         <img src="./img/pp.jpg" alt="Profil de ..." class="img-thumbnail profil ">
+                         <img src="<?=$_SESSION['infoEmploye']->getPhoto()?>" alt="<?=$_SESSION['infoCompte']->getPrenom()?>" class="img-thumbnail profil ">
                      <?php }?>
 
                     <div class="space100 font2 fontGrand3 ">
