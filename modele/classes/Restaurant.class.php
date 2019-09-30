@@ -28,7 +28,7 @@ class Restaurant{
      * @param $villeRest
      * @param $codePostalRest
      */
-    public function __construct($idRest, $nomRest, $adresseRest, $telRest, $descRest, $idEmployeur, $provinceRest, $villeRest, $codePostalRest)
+   /* public function __construct($idRest, $nomRest, $adresseRest, $telRest, $descRest, $idEmployeur, $provinceRest, $villeRest, $codePostalRest)
     {
         $this->idRest = $idRest;
         $this->nomRest = $nomRest;
@@ -40,7 +40,7 @@ class Restaurant{
         $this->villeRest = $villeRest;
         $this->codePostalRest = $codePostalRest;
     }
-
+*/
 
     public function getProvinceRest()
     {
