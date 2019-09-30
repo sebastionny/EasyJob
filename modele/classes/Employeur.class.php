@@ -11,13 +11,13 @@ class Employeur{
     //private $adresse;
     private $idCompte;
     //constructeur
-    function __construct($idEmployeur, $photo, $tel, $idCompte) {
+  /*  function __construct($idEmployeur, $photo, $tel, $idCompte) {
         $this->idEmployeur = $idEmployeur;
         $this->photo = $photo;
         $this->tel = $tel;
        // $this->adresse = $adresse;
         $this->idCompte = $idCompte;
-    }
+    }*/
 
     function getIdEmployeur() {
         return $this->idEmployeur;
