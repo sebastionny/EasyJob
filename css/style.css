@@ -141,7 +141,7 @@ header .justify-content-end a{
     border: 2px solid #ee3168;
     background: #fff;
     color:  #ee3168;
-    width: 95%;
+    /*width: 95%;*/
 }
 header .btn-line{
     width: auto;

@@ -5,6 +5,18 @@
 
         <div class="font1 fontGrand4">
             <?php
+            $nbreEtoile = 4;
+            $proffetion = 'Serveur';
+            $HeureDe = 18;
+            $Heure = 20;
+            $salaire = 12.30;
+            $ville = 'Laval';
+            $ZIP = 'H2A3h2';
+            $dateS = '2019-03-02';
+            $commentaire = 'lorem sdfasdfasd fasd fasdf asdfasdfasdf asdfasdfasdf ';
+
+
+
             for($i=0;$i< $nbreEtoile;$i++){
                 ?>
                 <img src="img/etoile.jpg"/>

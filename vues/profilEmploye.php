@@ -23,13 +23,23 @@
 
                      <?php }else {  ?>
                          <img src="<?=$_SESSION['infoEmploye']->getPhoto()?>" alt="<?=$_SESSION['infoCompte']->getPrenom()?>" class="img-thumbnail profil ">
-                     <?php }?>
+
+                     <?php }
+                     $activeService = $activeCommentaire = $active = '';
+                     if (isset($_REQUEST['profil'])){
+                         if ($_REQUEST['profil'] == 'mesService')
+                             $activeService = 'activeLine';
+                         if ($_REQUEST['profil'] == 'commentaire')
+                             $activeCommentaire = 'activeLine';
+                     }else
+                         $active = 'activeLine';
+                     ?>
 
                     <div class="space100 font2 fontGrand3 ">
-                        <a href="#" class="btn btn-line1 btn-block color1 activeLine"> Mon Profil</a>
-                        <a href="#" class="btn btn-line1 btn-block color1"> Mes services</a>
-                        <a href="#" class="btn btn-line1 btn-block color1"> Mes commentaires</a>
-                        <a href="#" class="btn btn-line1 btn-block color1"> Me  déconnecter</a>
+                        <a href="?action=profilEmploye" class="btn btn-line1 btn-block color1 <?=$active?>"> Mon Profil</a>
+                        <a href="?action=profilEmploye&profil=mesService" class="btn btn-line1 btn-block color1 <?=$activeService?>"> Mes services</a>
+                        <a href="?action=profilEmploye&profil=commentaire" class="btn btn-line1 btn-block color1 <?=$activeCommentaire?>"> Mes commentaires</a>
+                        <a href="?action=logout" class="btn btn-line1 btn-block color1"> Me  déconnecter</a>
                     </div>
                  </div>
              </div>
@@ -39,7 +49,16 @@
 
                  <?php
                  if (!ISSET($_SESSION)) session_start();
-                 require_once('vues/include/employe/profil.php'); ?>
+
+                 if (isset($_REQUEST['profil'])){
+                     if ($_REQUEST['profil'] == 'mesService')
+                         require_once('vues/include/employe/staffDemandeService.php');
+                     if ($_REQUEST['profil'] == 'commentaire')
+                         require_once('vues/include/employe/commentaire.php');
+                 }else
+                     require_once('vues/include/employe/profil.php');
+
+                ?>
 
                 </div>
              </section>
