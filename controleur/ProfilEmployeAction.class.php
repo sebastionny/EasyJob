@@ -90,10 +90,8 @@ class ProfilEmployeAction implements Action {
 
                     if (in_array($fileExtension, $extention)){
                         $upLoadFileDir = './img/profil/';
-                        var_dump($newFileName);
                         $dest_path = $upLoadFileDir . $newFileName;
                         if (move_uploaded_file($fileTmpPath, $dest_path)){
-                            echo `<h1> UP PHOTO OK</h1>`;
                             $employe->setPhoto($dest_path);
                         }else
                             echo `<h1> Ooops, je peux pas placer le fichier</h1>`;

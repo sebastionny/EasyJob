@@ -10,10 +10,17 @@ class SignInEmployeAction implements Action {
             return "inscriptionEmploye";
         }
 	require_once('modele/CompteDAO.class.php');
-        $udao = new CompteDAO();
+	require_once('modele/EmployeDAO.class.php');
+        $cdao = new CompteDAO();
         $compte=new Compte();
 		
-		$user = $udao->find($_REQUEST["email"]);
+		 $edao = new EmployeDAO();
+        $emp=new Employe();
+		
+		$x=rand(1,100000);
+		$y=rand(1,100000);
+		
+		$user = $cdao->find($_REQUEST["email"]);
 		if ($user != null)
 			{
 				$_REQUEST["field_messages"]["email"] = "l'adresse Courriel est deja Attribué";	
@@ -23,11 +30,30 @@ class SignInEmployeAction implements Action {
 		$compte->setPrenom($_REQUEST["prenom"]);
 		$compte->setMotDePasse($_REQUEST["motPasse"]);
 		$compte->setCourriel($_REQUEST["email"]);
-		$compte->setIdCompte();
+		$compte->setIdCompte($x);
 		$compte->setActive(1);
 		$compte->setEstEmploye(1);
+	    $cdao->create($compte);
 		
-      $udao->create($compte);
+		$emp->setIdEmploye($y);
+		$emp->setIdCompte($x);
+		$emp->setVille("");
+		$emp->setCodePostal("");
+		$emp->setDateNaissance("");
+		$emp->setPhoto("");
+		$emp->setTel("");
+		$emp->setFonction("");
+		$emp->setExperience("");
+		$emp->setQualite("");
+		$emp->setNomRef("");
+		$emp->setTelRef("");
+		$emp->setSexe("");
+		$emp->setAdresse("");
+		$emp->setProvince("");
+		
+		$edao->create($emp);
+		
+		
  return "connection";
     }
     public function valide()

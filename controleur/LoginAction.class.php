@@ -60,19 +60,5 @@ class LoginAction implements Action
         }
         return $result;
     }
-
-  /*  public function verifierEmploye (){
-        $resultE = true;
-        require_once('modele/CompteDAO.class.php');
-        $udao = new CompteDAO();
-        $user = $udao->find($_REQUEST ["username"]);
-        if ($user->getEstEmploye()==1){
-            $resultE = true;
-        }
-        else {
-            $resultE = false;
-        }
-        return $resultE;
-    }*/
 }
 ?>
