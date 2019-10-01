@@ -27,7 +27,7 @@
              <section class="col-md-9 lineCote">
                  <div class="container">
 
-                 <?php require_once('vues/include/resto/profil.php');?>
+                 <?php require_once('vues/include/resto/resto-offres-service.php');?>
 
                 </div>
              </section>
