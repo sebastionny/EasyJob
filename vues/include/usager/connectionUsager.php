@@ -40,7 +40,14 @@
                 <input name="action" value="connecter" type="hidden" />
                 <button type="submit" class="btn btn-primary btn-block"> Suivant  </button>
                     </form>
- <!-- form-group// -->
+ <!-- form-group//
+
+ Salut les amies!!!!!!!
+ asdfasdf
+ asd
+ fasdf
+ asdf
+ -->
 
 
 
