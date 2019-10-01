@@ -1,5 +1,5 @@
 
-<?php require_once('vues/include/headResto.php');
+<?php require_once('vues/include/headTest.php');
 $nom="Amelia";
 $nbreEtoile=4;
 ?>
