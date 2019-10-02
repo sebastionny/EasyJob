@@ -22,7 +22,7 @@
                                             }
                                         }
                                     } else{
-                                        function cherchedDay($dayOk){
+                                        function cherchedDay(){
                                             return "";
                                         }
                                     }
