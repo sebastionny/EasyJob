@@ -22,7 +22,7 @@
                                             }
                                         }
                                     } else{
-                                        function cherchedDay($dayOk){
+                                        function cherchedDay(){
                                             return "";
                                         }
                                     }
@@ -516,18 +516,16 @@
             <?php
         }
 
+        var_dump($_SESSION["infoEmploye"]);
 
-//        for($i = 0; $i < sizeof( $_SESSION["dispo"]); $i++ ){
-//            $horair = array('day'=> $_SESSION["dispo"][$i]->getJour(),
-//                            'hourStart' => $_SESSION["dispo"][$i]->getHeureDebut(),
-//                            'hourEnd' => $_SESSION["dispo"][$i]->getHeureFin());
-//
-//        }
-//
-//        $json = json_encode($horair);
-//        $file = 'dispo.json';
-//        file_put_contents($file, $json);
 
+        $horair = array('nom'=> $_SESSION["infoCompte"]->getNom(),
+                        'prenom' => $_SESSION["infoCompte"]->getPrenom(),
+                        'dateNai' => $_SESSION["infoEmploye"]->getDateNaissance());
+        $json = json_encode($horair);
+
+        $file = './js/user/compte.json';
+        file_put_contents($file, $json);
 
     }
     ?>

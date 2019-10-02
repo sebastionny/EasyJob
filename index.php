@@ -14,7 +14,7 @@ else
 $vue = $action->execute();
 //hello assia
 // On affiche la page (vues)
-//include_once('vues/restoEvaluation.php');
+//include_once('vues/restoEvaluation.php'); SALUT
 include_once('vues/'.$vue.'.php');
 
 ?>

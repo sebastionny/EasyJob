@@ -1,5 +1,4 @@
 
-<html lang="en">
     <?php require_once('vues/include/headTest.php'); ?>
 
          <div class="container-fluid space100 ">
@@ -38,4 +37,3 @@
          
 
 <?php     require_once('vues/include/footer.php'); ?>
-</html>
