@@ -5,10 +5,6 @@
 
          <div class="row">
              <div class="col-md-3">
-             <img src="img/pp.jpg" alt="Profil de ..." class="img-thumbnail profil ">
-
-             <form class="space30 fontCenter">
-                <div class="form-group">
                     <input type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
                 <button type="submit" class="btn btn-primary ">Changer </button>
