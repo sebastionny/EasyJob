@@ -515,18 +515,6 @@
             </script>
             <?php
         }
-
-        var_dump($_SESSION["infoEmploye"]);
-
-
-        $horair = array('nom'=> $_SESSION["infoCompte"]->getNom(),
-                        'prenom' => $_SESSION["infoCompte"]->getPrenom(),
-                        'dateNai' => $_SESSION["infoEmploye"]->getDateNaissance());
-        $json = json_encode($horair);
-
-        $file = './js/user/compte.json';
-        file_put_contents($file, $json);
-
     }
     ?>
 

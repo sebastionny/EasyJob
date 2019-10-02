@@ -1,1 +1,18 @@
-{"nom":"sebas","prenom":"resto","dateNai":"2019-08-04"}
+[
+    {
+        "nomReto": "BABY ALEGRIAS",
+        "adresse": "",
+        "province": "ontario",
+        "ville": "laval",
+        "codePostal": "",
+        "tel": "5360200",
+        "description": ""
+    },
+    {
+        "nom": "Garzon",
+        "prenom": "Amparo",
+        "courriel": "am@taller.com",
+        "motDePasse": "123",
+        "telCompte": ""
+    }
+]
