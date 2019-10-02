@@ -33,6 +33,33 @@ class RestaurantDAO {
             }             
             return NULL;
     }
+
+    public static function findByIdEmployeur($id)
+    {
+            $db = Database::getInstance();
+            try {
+                $pstmt = $db->prepare("SELECT * FROM restaurant WHERE idEmployeur = :x");
+                $pstmt->execute(array(':x' => $id));
+
+                $result = $pstmt->fetch(PDO::FETCH_OBJ);
+
+                if ($result)
+                {
+					$r = new Restaurant();
+					$r->loadFromObject($result);
+					$pstmt->closeCursor();
+					$pstmt = NULL;
+					Database::close();
+					return $r;
+                }
+                $pstmt->closeCursor();
+                $pstmt = NULL;
+                Database::close();
+            }
+            catch (PDOException $ex){
+            }
+            return NULL;
+    }
     public static function findAll()
     {
             $db = Database::getInstance();

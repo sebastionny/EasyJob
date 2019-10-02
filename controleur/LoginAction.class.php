@@ -4,6 +4,7 @@ require_once('modele/CompteDAO.class.php');
 require_once('modele/DisponibiliteDAO.class.php');
 require_once('modele/EmployeDAO.class.php');
 require_once('modele/EmployeurDAO.class.php');
+require_once('modele/RestaurantDAO.class.php');
 class LoginAction implements Action
 {
     public function execute()
@@ -43,11 +44,15 @@ class LoginAction implements Action
                 return "profilEmploye";
             } else {
                 $_REQUEST ["estEmploye"] = false;
-                $empDAO     = new EmployeurDAO();
-                $objEmplo   = $empDAO->find($user->getIdCompte());
+                $DAOEmployeur     = new EmployeurDAO();
+                $DAOResto   = new RestaurantDAO();
+
+                $objEmployeur   = $DAOEmployeur->findByIdCommpte($user->getIdCompte());
+                $objResto   = $DAOResto->findByIdEmployeur($objEmployeur->getIdEmployeur());
                 $_SESSION["infoCompte"]  = $user;
-                $_SESSION["infoEmployeur"] = $objEmplo;
-                
+                $_SESSION["infoEmployeur"] = $objEmployeur;
+                $_SESSION["infoResto"] = $objResto;
+                $this->makeJson();
                 return "profilResto";
             }
     }
@@ -65,6 +70,29 @@ class LoginAction implements Action
             $result = false;
         }
         return $result;
+    }
+
+    public function makeJson(){
+
+        $restoCompte = array([
+            'nomReto'   => $_SESSION["infoResto"]->getNomRest(),
+            'adresse'   => $_SESSION["infoResto"]->getAdresseRest(),
+            'province'  => $_SESSION["infoResto"]->getProvinceRest(),
+            'ville'     => $_SESSION["infoResto"]->getVilleRest(),
+            'codePostal' => $_SESSION["infoResto"]->getCodePostalRest(),
+            'tel'       => $_SESSION["infoResto"]->getTelRest(),
+            'description' => $_SESSION["infoResto"]->getDescRest()],
+
+            [ 'nom'       => $_SESSION["infoCompte"]->getNom(),
+            'prenom'    => $_SESSION["infoCompte"]->getPrenom(),
+            'courriel'  => $_SESSION["infoCompte"]->getCourriel(),
+            'motDePasse'=> $_SESSION["infoCompte"]->getmotDePasse(),
+            'telCompte' => $_SESSION["infoEmployeur"]->getTel()]
+        );
+        $json = json_encode($restoCompte, JSON_PRETTY_PRINT);
+
+        $file = './js/user/compte.json';
+        file_put_contents($file, $json);
     }
 }
 ?>
