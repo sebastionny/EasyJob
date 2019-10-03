@@ -10,6 +10,8 @@ class Employeur{
     private $tel;
     //private $adresse;
     private $idCompte;
+
+
     //constructeur
   /*  function __construct($idEmployeur, $photo, $tel, $idCompte) {
         $this->idEmployeur = $idEmployeur;
@@ -22,6 +24,7 @@ class Employeur{
     function getIdEmployeur() {
         return $this->idEmployeur;
     }
+
     function getIdCompte() {
         return $this->idCompte;
     }

@@ -41,18 +41,32 @@
                         </div>
                         <?php
                     } else {
-                        ?>
-            <nav class="navbar  fixed-top  navbar-expand-lg  navbar-light ">
-                <a class="navbar-brand" href="?">
-                    <img src="./img/logo.jpg"  width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-                            <a class="nav-link btn login" href="?action=profilEmploye"> Mon Profil <?= $_SESSION["connected"]; ?>  </a>
-                            <a class="nav-link btn login"  href="?action=logout">Me déconnecter</a>
-                        </div>
-                        <?php
+
+                        if($_SESSION['infoCompte']->getEstEmploye() == 0){ ?>
+                            <nav class="navbar  fixed-top  navbar-expand-lg  navbar-light ">
+                                <a class="navbar-brand" href="?">
+                                    <img src="./img/logo.jpg"  width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                                            <a class="nav-link btn login activeLine" href="?action=demandeService"> Demander un service <?= $_SESSION["connected"]; ?>  </a>
+                                            <a class="nav-link btn login" href="?action=profilResto"> Mon Profil <?= $_SESSION["connected"]; ?>  </a>
+                                            <a class="nav-link btn login"  href="?action=logout">Me déconnecter</a>
+                                        </div>
+                        <?php }else{ ?>
+                            <nav class="navbar  fixed-top  navbar-expand-lg  navbar-light ">
+                                <a class="navbar-brand" href="?">
+                                    <img src="./img/logo.jpg"  width = "200px " class="d-inline-block align-top img-fluid" alt="Logotype EasyJob"></a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                        <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                                        <a class="nav-link btn login" href="?action=profilEmploye"> Mon Profil <?= $_SESSION["connected"]; ?>  </a>
+                                            <a class="nav-link btn login"  href="?action=logout">Me déconnecter</a>
+                                        </div>
+                            
+                        <?php }
                     }
                 }
                 else {

@@ -5,6 +5,8 @@ require_once('./controleur/SignInRestoAction.class.php');
 require_once('./controleur/SignInEmployeAction.class.php');
 require_once('./controleur/LogoutAction.class.php');
 require_once('./controleur/ProfilEmployeAction.class.php');
+require_once('./controleur/ProfilEmployeurAction.class.php');
+require_once('./controleur/DemadeServiceAction.class.php');
 
 class ActionBuilder{
     public static function getAction($nomAction){
@@ -24,6 +26,12 @@ class ActionBuilder{
                 break;
             case "profilEmploye":
                 return new ProfilEmployeAction();
+                break;
+            case "profilResto":
+                return new ProfilEmployeurAction();
+                break;
+            case "demandeService":
+                return new DemadeServiceAction();
                 break;
             default :
                 return new DefaultAction();
