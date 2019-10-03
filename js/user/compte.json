@@ -1,1 +1,18 @@
-{"nom":"sebas","prenom":"resto","dateNai":"2019-08-04"}
+[
+    {
+        "nomReto": "Tacos avec sushi!!",
+        "adresse": "",
+        "province": "",
+        "ville": "",
+        "codePostal": "",
+        "tel": "",
+        "description": ""
+    },
+    {
+        "nom": "Fernandez",
+        "prenom": "Amelia",
+        "courriel": "tacos@taller.com",
+        "motDePasse": "123",
+        "telCompte": ""
+    }
+]
