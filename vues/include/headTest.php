@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="./img/favicon.png" sizes="32x32">
     <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="js/script.js"></script>
     <link href="./css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -1,17 +1,17 @@
 [
     {
-        "nomReto": "BABY ALEGRIAS",
+        "nomReto": "Sushi",
         "adresse": "",
-        "province": "ontario",
-        "ville": "laval",
+        "province": "",
+        "ville": "",
         "codePostal": "",
-        "tel": "5360200",
+        "tel": "",
         "description": ""
     },
     {
-        "nom": "Garzon",
-        "prenom": "Amparo",
-        "courriel": "am@taller.com",
+        "nom": "Bernardes",
+        "prenom": "Amelia",
+        "courriel": "ame.bernardes@gmail.com",
         "motDePasse": "123",
         "telCompte": ""
     }
