@@ -1,0 +1,18 @@
+[
+    {
+        "nomReto": "Coucous ",
+        "adresse": "",
+        "province": "",
+        "ville": "",
+        "codePostal": "",
+        "tel": "",
+        "description": ""
+    },
+    {
+        "nom": "me",
+        "prenom": "me",
+        "courriel": "me@taller.com",
+        "motDePasse": "123",
+        "telCompte": ""
+    }
+]
