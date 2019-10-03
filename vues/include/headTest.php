@@ -50,7 +50,7 @@
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-                                            <a class="nav-link btn login" href="?action=profilResto"> Faire Offre <?= $_SESSION["connected"]; ?>  </a>
+                                            <a class="nav-link btn login activeLine" href="?action=demandeService"> Demander un service <?= $_SESSION["connected"]; ?>  </a>
                                             <a class="nav-link btn login" href="?action=profilResto"> Mon Profil <?= $_SESSION["connected"]; ?>  </a>
                                             <a class="nav-link btn login"  href="?action=logout">Me déconnecter</a>
                                         </div>
