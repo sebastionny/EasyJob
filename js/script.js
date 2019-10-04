@@ -1,4 +1,6 @@
-function _(id){ return document.getElementById(id); }
+function _(id){
+    return document.getElementById(id);
+}
 function submitForm(){
     _("mybtn").disabled = true;
     _("status").innerHTML = 'Veuillez patienter ...';
