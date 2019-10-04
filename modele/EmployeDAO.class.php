@@ -111,7 +111,7 @@ class EmployeDAO {
                                             ':s' => $employe->getSexe(),
                                             ':ic' => $employe->getIdCompte()));
                                             
-                    
+                    var_dump($n);
                 $pstmt->closeCursor();
                 $pstmt = NULL;
                 Database::close();

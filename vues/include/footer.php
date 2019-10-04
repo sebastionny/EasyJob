@@ -17,9 +17,9 @@
                     <ul>
                         <li> <a href="#">Offrir mes services</a></li>
                         <li> <a href="#">Publier une offre de service</a></li>
-                        <li> <a href="#">Me connecter</a></li>
-                        <i class="fab fa-facebook"></i>
-                        <i class="fab fa-instagram"></i>
+                        <li> <a href="?action=contactUs"> Contactez-nous </a> </li>
+                        <a href="https://www.facebook.com"> <i class="fab fa-facebook"> </i></a>
+                        <a href="https://www.instagram.com"> <i class="fab fa-instagram" "></i></a>
 
                     </ul>
             </div>
