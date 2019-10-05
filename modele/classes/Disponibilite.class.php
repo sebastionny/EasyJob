@@ -2,7 +2,7 @@
 /**
  * Description of DisponibilitE
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Am?lia, Assia et S?bastien
  */
 class Disponibilite{
     private $idDispo;

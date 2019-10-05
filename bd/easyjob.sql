@@ -1,20 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1
--- http://www.phpmyadmin.net
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
 --
--- Client :  localhost
--- Généré le :  Sam 21 Septembre 2019 à 10:28
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Hôte : localhost:3306
+-- Généré le :  sam. 05 oct. 2019 à 01:25
+-- Version du serveur :  5.7.23
+-- Version de PHP :  7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `easyjob`
@@ -51,15 +45,18 @@ CREATE TABLE `compte` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `compte`
+-- Déchargement des données de la table `compte`
 --
 
 INSERT INTO `compte` (`idCompte`, `nom`, `prenom`, `motDePasse`, `courriel`, `active`, `estEmploye`) VALUES
-(1, 'elbarchaoui', 'meryem', 'mery84', 'mery84@gmail.com', 1, 0),
-(2, 'ousliman', 'ismail', 'ismail70', 'ismail70@gmail.com', 1, 1),
-(7698, 'elbarchaoui', 'meryem', 'mery84', 'mery85@gmail.com', 1, 0),
-(3828, 'ffffe', 'fewefeww', 'qqq', 'ffew@hth', 1, 0),
-(7262, 'qqqqqqqqqqq', 'qqqqqqqqqqqqq', 'ffffff', 'qqqqqqqqq@ffffff', 1, 1);
+(40738, 'em3', 'em3', '123', 'em3@mail.com', 1, 1),
+(66682, 'resto', 'resto', '123', 're@mail.com', 1, 0),
+(23136, 'em2', 'em2', '123', 'em2@mail.com', 1, 1),
+(59110, 'em1', 'em1', '123', 'em1@mail.com', 1, 1),
+(36560, 'Mendez', 'Sebastian', '123', 'q@mail.com', 1, 1),
+(3430, 'qq', 'qq', '123', 'qq@taller.com', 1, 1),
+(80647, 'em', 'em', '123', 'em@mail.com', 1, 1),
+(4356, 'res', 'res', '123', 'res@mail.com', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -74,6 +71,20 @@ CREATE TABLE `disponibilite` (
   `idEmploye` int(40) NOT NULL,
   `idDispo` int(40) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `disponibilite`
+--
+
+INSERT INTO `disponibilite` (`jour`, `heureDebut`, `heureFin`, `idEmploye`, `idDispo`) VALUES
+('mardi', 0, 24, 14360, 69539),
+('lundi', 0, 24, 14360, 81802),
+('mardi', 0, 24, 10239, 9377),
+('lundi', 0, 24, 10239, 45233),
+('mercredi', 6, 18, 14360, 21464),
+('jeudi', 22, 24, 14360, 80727),
+('vendredi', 22, 24, 14360, 13421),
+('dimache', 0, 24, 14360, 86092);
 
 -- --------------------------------------------------------
 
@@ -99,6 +110,17 @@ CREATE TABLE `employe` (
   `codePostal` varchar(7) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `employe`
+--
+
+INSERT INTO `employe` (`idEmploye`, `sexe`, `dateNaissance`, `photo`, `tel`, `fonction`, `experience`, `qualite`, `nomRef`, `telRef`, `idCompte`, `adresse`, `province`, `ville`, `codePostal`) VALUES
+(222, '', '2019-10-01', '', '', '', 0, '', '', '', 4356, '', '', 'laval', ''),
+(10239, 'h', '2019-10-01', 'img/profil/10239.png', '536 0200', 'Plongeur', 0, 'Sebasitna TIene Hambre  Experience mois', 'ffff', '456456', 36560, '8810 8e av', 'quebec', 'montreal', 'h1q-2y1'),
+(14360, 'h', '1987-03-02', 'img/profil/14360.jpg', '438 828 4554', 'Cuisinier', 5, 'Cuisinier Experience  Information de Mois : mois', 'Amparo Garzon', '234 567 8909', 59110, '8810 8av', 'ontario', 'laval', 'hhhgf'),
+(75349, '', '2019-10-05', '', '', '', 0, '', '', '', 23136, '', '', '', ''),
+(50154, '', '2019-10-05', '', '', '', 0, '', '', '', 40738, '', '', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -111,6 +133,14 @@ CREATE TABLE `employeur` (
   `tel` varchar(20) NOT NULL,
   `idCompte` int(40) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `employeur`
+--
+
+INSERT INTO `employeur` (`idEmployeur`, `photo`, `tel`, `idCompte`) VALUES
+(49379, '', '', 66682),
+(97802, '', '', 4356);
 
 -- --------------------------------------------------------
 
@@ -129,6 +159,16 @@ CREATE TABLE `restaurant` (
   `villeRest` varchar(10) NOT NULL,
   `codePostalRest` varchar(7) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `restaurant`
+--
+
+INSERT INTO `restaurant` (`idRest`, `nomRest`, `adresseRest`, `telRest`, `descRest`, `idEmployeur`, `provinceRest`, `villeRest`, `codePostalRest`) VALUES
+(1, 'tacos', '34', '45465457', 'bon', 1, 'quebec', 'montreal', 'h4t6t6'),
+(71940, 'Sushi', '', '', '', 51404, '', '', ''),
+(94523, 'res Restau', '', '', '', 97802, 'quebec', 'laval', ''),
+(30444, 'Resto', '', '', '', 49379, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -151,7 +191,7 @@ CREATE TABLE `service` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -202,7 +242,3 @@ ALTER TABLE `restaurant`
 ALTER TABLE `service`
   ADD PRIMARY KEY (`idService`),
   ADD KEY `fk_service_idEmp` (`idEmployeur`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -152,7 +152,7 @@
 
                     <script type="text/javascript">
                         function info(){
-                            fetch('./js/user/compte.json')
+                            fetch('js/user/compte.json')
                                 .then(reponse => {
                                     return reponse.json()
                                 })

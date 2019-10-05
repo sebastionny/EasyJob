@@ -1,6 +1,6 @@
 
 <html lang="en">
-<?php     require_once('./vues/include/headTest.php'); ?>
+<?php     require_once('vues/include/headTest.php'); ?>
 <body>
 <div class="container-fluid space100">
     <div class="row">
@@ -45,5 +45,5 @@
 </div>
 
 </body>
-<?php     require_once('./vues/include/footer.php'); ?>
+<?php     require_once('vues/include/footer.php'); ?>
 </html>

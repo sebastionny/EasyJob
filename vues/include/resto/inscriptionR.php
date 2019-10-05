@@ -9,9 +9,9 @@
 	$mp="";
 	$mp1="";
 	$nr="";
-    if (ISSET($_REQUEST["nom"]))
-    $n = $_REQUEST["nom"];
 
+if (ISSET($_REQUEST["nom"]))
+    $n = $_REQUEST["nom"];
  if (ISSET($_REQUEST["prenom"]))
     $p = $_REQUEST["prenom"];
  if (ISSET($_REQUEST["email"]))

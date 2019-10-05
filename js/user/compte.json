@@ -1,0 +1,18 @@
+[
+    {
+        "nomReto": "Resto",
+        "adresse": "",
+        "province": "",
+        "ville": "",
+        "codePostal": "",
+        "tel": "",
+        "description": ""
+    },
+    {
+        "nom": "resto",
+        "prenom": "resto",
+        "courriel": "re@mail.com",
+        "motDePasse": "123",
+        "telCompte": ""
+    }
+]

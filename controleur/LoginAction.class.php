@@ -37,8 +37,9 @@ class LoginAction implements Action
                 $objEmplo   = $empDAO->findByIdCompte($user->getIdCompte());
                 $_SESSION["infoCompte"]  = $user;
                 $_SESSION["infoEmploye"] = $objEmplo;
+                $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
                 if(isset($_SESSION["dispo"])){
-                    $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
+                    //$_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
                 }
                 // ------------------- fin
                 return "profilEmploye";
@@ -91,7 +92,7 @@ class LoginAction implements Action
         );
         $json = json_encode($restoCompte, JSON_PRETTY_PRINT);
 
-        $file = './js/user/compte.json';
+        $file = 'js/user/compte.json';
         file_put_contents($file, $json);
     }
 }

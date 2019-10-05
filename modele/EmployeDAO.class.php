@@ -2,7 +2,7 @@
 /**
  * Description of EmployeDAO.class
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Amï¿½lia, Assia et Sï¿½bastien
  */
 include_once('classes/Database.class.php');
 include_once('classes/Employe.class.php');
@@ -34,7 +34,7 @@ class EmployeDAO {
             return NULL;
     }
 
-//    Cette function returne lobjet employer cherché par Id de compte
+//    Cette function returne lobjet employer cherchï¿½ par Id de compte
 
     public static function findByIdCompte($idComp)
     {
@@ -110,8 +110,7 @@ class EmployeDAO {
                                             ':cp' => $employe->getCodePostal(),
                                             ':s' => $employe->getSexe(),
                                             ':ic' => $employe->getIdCompte()));
-                                            
-                    var_dump($n);
+
                 $pstmt->closeCursor();
                 $pstmt = NULL;
                 Database::close();

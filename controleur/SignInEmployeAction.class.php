@@ -14,7 +14,7 @@ class SignInEmployeAction implements Action {
         $cdao = new CompteDAO();
         $compte=new Compte();
 		
-		 $edao = new EmployeDAO();
+        $edao = new EmployeDAO();
         $emp=new Employe();
 		
 		$x=rand(1,100000);
@@ -39,11 +39,11 @@ class SignInEmployeAction implements Action {
 		$emp->setIdCompte($x);
 		$emp->setVille("");
 		$emp->setCodePostal("");
-		$emp->setDateNaissance("");
+		$emp->setDateNaissance(date("Y-m-d"));
 		$emp->setPhoto("");
 		$emp->setTel("");
 		$emp->setFonction("");
-		$emp->setExperience("");
+		$emp->setExperience(0);
 		$emp->setQualite("");
 		$emp->setNomRef("");
 		$emp->setTelRef("");
