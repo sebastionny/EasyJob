@@ -2,7 +2,7 @@
 </div>
     <footer>
         <div class="row font2 color1">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <img src="./img/Logo-White.png" alt="EasyJob">
                 <p class="space30">© Droits d'auteur 2019 EasyJob</p>
             </div>
@@ -13,13 +13,13 @@
                     <li> <a href="#">À propos de nous</a></li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                     <ul>
                         <li> <a href="#">Offrir mes services</a></li>
                         <li> <a href="#">Publier une offre de service</a></li>
                         <li> <a href="?action=contactUs"> Contactez-nous </a> </li>
-                        <a href="https://www.facebook.com"> <i class="fab fa-facebook"> </i></a>
-                        <a href="https://www.instagram.com"> <i class="fab fa-instagram" "></i></a>
+                        <a class="nonFonde" href="https://www.facebook.com"> <i class="fab fa-facebook"> </i></a>
+                        <a class="nonFonde" href="https://www.instagram.com"> <i class="fab fa-instagram" "></i></a>
 
                     </ul>
             </div>

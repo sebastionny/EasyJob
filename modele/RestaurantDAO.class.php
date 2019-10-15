@@ -2,7 +2,7 @@
 /**
  * Description of RestaurantDAO.class
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Amï¿½lia, Assia et Sï¿½bastien
  */
 include_once('classes/Database.class.php');
 include_once('classes/Restaurant.class.php');

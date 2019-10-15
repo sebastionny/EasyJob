@@ -100,9 +100,11 @@ class ProfilEmployeAction implements Action {
                 }
             }
 
-            $_SESSION["infoCompte"]  = $DAOCompte->findById($_SESSION["infoCompte"]->getIdCompte());
-            $_SESSION["infoEmploye"]  = $eDAO->find($employe->getIdEmploye());
-            $_SESSION["dispo"]  = $disDAO->findEmploye($employe->getIdEmploye());
+            
+             $_SESSION["infoCompte"]  = $DAOCompte->findById($_SESSION["infoCompte"]->getIdCompte());
+             $_SESSION["infoEmploye"]  = $eDAO->find($employe->getIdEmploye());
+             $_SESSION["dispo"]  = $disDAO->findEmploye($employe->getIdEmploye());
+            
             return "profilEmploye";
 
         } else{
@@ -130,7 +132,7 @@ class ProfilEmployeAction implements Action {
                 $dObj->setHeureFin($hd[1]);
                 $dObj->setIdEmploye($objEmplo->getIdEmploye());
                 $disDAO->create($dObj);
-                $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
+                $_SESSION["dispo"]  = $dObj;
             }
 
         }

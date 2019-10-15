@@ -300,6 +300,12 @@ footer ul a:hover{
     border-radius: 3px 8px 2px 8px;
 }
 
+footer ul .nonFonde:hover{
+    color: #fff;
+    padding: 8px;
+    background: none;
+}
+
 footer i { font-size: 30px;
     margin: 10px;}
 

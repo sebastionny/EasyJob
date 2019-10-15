@@ -2,7 +2,8 @@
 <div class="container-fluid space100 ">
     <div class="row">
         <div class="col-md-3">
-                <?php
+            <div class="fixed">
+            <?php
                 if (!ISSET($_SESSION)) session_start();
                 if (ISSET($_SESSION["connected"])) {
                     ?>
@@ -37,6 +38,7 @@
                     <a href="?action=profilResto&profil=commentaire" class="btn btn-line1 btn-block color1 <?=$activeCommentaire?>"> Mes commentaires</a>
                     <a href="?action=logout" class="btn btn-line1 btn-block color1"> Me  déconnecter</a>
                 </div>
+            </div>
         </div>
         <section class="col-md-9 lineCote">
             <div class="container">

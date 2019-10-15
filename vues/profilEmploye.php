@@ -23,7 +23,6 @@
 
                      <?php }else {  ?>
                          <img src="<?=$_SESSION['infoEmploye']->getPhoto()?>" alt="<?=$_SESSION['infoCompte']->getPrenom()?>" class="img-thumbnail profil ">
-
                      <?php }
                      $activeService = $activeCommentaire = $active = '';
                      if (isset($_REQUEST['profil'])){
