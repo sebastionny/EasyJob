@@ -1,7 +1,7 @@
 <html lang="en">
     <?php     require_once('vues/include/headTest.php'); ?>
     <div class="container-fluid ">
-            <div class="banner">
+            <div class="banner2">
 
                     <div class="row">
                             <div class="col-md-6">
@@ -11,8 +11,8 @@
                                     <div class="form-group input-group">
                                         <h4 class="font2 color1">
                                             <img src="./img/xHover.png")>Enregistrer vos informations<br/><br/>
-                                            <img src="./img/xHover.png")>Décrivez votre éxperiences et enregistrez vos disponibilités<br/><br/>
-                                            <img src="./img/xHover.png")>Voila nous allons vous envoyer des offres de service
+                                            <img src="./img/xHover.png")>Décrire vos éxperiences et enregistrer vos disponibilités<br/><br/>
+                                            <img src="./img/xHover.png")>Voilà nous allons vous envoyer des offres de service
                                         </h4>
                                     </div>
 
@@ -26,5 +26,6 @@
                 </div>
         </div>
 </div>
-
+    </div>
 <?php     require_once('vues/include/footer.php'); ?>
+</html>>

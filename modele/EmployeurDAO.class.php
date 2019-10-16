@@ -33,6 +33,32 @@ class EmployeurDAO {
             }             
             return NULL;
     }
+    public static function findByIdCommpte($id)
+    {
+        $db = Database::getInstance();
+        try {
+            $pstmt = $db->prepare("SELECT * FROM employeur WHERE idCompte = :x");
+            $pstmt->execute(array(':x' => $id));
+
+            $result = $pstmt->fetch(PDO::FETCH_OBJ);
+
+            if ($result)
+            {
+                $e = new Employeur();
+                $e->loadFromObject($result);
+                $pstmt->closeCursor();
+                $pstmt = NULL;
+                Database::close();
+                return $e;
+            }
+            $pstmt->closeCursor();
+            $pstmt = NULL;
+            Database::close();
+        }
+        catch (PDOException $ex){
+        }
+        return NULL;
+    }
     public static function findAll()
     {
             $db = Database::getInstance();

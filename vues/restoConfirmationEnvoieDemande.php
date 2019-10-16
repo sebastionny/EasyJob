@@ -1,6 +1,6 @@
 <?php
       $trouve=23;
-    require_once('vues/include/headResto.php'); ?>
+    require_once('vues/include/headTest.php'); ?>
 
 	 <div class="container " >
 	    <div class="row space100">
@@ -14,7 +14,7 @@
                  <div class="row">
                      <a class=" col-sm-5 btn btn-lg btn-outline-primary btn-line font1 fontGrand3" href="#" > Modifier la Recherche</a>
                      <div class="col-sm-2"></div>
-                     <a class=" col-sm-5 btn btn-lg btn-primary font1 fontGrand3" href="#"> OUI Envoyer a Tous</a>
+                     <a class=" col-sm-5 btn btn-lg btn-primary font1 fontGrand3" href="#"> OUI Envoyer à Tous</a>
                  </div>
 
             </div >

@@ -1,5 +1,5 @@
- <h3 class="color1">Créer votre compte</h3> 
-                    <h4 class="color1">Je veux travailler dans la restauration</h4> 
+<h3 class="color1">Créer votre compte</h3>
+<h4 class="color1">Je cherche une offre</h4>
 <?php  if (ISSET($_REQUEST["global_message"]))
     $msg="<span class=\"warningMessage\">".$_REQUEST["global_message"]."</span>";
     $n ="";
@@ -71,6 +71,6 @@ if (ISSET($_REQUEST["motPasse1"]))
     </div> <!-- form-group// --> 
     <div class="form-group">
 	<input name="action" value="singInEmploye" type="hidden" />
-        <button type="submit" class="btn btn-primary btn-lg font1"> Suivant  </button>
+        <button type="submit" class="btn btn-primary btn-lg font1"> S'INSCRIRE  </button>
     </div> <!-- form-group// -->   
 </form>

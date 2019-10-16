@@ -1,41 +1,61 @@
-
-<html lang="en">
-    <?php require_once('vues/include/headTest.php'); ?>
-
-         <div class="container-fluid space100 ">
-
-         <div class="row">
-             <div class="col-md-3">
-             <img src="img/pp.jpg" alt="Profil de ..." class="img-thumbnail profil ">
-
-             <form class="space30 fontCenter">
-                <div class="form-group">
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+<?php require_once('vues/include/headTest.php'); ?>
+<div class="container-fluid space100 ">
+    <div class="row">
+        <div class="col-md-3">
+                <?php
+                if (!ISSET($_SESSION)) session_start();
+                if (ISSET($_SESSION["connected"])) {
+                    ?>
+                    <div class="profil">
+                        <img src="<?=$_SESSION['infoEmployeur']->getPhoto()?>" alt="<?=$_SESSION['infoCompte']->getPrenom()?>" class="img-fluid ">
+                    </div>
+                    <form action="" method="post" enctype="multipart/form-data" class="space30 fontCenter">
+                        <div class="form-group">
+                            <input type="file" class="form-control-file" name="photoProfilFile">
+                        </div>
+                        <button type="submit" class="btn btn-primary " name="uploadBtn" value="photoProfil">MODIFIER </button>
+                    </form>
+                <?php
+                    }else
+                        {
+                        ?>
+                    <img src="<?=$_SESSION['infoEmployeur']->getPhoto()?>" alt="<?=$_SESSION['infoCompte']->getPrenom()?>" class="img-thumbnail profil ">
+                <?php
+                        }
+                $activeService = $activeCommentaire = $active = '';
+                if (isset($_REQUEST['profil'])){
+                    if ($_REQUEST['profil'] == 'mesService')
+                        $activeService = 'activeLine';
+                    if ($_REQUEST['profil'] == 'commentaire')
+                        $activeCommentaire = 'activeLine';
+                       }else
+                    $active = 'activeLine';
+                ?>
+                <div class="space100 font2 fontGrand3 ">
+                    <a href="?action=profilResto" class="btn btn-line1 btn-block color1 <?=$active?>"> MON PROFIL</a>
+                    <a href="?action=profilResto&profil=mesService" class="btn btn-line1 btn-block color1 <?=$activeService?>">CHOISIR MES EMPLOYÉS</a>
+                    <a href="?action=profilResto&profil=commentaire" class="btn btn-line1 btn-block color1 <?=$activeCommentaire?>"> MES COMMENTAIRES</a>
+                    <a href="?action=logout" class="btn btn-line1 btn-block color1"> ME DÉCONNECTER</a>
                 </div>
-                <button type="submit" class="btn btn-primary ">Changer </button>
-            </form>
+        </div>
+        <section class="col-md-9 lineCote">
+            <div class="container">
+                <?php
+                if (!ISSET($_SESSION)) session_start();
+                if (isset($_REQUEST['profil'])){
+                    if ($_REQUEST['profil'] == 'mesService')
+                        require_once('restoChoisir.php');
+                   if ($_REQUEST['profil'] == 'commentaire')
+                        require_once('restoCommentaire.php');
+                    if ($_REQUEST['profil'] == 'demande')
+                        require_once('service.php');
+                }else
+                   require_once('vues/include/resto/profil.php');
+                ?>
+            </div>
+        </section>
 
-            <div class="space100 font2 fontGrand3 ">
-                <a href="#" class="btn btn-line1 btn-block color1 activeLine"> Mon Profil</a>
-                <a href="#" class="btn btn-line1 btn-block color1"> Choisir mes employés</a>
-                <a href="#" class="btn btn-line1 btn-block color1"> Mes offres de service</a>
-                <a href="#" class="btn btn-line1 btn-block color1"> Mes commentaires</a>
-                <a href="#" class="btn btn-line1 btn-block color1"> Me  déconnecter</a>
-            </div>   
-             </div>
-
-             <section class="col-md-9 lineCote">
-                 <div class="container">
-
-                 <?php require_once('vues/include/resto/resto-offres-service.php');?>
-
-                </div>
-             </section>
-
-         </div>
-         </div>
+    </div>
 </div>
-         
 
 <?php     require_once('vues/include/footer.php'); ?>
-</html>

@@ -33,15 +33,15 @@ class ProfilEmployeAction implements Action {
                 {   return "profilEmploye";}
                 else {
                     $employe->setFonction($_REQUEST["fonction"]);
-                    $employe->setQualite($_REQUEST["quantiter"]);
-                    $employe->setQualite($_REQUEST["description"] . ' Experience ' . $_REQUEST["experience"]);
+                    $employe->setExperience($_REQUEST["experience"]);
+                    $employe->setQualite($_REQUEST["description"] . ' Experience ' .' Information de Mois : ' . $_REQUEST["quantiter"]);
                     $eDAO->update($employe);
                 }
             }
 
             if (isset($_REQUEST['mesReference'])){
                 if (!$this->valideInfoCompte(2))
-                {   return "profilEmploye";}
+                {   return "profilEmploye";  }
                 else {
                     $employe->setNomRef($_REQUEST["nomRef"]);
                     $employe->setTelRef($_REQUEST["telRef"]);
@@ -73,12 +73,9 @@ class ProfilEmployeAction implements Action {
             }
 
             if (isset($_REQUEST['uploadBtn'])){
-
                 if ($this->valideInfoCompte(4))
-                {
-                    return "profilEmploye";}
+                { return "profilEmploye";}
                 else {
-
                     $fileTmpPath = $_FILES['photoProfilFile']['tmp_name'];
                     $fileName = $_FILES['photoProfilFile']['name'];
                     $fileSize = $_FILES['photoProfilFile']['size'];
@@ -89,7 +86,7 @@ class ProfilEmployeAction implements Action {
                     $extention =  array('jpg', 'gif' , 'png');
 
                     if (in_array($fileExtension, $extention)){
-                        $upLoadFileDir = './img/profil/';
+                        $upLoadFileDir = 'img/profil/';
                         $dest_path = $upLoadFileDir . $newFileName;
                         if (move_uploaded_file($fileTmpPath, $dest_path)){
                             $employe->setPhoto($dest_path);
@@ -120,13 +117,14 @@ class ProfilEmployeAction implements Action {
         if (ISSET($_REQUEST ["jours"])) {
             $days = $_REQUEST ["jours"];
             $hours = $_REQUEST["tabHeure"];
-
             $empDAO = new EmployeDAO();
             $objEmplo = $empDAO->findByIdCompte($_SESSION["infoCompte"]->getidCompte());
             for ($i = 0; $i < sizeof($days); $i++) {
                 $d = $this->today($days[$i]);
                 $hd = $this->hourStartEnd($hours[$days[$i]]);
                 $dObj = new Disponibilite();
+                $idRandom = rand(1,100000);
+                $dObj->setIdDispo($idRandom);
                 $dObj->setJour($d);
                 $dObj->setHeureDebut($hd[0]);
                 $dObj->setHeureFin($hd[1]);
@@ -134,6 +132,7 @@ class ProfilEmployeAction implements Action {
                 $disDAO->create($dObj);
                 $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
             }
+
         }
     }
 
@@ -160,28 +159,29 @@ class ProfilEmployeAction implements Action {
     public function valideInfoCompte($section){
         $result = true;
         switch ($section){
-
             case 1:
-                if(!isset($_REQUEST['fonction']) || !isset($_REQUEST['quantiter'])  || !isset($_REQUEST['experience']) ){
+                if(ISSET($_REQUEST['fonction']) == NULL|| ISSET($_REQUEST['quantiter']) == NULL  || ISSET($_REQUEST['description']) == NULL ){
                     $_REQUEST["field_messages"]["mesExp"] = "Il faut choisir la fonction et la quantité de mois ou années d'expérience.";
                     $result = false;
-                }
-                return $result;
+                } break;
+
             case 2:
-                if(!isset($_REQUEST['telRef']) || !isset($_REQUEST['nomRef'])){
+                if( ($_REQUEST['telRef'] == "") || $_REQUEST['nomRef'] == "") {
+                    $_REQUEST ["field_messages"] ["mesRef"] = "Il faut ajouter minumum 1 référence";
                     $result = false;
-                }
+                }break;
+
             case 3:
                 if(  !isset($_REQUEST['nom']) || !isset($_REQUEST['prenom'])  || !isset($_REQUEST['courriel'])  ||
                      !isset($_REQUEST['motDePasse']) || !isset($_REQUEST['sexeSelect'])  || !isset($_REQUEST['dateNaissance'])  ||
                      !isset($_REQUEST['tel']) || !isset($_REQUEST['adresse'])  || !isset($_REQUEST['provice'])  ||
                      !isset($_REQUEST['ville']) || !isset($_REQUEST['codePostal']) ){
                     $result = false;
-                }
+                }break;
             case 4:
-                if(isset($_FILES['photoProfilFile']) && $_FILES['photoProfilFile']['error'] === UPLOAD_ERR_OK){
+                if( isset($_FILES['photoProfilFile']) && $_FILES['photoProfilFile']['error'] === UPLOAD_ERR_OK){
                     $result = false;
-                }
+                }break;
         }
         return $result;
     }

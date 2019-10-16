@@ -2,7 +2,7 @@
 /**
  * Description of EmployE
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Am?lia, Assia et S?bastien
  */
 class Employe{
     private $idEmploye;

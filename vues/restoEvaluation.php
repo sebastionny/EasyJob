@@ -1,5 +1,5 @@
 
-<?php require_once('vues/include/headResto.php');
+<?php require_once('vues/include/headTest.php');
 $nom="Amelia";
 $nbreEtoile=4;
 ?>
@@ -11,15 +11,16 @@ $nbreEtoile=4;
                 <div class="form-group">
                     <input type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
-                <button type="submit" class="btn btn-primary ">Changer </button>
+                <button type="submit" class="btn btn-primary ">MODIFIER </button>
             </form>
             <div class="space100 font2 fontGrand3 ">
-                <a href="#" class="btn btn-line1 btn-block color1"> Mon Profil</a>
-                <a href="#" class="btn btn-line1 btn-block color1"> Mes services</a>
-                <a href="#" class="btn btn-line1 btn-block color1 activeLine"> Mes employés</a>
-                <a href="#" class="btn btn-line1 btn-block color1"> Mes commentaires</a>
-                <a href="#" class="btn btn-line1 btn-block color1"> Me  déconnecter</a>
+                <a href="#" class="btn btn-line1 btn-block color1 ">MON PROFIL</a>
+                <a href="#" class="btn btn-line1 btn-block color1"> MES SERVICES</a>
+                <a href="#" class="btn btn-line1 btn-block color1 activeLine"> MES EMPLOYÉS</a>
+                <a href="#" class="btn btn-line1 btn-block color1 ">MES COMMENTAIRES</a>
+                <a href="#" class="btn btn-line1 btn-block color1"> ME DÉCONNECTER</a>
             </div>
+
         </div>
         <section class="col-md-9 lineCote">
             <div class="container">

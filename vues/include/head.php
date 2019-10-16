@@ -28,9 +28,9 @@
                     
                     <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                         
-                                <a class="nav-link btn btn-primary btn-lg" href="?action=SingInResto">Trouver un employé</a>
-                                <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=SingInEmploye">Offrir mes services</a>
-                                <a class="nav-link btn login" href="?action=connecter" ">ME CONECTER</a>
+                                <a class="nav-link btn btn-primary btn-lg" href="?action=SingInResto">TROUVER UN EMPLOYÉ</a>
+                                <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=SingInEmploye">OFFRIR MES SERVICES</a>
+                                <a class="nav-link btn login" href="?action=connecter" ">ME CONNECTER</a>
 
 
                     </div>

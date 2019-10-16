@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col space30 pb-3">
-        <h3 class="font1 fontGrand1 color2">Mes Commentaires</h3>
+        <h3 class="font1 fontGrand1 color2">MES COMMENTAIRES</h3>
         <h5 class="font1" > Vous etes Cote a </h5>
 
         <div class="font1 fontGrand4">
@@ -91,7 +91,7 @@
                     <div class="col-sm-6"> </div>
                     <div class="col-sm-6">
                         <div class="float-right space30">
-                            <button type="submit" class="btn  btn-line font1" > Suivant</button>
+                            <button type="submit" class="btn  btn-line font1" > ENVOYER</button>
                         </div>
                     </div>
 

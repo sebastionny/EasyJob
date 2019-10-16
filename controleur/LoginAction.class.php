@@ -31,14 +31,15 @@ class LoginAction implements Action
             if ($user->getEstEmploye() == 1) {
                 $_REQUEST["estEmploye"] = true;
 
-                //---- Il aide a chargé la disponibilité si il y a.
+                //---- Il aide a charg� la disponibilit� si il y a.
                 $disDAO     = new DisponibiliteDAO();
                 $empDAO     = new EmployeDAO();
                 $objEmplo   = $empDAO->findByIdCompte($user->getIdCompte());
                 $_SESSION["infoCompte"]  = $user;
                 $_SESSION["infoEmploye"] = $objEmplo;
+                $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
                 if(isset($_SESSION["dispo"])){
-                    $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
+                    //$_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
                 }
                 // ------------------- fin
                 return "profilEmploye";
@@ -74,7 +75,7 @@ class LoginAction implements Action
 
     public function makeJson(){
 
-        $restoCompte = array([
+     /*   $restoCompte = array([
             'nomReto'   => $_SESSION["infoResto"]->getNomRest(),
             'adresse'   => $_SESSION["infoResto"]->getAdresseRest(),
             'province'  => $_SESSION["infoResto"]->getProvinceRest(),
@@ -83,7 +84,7 @@ class LoginAction implements Action
             'tel'       => $_SESSION["infoResto"]->getTelRest(),
             'description' => $_SESSION["infoResto"]->getDescRest()],
 
-            ['nom'       => $_SESSION["infoCompte"]->getNom(),
+            [ 'nom'       => $_SESSION["infoCompte"]->getNom(),
             'prenom'    => $_SESSION["infoCompte"]->getPrenom(),
             'courriel'  => $_SESSION["infoCompte"]->getCourriel(),
             'motDePasse'=> $_SESSION["infoCompte"]->getmotDePasse(),
@@ -91,8 +92,8 @@ class LoginAction implements Action
         );
         $json = json_encode($restoCompte, JSON_PRETTY_PRINT);
 
-        $file = './js/user/compte.json';
-        file_put_contents($file, $json);
+        $file = 'js/user/compte.json';
+        file_put_contents($file, $json);*/
     }
 }
 ?>

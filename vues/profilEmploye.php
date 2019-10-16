@@ -18,7 +18,7 @@
                              <div class="form-group">
                                  <input type="file" class="form-control-file" name="photoProfilFile">
                              </div>
-                             <button type="submit" class="btn btn-primary " name="uploadBtn" value="photoProfil">Changer </button>
+                             <button type="submit" class="btn btn-primary " name="uploadBtn" value="photoProfil">MODIFIER </button>
                          </form>
 
                      <?php }else {  ?>
@@ -36,10 +36,10 @@
                      ?>
 
                     <div class="space100 font2 fontGrand3 ">
-                        <a href="?action=profilEmploye" class="btn btn-line1 btn-block color1 <?=$active?>"> Mon Profil</a>
-                        <a href="?action=profilEmploye&profil=mesService" class="btn btn-line1 btn-block color1 <?=$activeService?>"> Mes services</a>
-                        <a href="?action=profilEmploye&profil=commentaire" class="btn btn-line1 btn-block color1 <?=$activeCommentaire?>"> Mes commentaires</a>
-                        <a href="?action=logout" class="btn btn-line1 btn-block color1"> Me  déconnecter</a>
+                        <a href="?action=profilEmploye" class="btn btn-line1 btn-block color1 <?=$active?>"> MON PROFIL</a>
+                        <a href="?action=profilEmploye&profil=mesService" class="btn btn-line1 btn-block color1 <?=$activeService?>"> MES SERVICES</a>
+                        <a href="?action=profilEmploye&profil=commentaire" class="btn btn-line1 btn-block color1 <?=$activeCommentaire?>"> MES COMMENTAIRES</a>
+                        <a href="?action=logout" class="btn btn-line1 btn-block color1"> ME DÉCONNECTER</a>
                     </div>
                  </div>
              </div>

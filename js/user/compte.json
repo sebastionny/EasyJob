@@ -1,6 +1,6 @@
 [
     {
-        "nomReto": "Tacos avec sushi!!",
+        "nomReto": "Resto",
         "adresse": "",
         "province": "",
         "ville": "",
@@ -9,9 +9,9 @@
         "description": ""
     },
     {
-        "nom": "Fernandez",
-        "prenom": "Amelia",
-        "courriel": "tacos@taller.com",
+        "nom": "resto",
+        "prenom": "resto",
+        "courriel": "re@mail.com",
         "motDePasse": "123",
         "telCompte": ""
     }

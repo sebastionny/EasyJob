@@ -61,9 +61,6 @@ body{
 .fontCenter{text-align: center;}
 .fontRigth{text-align: right;}
 
-
-
-/*****************************************************************************************************mery css*/
 /**banner*/
 .banner2{
     background: url(../img/buffet2.jpg) no-repeat;
@@ -111,17 +108,6 @@ body{
     background-color: #ee3168;
     border-color: #ee3168;
 }
-
-/*****************************************************************************************************mery css*/
-
-/* Style personalisé sur le    MENU */
-
-
-
-
-
-/* Style personalisé sur le    MENU */
-
 
 nav{
     background-color: #fff;
@@ -351,15 +337,6 @@ section.col-md-9  .rounded:hover  {
     padding: 20px;
 }
 
-
-
-
-
-
-
-
-
-
 @media (max-width: 1200px) {
     legend {
         font-size: calc(1.275rem + 0.3vw);
@@ -431,5 +408,11 @@ section.col-md-9  .rounded:hover  {
     }
 
 }
-
-
+/**************css sur le fieldset de formulaire connectionUsager by Mery*******************************************/
+fieldset {
+    padding:0 30px 30px 30px;
+    margin-bottom:10px;
+    border:1px solid white;
+    width: 310px;
+}
+/**************css sur le fieldset de formulaire connectionUsager by Mery*******************************************/

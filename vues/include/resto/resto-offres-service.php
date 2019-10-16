@@ -139,10 +139,10 @@
                     </div>
                 <div class="form-group">
                    <label for="desc">Description de service</label>
-                   <textarea class="form-control" id="desc" rows="3" placeholder="Ici vous faite une bref déscription de votre service"></textarea>
+                    <textarea class="form-control" id="desc" rows="3" placeholder="Une brève description de votre service"></textarea>
                  </div>
                  <div class="form-group">
-                 <input type="submit" class="btn btn-primary btn-lg"  value="Chercher" />
+                 <input type="submit" class="btn btn-primary btn-lg"  value="CHERCHER" />
                  </div>
                         
 </form>
