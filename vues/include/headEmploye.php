@@ -34,9 +34,9 @@
                     
                     <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                         
-                                <a class="nav-link btn btn-primary btn-lg" href="#">Postuler une offre</a>
-                                <a class="nav-link btn login" href="#">Mon Profil</a>
-                                <a class="nav-link btn login" onclick="loadDoc()" href="?action=logout">Me déconnecter</a>
+                                <a class="nav-link btn btn-primary btn-lg" href="#">POSTULER UNE OFFRE</a>
+                                <a class="nav-link btn login" href="#">MON PROFIL</a>
+                                <a class="nav-link btn login" onclick="loadDoc()" href="?action=logout">ME DÉCONNECTER</a>
 
                     </div>
             </nav>

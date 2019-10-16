@@ -1,6 +1,7 @@
 <!--Formulaire-->
-<h3 class="color1">Créer votre compte</h3> 
-<h4 class="color1">Je possède un restaurant</h4>   
+<h3 class="color1">Créer votre compte</h3>
+<h4 class="color1">J'ai un restaurant</h4>
+
 <?php  if (ISSET($_REQUEST["global_message"]))
     $msg="<span class=\"warningMessage\">".$_REQUEST["global_message"]."</span>";
     $n ="";
@@ -90,7 +91,7 @@ if (ISSET($_REQUEST["nomResto"]))
     </div> <!-- form-group// -->                                        
     <div class="form-group">
 	<input name="action" value="singInResto" type="hidden" />
-        <button type="submit" class="btn btn-primary btn-lg font1"> Suivant  </button>
+        <button type="submit" class="btn btn-primary btn-lg font1"> S'INSCRIRE </button>
     </div> <!-- form-group// -->   
     
                                                          

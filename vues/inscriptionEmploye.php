@@ -10,8 +10,8 @@
                                     <div class="form-group input-group">
                                         <h4 class="font2 color1">
                                             <img src="./img/xHover.png")>Enregistrer vos informations<br/><br/>
-                                            <img src="./img/xHover.png")>Décrivez votre éxperiences et enregistrez vos disponibilités<br/><br/>
-                                            <img src="./img/xHover.png")>Voila nous allons vous envoyer des offres de service
+                                            <img src="./img/xHover.png")>Décrire vos éxperiences et enregistrer vos disponibilités<br/><br/>
+                                            <img src="./img/xHover.png")>Voilà nous allons vous envoyer des offres de service
                                         </h4>
                                     </div>
 

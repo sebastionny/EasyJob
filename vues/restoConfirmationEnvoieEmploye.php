@@ -12,9 +12,10 @@
                      <div class="col-md-8 space100 " >
                         <h4 class="font1 fontGrand2 color2"> Bonjour </h4>
                          <div class="font2 fontGrand4 ">
-                            <p> Un Couriel avec Les Cordonnées de votre employé vous a été envoyé ! </p>
-                            <p> Veuillez le Contacter Dés Maintenent  </p>
-                            <p> N'oubliez pas que vous Pouvez Toujours Accepter un Autre Profil </p>
+
+                            <p> Un courriel avec toutes les informations de votre employé a été envoyé ! </p>
+                            <p> Veuillez le contacter dés maintenent  </p>
+                            <p> N'oubliez pas que vous pouvez toujours accepter un autre profil </p>
                          </div>
                     </div >
                 </div>

@@ -447,5 +447,11 @@ section.col-md-9  .rounded:hover  {
     }
 
 }
-
-
+/**************css sur le fieldset de formulaire connectionUsager by Mery*******************************************/
+fieldset {
+    padding:0 30px 30px 30px;
+    margin-bottom:10px;
+    border:1px solid white;
+    width: 310px;
+}
+/**************css sur le fieldset de formulaire connectionUsager by Mery*******************************************/

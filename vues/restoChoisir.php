@@ -103,7 +103,7 @@ $nbreEtoile=4;
                                                 <p class="font2">Je plus de 7 ans d'expérience comme serveuse. Je parle plusieurs langues </p>
                                                 <hr color="white">
                                                 <div class="float-md-right">
-                                                    <button type="submit" class="btn btn-outline-primary btn-lg btn-line1 font1" > REFUSER</button>
+                                                    <button type="submit" class="btn btn-outline-primary btn-lg btn-line1 font1" > REFFUSER</button>
                                                     <button type="submit" class="btn btn-primary btn-lg font1 "> ACCEPTER</button>
                                                 </div>
                                             </div>
