@@ -142,10 +142,11 @@
                    <textarea class="form-control" id="desc" rows="3" placeholder="Ici vous faite une bref déscription de votre service"></textarea>
                  </div>
                  <div class="form-group">
+                 <input name="action" value="lanceService" type="hidden" />
                  <input type="submit" class="btn btn-primary btn-lg"  value="Chercher" />
                  </div>
                         
-</form>
+        </form>
 
                 </div>
         </div>

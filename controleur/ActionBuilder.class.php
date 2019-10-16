@@ -7,8 +7,9 @@ require_once('controleur/LogoutAction.class.php');
 require_once('controleur/ProfilEmployeAction.class.php');
 require_once('controleur/ProfilEmployeurAction.class.php');
 require_once('controleur/DemadeServiceAction.class.php');
-require_once('controleur/DemadeServiceAction.class.php');
+require_once('controleur/LanceServiceAction.class.php');
 require_once('controleur/ContactUsAction.class.php');
+require_once('controleur/ConfirmationEnvoieEmployeAction.class.php');
 class ActionBuilder{
     public static function getAction($nomAction){
         switch ($nomAction)
@@ -34,6 +35,12 @@ class ActionBuilder{
             case "demandeService":
                 return new DemadeServiceAction();
                 break;
+            case "lanceService":
+                return new LanceServiceAction();
+                break;
+            case "restoConfirmationEnvoieEmploye":
+                return new ConfirmationEnvoieEmployeAction();
+                break;    
             case "contactUs":
                 return new ContactUsAction();
                 break;
