@@ -36,8 +36,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-                            <a class="nav-link btn btn-primary btn-lg" href="?action=singInResto"> M'inscrire comme restaurant </a>
-                            <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=singInEmploye">M'inscrire comme Employé</a>
+                            <a class="nav-link btn btn-primary btn-lg" href="?action=singInResto"> M'INSCRIRE COMME RESTAURATEUR </a>
+                            <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=singInEmploye">M'INSCRIRE COMME EMPLOYÉ</a>
                             <a class="nav-link btn login" href="?action=connecter" ">ME CONNECTER</a>
                         </div>
                         <?php
@@ -51,9 +51,9 @@
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-                                            <a class="nav-link btn login activeLine" href="?action=demandeService"> Demander un service <?= $_SESSION["connected"]; ?>  </a>
-                                            <a class="nav-link btn login" href="?action=profilResto"> Mon Profil <?= $_SESSION["connected"]; ?>  </a>
-                                            <a class="nav-link btn login"  href="?action=logout">Me déconnecter</a>
+                                            <a class="nav-link btn login activeLine" href="?action=demandeService"> DEMANDER UN SERVICE <?= $_SESSION["connected"]; ?>  </a>
+                                            <a class="nav-link btn login" href="?action=profilResto"> MON PROFIL <?= $_SESSION["connected"]; ?>  </a>
+                                            <a class="nav-link btn login"  href="?action=logout">ME DÉCONNECTER</a>
                                         </div>
                         <?php }else{ ?>
                             <nav class="navbar  fixed-top  navbar-expand-lg  navbar-light ">
@@ -63,8 +63,8 @@
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-                                        <a class="nav-link btn login" href="?action=profilEmploye"> Mon Profil <?= $_SESSION["connected"]; ?>  </a>
-                                            <a class="nav-link btn login"  href="?action=logout">Me déconnecter</a>
+                                        <a class="nav-link btn login" href="?action=profilEmploye"> MON PROFIL <?= $_SESSION["connected"]; ?>  </a>
+                                            <a class="nav-link btn login"  href="?action=logout">ME DÉCONNECTER</a>
                                         </div>
                             
                         <?php }
@@ -79,8 +79,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-                        <a class="nav-link btn btn-primary btn-lg" href="?action=singInResto"> M'inscrire comme restaurant </a>
-                        <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=singInEmploye">M'inscrire comme Employé</a>
+                        <a class="nav-link btn btn-primary btn-lg" href="?action=singInResto">M'INSCRIRE COMME RESTAURATEUR </a>
+                        <a class="nav-link btn btn-primary  btn-lg btn-line" href="?action=singInEmploye">M'INSCRIRE COMME EMPLOYÉ</a>
                         <a class="nav-link btn login" href="?action=connecter" ">ME CONNECTER</a>
                     </div>
                     <?php

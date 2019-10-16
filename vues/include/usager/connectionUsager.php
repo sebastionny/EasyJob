@@ -34,19 +34,12 @@
     <div class="form-group">
         <div class="row">
 
-            <div class="col-md-5">
-                <input name="action" value="connecter" type="hidden" />
-                <button type="submit" class="btn btn-primary btn-block"> Suivant  </button>
-                    </form>
- <!-- form-group//
+                    <div class="col-md-7">
+                        <input name="action" value="connecter" type="hidden" />
+                        <button type="submit" class="btn btn-primary btn-block"> SE CONNECTER  </button>
 
- Salut les amies!!!!!!!
- asdfasdf
- asd
- fasdf
- asdf
- -->
-
+        </fieldset>
+    </form>
 
 
 </div> </div> </div> </div>

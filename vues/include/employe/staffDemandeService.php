@@ -1,5 +1,5 @@
 <div class="col space30 pb-3">
-    <h3 class="font1 fontGrand1 color2">Demande en attend de repondes</h3>
+    <h3 class="font1 fontGrand1 color2">Demande en attente</h3>
 </div>
 <div class="row resto">
 
