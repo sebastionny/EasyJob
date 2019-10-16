@@ -2,7 +2,7 @@
 /**
  * Description of ServiceDAO.class
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Amï¿½lia, Assia et Sï¿½bastien
  */
 include_once('classes/Database.class.php');
 include_once('classes/Service.class.php');
@@ -58,9 +58,9 @@ class ServiceDAO {
     public static function create($service)
     {
             $db = Database::getInstance();
-			$n = 0;
+            $n = 0;
             try {
-                $pstmt = $db->prepare("INSERT INTO service (idService, typeService, date, heureDebut, heureFin, sexe,remuneration, description, experience, active,idEmployeur)".
+                $pstmt = $db->prepare("INSERT INTO service (idService, typeService, date, heureDebut, heureFin, sexe, remuneration, description, experience, active,idEmployeur)".
                                                   " VALUES (:is,:ts,:d,:hd,:hf,:s,:rh,:de,:e,:a,:ie)");
                 $n = $pstmt->execute(array(':is' => $service->getIdService(),
                                             ':ts' => $service->getTypeService(),
@@ -68,13 +68,12 @@ class ServiceDAO {
                                            ':hd' => $service->getHeureDebut(),
                                             ':hf' => $service->getHeureFin(),
                                             ':s' => $service->getSexe(),
-                                            ':rh' => $service->getRenumeration(),
+                                            ':rh' => $service->getRemuneration(),
                                             ':de' => $service->getDescription(),
                                             ':e' => $service->getExperience(),
-                                             ':a' => $service->getActive(),
+                                            ':a' => $service->getActive(),
                                             ':ie' => $service->getIdEmployeur()));
                                             
-                    
                 $pstmt->closeCursor();
                 $pstmt = NULL;
                 Database::close();
@@ -118,7 +117,7 @@ class ServiceDAO {
                                            ':hd' => $service->getHeureDebut(),
                                             ':hf' => $service->getHeureFin(),
                                             ':s' => $service->getSexe(),
-                                            ':rh' => $service->getRenumeration(),
+                                            ':rh' => $service->getRemuneration(),
                                             ':de' => $service->getDescription(),
                                             ':e' => $service->getExperience(),
                                              ':a' => $service->getActive(),

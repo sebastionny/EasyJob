@@ -2,7 +2,7 @@
 /**
  * Description of Service
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Amï¿½lia, Assia et Sï¿½bastien
  */
 class Service{
     private $idService;
@@ -17,19 +17,25 @@ class Service{
     private $active;
     private $idEmployeur;
     //constructeur
-    function __construct($idService, $typeService, $date, $heureDebut, $heureFin, $sexe, $remuneration, $description, $experience, $active, $idEmployeur) {
-        $this->idService = $idService;
-        $this->typeService = $typeService;
-        $this->date = $date;
-        $this->heureDebut = $heureDebut;
-        $this->heureFin = $heureFin;
-        $this->sexe = $sexe;
-        $this->remuneration = $remuneration;
-        $this->description = $description;
-        $this->experience = $experience;
-        $this->active = $active;
-        $this->idEmployeur = $idEmployeur;
+    // function __construct($idService, $typeService, $date, $heureDebut, $heureFin, $sexe, $remuneration, $description, $experience, $active, $idEmployeur) {
+    //     $this->idService = $idService;
+    //     $this->typeService = $typeService;
+    //     $this->date = $date;
+    //     $this->heureDebut = $heureDebut;
+    //     $this->heureFin = $heureFin;
+    //     $this->sexe = $sexe;
+    //     $this->remuneration = $remuneration;
+    //     $this->description = $description;
+    //     $this->experience = $experience;
+    //     $this->active = $active;
+    //     $this->idEmployeur = $idEmployeur;
+    // }
+
+    function __construct()
+    {
+        
     }
+
     function getIdService() {
         return $this->idService;
     }

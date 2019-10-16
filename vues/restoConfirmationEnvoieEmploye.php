@@ -18,6 +18,7 @@
                          </div>
                     </div >
                 </div>
+                <?php  var_dump($_SESSION['infoService']) ?>
         </div>
     </div> <!-- This DIV closed the container Fluid-->
     <?php     require_once('vues/include/footer.php'); ?>
