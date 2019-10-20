@@ -6,8 +6,8 @@ require_once('controleur/SignInEmployeAction.class.php');
 require_once('controleur/LogoutAction.class.php');
 require_once('controleur/ProfilEmployeAction.class.php');
 require_once('controleur/ProfilEmployeurAction.class.php');
-require_once('controleur/DemadeServiceAction.class.php');
-require_once('controleur/LanceServiceAction.class.php');
+require_once('controleur/ConfirmationServiceAction.class.php');
+require_once('controleur/DemandeServiceAction.class.php');
 require_once('controleur/ContactUsAction.class.php');
 require_once('controleur/ConfirmationEnvoieEmployeAction.class.php');
 class ActionBuilder{
@@ -33,10 +33,10 @@ class ActionBuilder{
                 return new ProfilEmployeurAction();
                 break;
             case "demandeService":
-                return new DemadeServiceAction();
+                return new DemandeServiceAction();
                 break;
-            case "lanceService":
-                return new LanceServiceAction();
+            case "confirmationService":
+                return new ConfirmationServiceAction();
                 break;
             case "restoConfirmationEnvoieEmploye":
                 return new ConfirmationEnvoieEmployeAction();
