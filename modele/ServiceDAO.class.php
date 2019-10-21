@@ -6,6 +6,8 @@
  */
 include_once('classes/Database.class.php');
 include_once('classes/Service.class.php');
+include_once('classes/EmpDispo.class.php');
+
 class ServiceDAO {
     public static function find($id)
     {
@@ -130,4 +132,29 @@ class ServiceDAO {
             }           
 			return $n;			
     }     
+
+
+public static function findDispo($jour,$fonction,$experience,$ville,$Hdebut,$Hfin)
+    {
+           $db = Database::getInstance();
+            $service = Array();
+            try {
+                 $pstmt = $db->prepare("select * from EmpDispo where jour = :x and fonction = :y and experience > :z and ville = :a and heureDebut < :c and heureFin > :d");
+
+                $pstmt->execute(array(':x' => $jour,':y' => $fonction,':z' => $experience,':a' => $ville,':c' => $Hdebut,':d' => $Hfin));                
+                while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
+                {
+                        $s = new EmpDispo();
+                        $s->loadFromObject($result);
+                        array_push($service, $s);
+                }
+                $pstmt->closeCursor();
+                $pstmt = NULL;
+                Database::close();
+            }
+            catch (PDOException $ex){
+            }             
+            return $service;
+    }
+
 }

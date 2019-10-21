@@ -34,7 +34,7 @@ class ProfilEmployeAction implements Action {
                 else {
                     $employe->setFonction($_REQUEST["fonction"]);
                     $employe->setExperience($_REQUEST["experience"]);
-                    $employe->setQualite($_REQUEST["description"] . ' Experience ' .' Information de Mois : ' . $_REQUEST["quantiter"]);
+                    $employe->setQualite($_REQUEST["description"] . ' Experience ' .' Information de Mois : ');
                     $eDAO->update($employe);
                 }
             }
@@ -140,7 +140,7 @@ class ProfilEmployeAction implements Action {
 
 
     public function today($day){
-        $res =  array ("lundi","mardi", "mercredi" , "jeudi" , "vendredi" , "samedi", "dimache");
+        $res =  array ("lundi","mardi", "mercredi" , "jeudi" , "vendredi" , "samedi", "dimanche");
         return $res[$day];
     }
 
@@ -162,7 +162,7 @@ class ProfilEmployeAction implements Action {
         $result = true;
         switch ($section){
             case 1:
-                if(ISSET($_REQUEST['fonction']) == NULL|| ISSET($_REQUEST['quantiter']) == NULL  || ISSET($_REQUEST['description']) == NULL ){
+                if(ISSET($_REQUEST['fonction']) == NULL|| ISSET($_REQUEST['experience']) == NULL  || ISSET($_REQUEST['description']) == NULL ){
                     $_REQUEST["field_messages"]["mesExp"] = "Il faut choisir la fonction et la quantité de mois ou années d'expérience.";
                     $result = false;
                 } break;

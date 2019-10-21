@@ -22,3 +22,7 @@ function submitForm(){
     }
     ajax.send( formdata );
 }
+
+function goBack() {
+  window.history.back();
+}

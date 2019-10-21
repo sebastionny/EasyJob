@@ -31,9 +31,9 @@
                                                 <label for="provinceResto" class="col-md-5 col-form-label">Province</label>
                                                 <div class="col-md-7">
                                                 <select name="provinceResto" id="idProvince" class="form-control">
-                                                    <option value="quebec">Québec</option>
-                                                    <option value="ontario" >Ontario</option>
-                                                    <option value="default">...</option>
+                                                <option value="quebec">Québec</option>
+                                                <option value="ontario">Ontario</option>
+                                                <option value="default">...</option>
                                                 </select>
                                                 </div>
                                             </div>
@@ -43,10 +43,10 @@
                                                 <label for="villeResto" class="col-md-5 col-form-label">Ville</label>
                                                 <div class="col-md-7">
                                                 <select name="villeResto" id="idVille" class="form-control">
-                                                    <option value="montreal">Montréal</option>
-                                                    <option value="laval">Laval</option>
-                                                    <option value="longueil">longueil</option>
-                                                    <option value="default">...</option>
+                                                <option value="montreal">Montréal</option>
+                                                <option value="laval">Laval</option>
+                                                <option value="longueil">Longueil</option>
+                                                <option value="default">...</option>
                                                 </select>
                                                 </div>
                                             </div>

@@ -1,14 +1,28 @@
-<h3 class="color1">Connectez vous </h3>
-<div class="container h-100">
 
-                    <?php
-                    if (ISSET($_REQUEST["global_message"]))
-                        $msg="<span class=\"warningMessage\">".$_REQUEST["global_message"]."</span>";
-                    $u = "";
-                    if (ISSET($_REQUEST["username"]))
-                        $u = $_REQUEST["username"];
+<div class="container h-100">
+    <?php
+    if (ISSET($_REQUEST["global_message"]))
+        $msg="<span class=\"warningMessage\">".$_REQUEST["global_message"]."</span>";
+    $u = "";
+    if (ISSET($_REQUEST["username"]))
+        $u = $_REQUEST["username"];
+    ?>
+    <form action="" method="post">
+        <fieldset>
+            <legend class="color1"> &nbsp;&nbsp;&nbsp;CONNECTEZ VOUS : </legend>
+<br/>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                    <input name="username" class="form-control" type="email" value="<?php echo $u ?>">
+                </div>
+                <div>
+                    <?php if (ISSET($_REQUEST["field_messages"]["username"]))
+                        echo "</br><span class=\"warningMessage\">".$_REQUEST["field_messages"]["username"]."</span>";
                     ?>
-                    <form action="" method="post">
+                </div>
+
+    <form action="" method="post">
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
@@ -40,7 +54,6 @@
 
         </fieldset>
     </form>
-
 
 </div> </div> </div> </div>
 </div>
