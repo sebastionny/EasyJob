@@ -2,11 +2,8 @@
 /**
  * Description of ServiceDAO.class
  *
- * @author Meryem, Am�lia, Assia et S�bastien
+ * @author Meryem, Am�lia, Assia et Sebastian
  */
-include_once('classes/Database.class.php');
-include_once('classes/Service.class.php');
-include_once('classes/EmpDispo.class.php');
 
 class ServiceDAO {
     public static function find($id)

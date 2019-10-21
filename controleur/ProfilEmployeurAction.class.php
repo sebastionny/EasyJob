@@ -1,8 +1,4 @@
 <?php
-require_once('controleur/Action.Interface.php');
-require_once('modele/RestaurantDAO.class.php');
-require_once('modele/EmployeurDAO.class.php');
-require_once('modele/CompteDAO.class.php');
 class ProfilEmployeurAction implements Action {
     public function execute(){
 

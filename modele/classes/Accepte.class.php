@@ -3,7 +3,7 @@
 /**
  * Description of CompteDAO.class
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Amï¿½lia, Assia et Sebastian
  */
 class Accepte{
     private $fait;
@@ -12,14 +12,18 @@ class Accepte{
     private $idService;
     private $idEmploye;
     //constructeur
-    function __construct($fait, $etoile, $commentaire, $idService, $idEmploye) {
+    /*function __construct($fait, $etoile, $commentaire, $idService, $idEmploye) {
        
         $this->fait = $fait;
         $this->etoile = $etoile;
         $this->commentaire = $commentaire;
         $this->idService = $idService;
         $this->idEmploye = $idEmploye;
+    }*/
+
+    function __construct() {
     }
+    
     function getFait() {
         return $this->fait;
     }

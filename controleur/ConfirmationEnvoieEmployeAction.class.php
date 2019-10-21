@@ -1,6 +1,4 @@
 <?php
-require_once('controleur/Action.Interface.php');
-
 class ConfirmationEnvoieEmployeAction implements Action{
     public function execute(){
 

@@ -4,10 +4,7 @@
  *
  * @author Meryem, Amélia, Assia et Sébastien
  */
-/*include_once('classes/Database.class.php');
-include_once('classes/Compte.class.php');*/
-include_once('modele/classes/Database.class.php');
-include_once('modele/classes/Compte.class.php');
+
 class CompteDAO {
     public static function find($courriel)
     {

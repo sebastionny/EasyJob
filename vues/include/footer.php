@@ -10,7 +10,7 @@
                 <ul>
                     <li> <a href="mailto:info@easyjob.com">Nous écrire un courriel</a></li>
                     <li> <a href="tel:4388284554">Nous appeller</a></li>
-                    <li> <a href="#">À propos de nous</a></li>
+                    <li> <a href="?action=default">À propos de nous</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
