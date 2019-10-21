@@ -90,11 +90,11 @@
 
 
                                         <div class="form-group row">
-                                            <label for="dispoDimache" class="col-sm-3 col-form-label">
-                                                <input type="checkbox" class="form-check-input" id="dispoDimache"
-                                                       name="jours[]" value="6" <?=cherchedDay("dimache")  ?>>Dimache</label>
+                                            <label for="dispoDimanche" class="col-sm-3 col-form-label">
+                                                <input type="checkbox" class="form-check-input" id="dispoDimanche"
+                                                       name="jours[]" value="6" <?=cherchedDay("dimanche")  ?>>Dimache</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="rangePrimary"  id="dimache" name="tabHeure[]" value="" />
+                                                <input type="text" class="rangePrimary"  id="dimanche" name="tabHeure[]" value="" />
                                             </div>
                                         </div>
 

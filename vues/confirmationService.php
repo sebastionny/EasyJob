@@ -13,7 +13,7 @@
                 <p class="font2 fontGrand3"> Voulez Vous Envoyer Votre Offre de Service ? </p></h2>
                 <form action="" onsubmit="mailToEmployer()" >
                  <div class="row">
-                     <a class=" col-sm-5 btn btn-lg btn-outline-primary btn-line font1 fontGrand3" href="" onclick="goBack()"> Modifier la Recherche</a>
+                     <a class=" col-sm-5 btn btn-lg btn-outline-primary btn-line font1 fontGrand3" href="?action=demandeService" > Modifier la Recherche</a>
                      <div class="col-sm-2"></div>
                      <input name="sendDemande" type="hidden" />
                      <input name="action" value="confirmationService" type="hidden" />
