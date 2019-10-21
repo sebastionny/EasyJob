@@ -2,7 +2,7 @@
 /**
  * Description of Database.class
  *
- * @author Meryem, Am�lia, Assia et S�bastien
+ * @author Meryem, Am�lia, Assia et Sebastian
  */
 require_once('modele/configs/config.php');
 class Database

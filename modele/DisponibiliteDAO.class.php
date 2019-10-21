@@ -2,10 +2,8 @@
 /**
  * Description of DisponibiliteDAO
  *
- * @author Meryem, Am�lia, Assia et S�bastien
+ * @author Meryem, Am�lia, Assia et Sebastian
  */
-include_once('modele/classes/Database.class.php');
-include_once('modele/classes/Disponibilite.class.php');
 class DisponibiliteDAO {
     public static function find($id)
     {

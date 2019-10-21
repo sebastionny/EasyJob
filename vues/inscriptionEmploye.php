@@ -1,7 +1,6 @@
-<html lang="en">
-    <?php     require_once('vues/include/headTest.php'); ?>
+<?php     require_once('vues/include/headTest.php'); ?>
     <div class="container-fluid ">
-            <div class="banner2">
+            <div class="banner">
 
                     <div class="row">
                             <div class="col-md-6">
@@ -26,6 +25,6 @@
                 </div>
         </div>
 </div>
-    </div>
+</div>
+
 <?php     require_once('vues/include/footer.php'); ?>
-</html>>

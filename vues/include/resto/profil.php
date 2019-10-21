@@ -8,65 +8,68 @@
                             <div class=" justify-content-center">
                                 <div class="col-md-10 offset-md-1 font2">
 
-                                    <?php (new LoginAction)->makeJson() ?>
+                                    <?php (new LoginAction)->makeJson();
+                                    if (ISSET($_REQUEST["field_messages"]["infoResto"]))
+                                    echo "<br/><span class=\"warningMessage\">".$_REQUEST["field_messages"]["infoResto"]."</span>";
+                                    ?>
                                     <form>
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Nom du restaurant</label>
+                                                <label for="nomResto" class="col-md-5 col-form-label">Nom du restaurant</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control" name="nomRest" placeholder="Ex: tacos Amelia" id="idNomRest">
+                                                <input name ="nomResto" type="text" class="form-control" id="idNomRest">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Adresse</label>
+                                                <label for="adresseResto" class="col-md-5 col-form-label">Adresse</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control"  name="adresseRest" id="idAdresse" >
+                                                <input name="adresseResto" type="text" class="form-control" id="idAdresse" >
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Province</label>
+                                                <label for="provinceResto" class="col-md-5 col-form-label">Province</label>
                                                 <div class="col-md-7">
-                                                <select id="idProvince"  name="provinceRest" class="form-control">
-                                                    <option value="quebec">Québec</option>
-                                                    <option value="ontario" >Ontario</option>
-                                                    <option value="default">...</option>
+                                                <select name="provinceResto" id="idProvince" class="form-control">
+                                                <option value="quebec">Québec</option>
+                                                <option value="ontario">Ontario</option>
+                                                <option value="default">...</option>
                                                 </select>
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Ville</label>
+                                                <label for="villeResto" class="col-md-5 col-form-label">Ville</label>
                                                 <div class="col-md-7">
-                                                <select id="idVille"  name="villeRest" class="form-control">
-                                                    <option value="montreal">Montréal</option>
-                                                    <option value="laval">Laval</option>
-                                                    <option value="longueil">longueil</option>
-                                                    <option value="default">...</option>
+                                                <select name="villeResto" id="idVille" class="form-control">
+                                                <option value="montreal">Montréal</option>
+                                                <option value="laval">Laval</option>
+                                                <option value="longueil">Longueil</option>
+                                                <option value="default">...</option>
                                                 </select>
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Code postal</label>
+                                                <label for="codeResto" class="col-md-5 col-form-label">Code postal</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control"  name="codePostalRest" id="idCodePostal">
+                                                <input name="codeResto" max="7" type="text" class="form-control" id="idCodePostal">
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Télephone du resto</label>
+                                                <label for="telResto" class="col-md-5 col-form-label">Télephone du resto</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control" name="telRest" id="idTelRest">
+                                                <input name="telResto" type="text" class="form-control" id="idTelRest">
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Description</label>
+                                                <label for="descResto" class="col-md-5 col-form-label">Description</label>
                                                 <div class="col-md-7">
-                                                <textarea class="form-control"  rows="5"  name="descRest" id="idDescription"></textarea>
+                                                <textarea name="descResto" class="form-control"  rows="5" id="idDescription"></textarea>
                                                 </div>
                                             </div>
 
@@ -74,7 +77,7 @@
                                                 <label for="inputEmail3" class="col-md-5 col-form-label"></label>
                                                 <div class="col-md-7">
                                                     <input name="action" value="profilResto" type="hidden" />
-                                                    <input name="monResto" type="hidden" />
+                                                    <input name="loadInfoResto"  type="hidden" />
                                                     <button type="submit" class="nav-link btn btn-primary ">SAUVEGARDER</button>
                                                 </div>
                                             </div>
@@ -95,50 +98,55 @@
                             <div class=" justify-content-center">
                                 <div class="col-md-10 offset-md-1 font2">
 
+                                <?php
+                                    if (ISSET($_REQUEST["field_messages"]["infoEmployeur"]))
+                                    echo "<br/><span class=\"warningMessage\">".$_REQUEST["field_messages"]["infoEmployeur"]."</span>";
+                                    ?>
+
                                     <form>
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Nom</label>
+                                                <label for="nomEmployeur" class="col-md-5 col-form-label">Nom</label>
                                                 <div class="col-md-7">
-                                                <input type="text" name="nom" class="form-control" id="idNom" >
+                                                <input name="nomEmployeur" type="text" class="form-control" id="idNom" >
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Prénom</label>
+                                                <label for="prenomEmployeur" class="col-md-5 col-form-label">Prénom</label>
                                                 <div class="col-md-7">
-                                                <input type="text" name="prenom" class="form-control" id="idPrenom" >
+                                                <input name = "prenomEmployeur" type="text" class="form-control" id="idPrenom" >
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Courriel</label>
+                                                <label for="courrielEmployeur" class="col-md-5 col-form-label">Courriel</label>
                                                 <div class="col-md-7">
-                                                    <input type="email" class="form-control" id="idCourriel" >
+                                                    <input name="courrielEmployeur" type="email" class="form-control" id="idCourriel" >
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Mot de passe</label>
+                                                <label for="passEmployeur" class="col-md-5 col-form-label">Mot de passe</label>
                                                 <div class="col-md-7">
-                                                <input type="password" class="form-control" name="pwd" id="idMotDePasse" >
+                                                <input name ="passEmployeur" type="password" class="form-control" id="idMotDePasse" >
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Télephone</label>
+                                                <label for="telEmployeur" class="col-md-5 col-form-label">Télephone</label>
                                                 <div class="col-md-7">
-                                                <input type="text" class="form-control" name="tel" id="idTelPer"></div>
+                                                <input name="telEmployeur" type="text" class="form-control" id="idTelPer"></div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-md-5 col-form-label"></label>
                                                 <div class="col-md-7">
                                                     <input name="action" value="profilResto" type="hidden" />
-                                                    <input name="monEmployeur" type="hidden" />
+                                                    <input name="loadInfoCompteResto"  type="hidden" />
                                                     <button type="submit" class="nav-link btn btn-primary ">SAUVEGARDER</button>
                                                 </div>
                                             </div>

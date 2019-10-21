@@ -90,11 +90,11 @@
 
 
                                         <div class="form-group row">
-                                            <label for="dispoDimache" class="col-sm-3 col-form-label">
-                                                <input type="checkbox" class="form-check-input" id="dispoDimache"
-                                                       name="jours[]" value="6" <?=cherchedDay("dimache")  ?>>Dimache</label>
+                                            <label for="dispoDimanche" class="col-sm-3 col-form-label">
+                                                <input type="checkbox" class="form-check-input" id="dispoDimanche"
+                                                       name="jours[]" value="6" <?=cherchedDay("dimanche")  ?>>Dimache</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="rangePrimary"  id="dimache" name="tabHeure[]" value="" />
+                                                <input type="text" class="rangePrimary"  id="dimanche" name="tabHeure[]" value="" />
                                             </div>
                                         </div>
 
@@ -143,46 +143,32 @@
                                                 <label for="inputEmail3" class="col-md-5 col-form-label">Fonction</label>
                                                 <div class="col-md-7">
                                                 <select id="idFoction" class="form-control" name="fonction">
-                                                    <option >Choisir votre poste</option>
                                                     <option >Serveur(se)</option>
                                                     <option >Cuisinier</option>
                                                     <option >Patissiere(ere)</option>
                                                     <option >Service au comptoir</option>
                                                     <option >Plongeur</option>
-                                                    <option >commis entretien </option>
+                                                    <option >Commis entretien </option>
                                                 </select>
                                                 </div>
                                             </div>
                                     
                                             <div class="form-group row">
-                                                <label for="inputEmail3" class="col-md-5 col-form-label">Temps d'expérience</label>
+                                                <label for="inputEmail3" class="col-md-5 col-form-label">Temps d'expérience (mois)</label>
                                                 <div class="col-md-7">
                                                     <div class="row">
                                                         <div class="col-sm-4">
                                                             <select id="idNbr" class="form-control" name="experience" >
-                                                                <?php
-                                                                    for ($i=1; $i < 13 ; $i++){
-                                                                ?>
-                                                                <option value="<?= $i?>"><?= $i?></option>
-                                                                <?php }
-                                                                ?>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="6">6</option>
+                                                                <option value="12">12</option>
+                                                                <option value="18">18</option>
+                                                                <option value="20">Plus</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-8">
-                                                            <div class="col-sm-12">
-                                                                <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="quantiter" id="mois" value="anne" >
-                                                                <label class="form-check-label" for="mois">
-                                                                    année(s)
-                                                                </label>
-                                                                </div>
-                                                                <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="quantiter" id="anne" value="mois" >
-                                                                <label class="form-check-label" for="anne">
-                                                                    mois
-                                                                </label>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 
@@ -209,20 +195,6 @@
 
                                     </form>
 
-                                    <!--<div class="col-sm-12 invFond">
-                                        <h4 >Information enregistrer</h4>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <span class="color2">Fonction: </span> <?/*= $_SESSION['infoEmploye']->getFonction();*/?>
-                                                <span class="color2">Experience: </span> <?/*= $_SESSION['infoEmploye']->getExperience();*/?>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="color2">Descripción</div>
-                                                <p><?/*= $_SESSION['infoEmploye']->getQualite();*/?></p>
-                                            </div>
-
-                                        </div>
-                                    </div>-->
 
                                 </div>
                             </div>
@@ -284,16 +256,6 @@
                                             </div>
                                     </form>
 
-                                    <!--<div class="col-sm-12 invFond">
-                                        <h4 >Information enregistrer</h4>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <span class="color2">Nom: </span> <?/*= $_SESSION['infoEmploye']->getNomRef();*/?>
-                                                <span class="color2">Téléphone: </span> <?/*= $_SESSION['infoEmploye']->getTelRef();*/?>
-                                            </div>
-                                        </div>
-                                    </div>-->
-
                                 </div>
                             </div>
                         </div>
@@ -321,8 +283,8 @@
                                         $code = $_SESSION['infoEmploye']->getCodePostal();
                                     }
                                     ?>
-                                    <?php if (ISSET($_REQUEST["field_messages"]["mesRef"]))
-                                        echo "<br/><span class=\"warningMessage\">".$_REQUEST["field_messages"]["mesRef"]."</span>";
+                                    <?php if (ISSET($_REQUEST["field_messages"]["sendDemande"]))
+                                        echo "<br/><span class=\"warningMessage\">".$_REQUEST["field_messages"]["sendDemande"]."</span>";
                                     ?><br/>
 
                                     <form>
@@ -404,7 +366,7 @@
                                                 <div class="col-md-7">
                                                 <select name="provice" id="idProvince" class="form-control">
                                                     <option value="quebec">Québec</option>
-                                                    <option value="ontario" >Ontario</option>
+                                                    <option value="ontario">Ontario</option>
                                                     <option value="default">...</option>
                                                 </select>
                                                 </div>
@@ -417,7 +379,7 @@
                                                 <select name="ville" id="idVille" class="form-control">
                                                     <option value="montreal">Montréal</option>
                                                     <option value="laval">Laval</option>
-                                                    <option value="longueil">longueil</option>
+                                                    <option value="longueil">Longueil</option>
                                                     <option value="default">...</option>
                                                 </select>
                                                 </div>
@@ -441,34 +403,6 @@
                                             </div>
 
                                     </form>
-
-
-
-                                    <!--<div class="col-sm-12 invFond">
-                                        <h4 >Information enregistrer</h4>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="row">
-                                                    <div class="col-md-6 col-sm-12">
-                                                        <p><span class="color2">Nom: </span> <?/*= $_SESSION["infoCompte"]->getNom() . " ". $_SESSION["infoCompte"]->getPrenom() ;*/?></p>
-                                                        <p><span class="color2"> Sexe: </span> <?/*= $_SESSION['infoEmploye']->getSexe();*/?></p>
-                                                        <p><span class="color2"> Date de naissance: </span> <?/*= $_SESSION['infoEmploye']->getDateNaissance();*/?></p>
-                                                        <p><span class="color2"> Courriel: </span> <?/*= $_SESSION["infoCompte"]->getCourriel();*/?></p>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-12">
-                                                        <p><span class="color2"> Téléphone: </span> <?/*= $_SESSION['infoEmploye']->getTel();*/?></p>
-                                                        <p><span class="color2"> Adresse: </span> <?/*= $_SESSION['infoEmploye']->getAdresse()  . " " . $_SESSION['infoEmploye']->getCodePostal();*/?></p>
-                                                        <p><span class="color2"> Province: </span> <?/*= $_SESSION['infoEmploye']->getProvince();*/?></p>
-                                                        <p><span class="color2"> Ville: </span> <?/*= $_SESSION['infoEmploye']->getVille();*/?></p>
-                                                    </div>
-                                                </div>
-
-
-
-                                            </div>
-
-                                        </div>
-                                    </div>-->
 
                                 </div>
                             </div>
@@ -513,15 +447,15 @@
         values: custom_values
     });
 
-    function checked(){
+    // function checked(){
 
-        if(document.getElementById("mois").checked || document.getElementById("anne").checked)
-            return true;
-        else{
-            alert("Avez-vous oublié coché l'année ou le mois ?");
-            return false;
-        }
-    }
+    //     if(document.getElementById("mois").checked || document.getElementById("anne").checked)
+    //         return true;
+    //     else{
+    //         alert("Avez-vous oublié coché l'année ou le mois ?");
+    //         return false;
+    //     }
+    // }
 
 
 </script>
@@ -557,7 +491,10 @@
             document.getElementById('idDateNaissance').value = "<?=$_SESSION["infoEmploye"]->getDateNaissance() ?>";
         }
         window.onloadstart = lookInfo();
+        
         </script>
+
+
 
 
 

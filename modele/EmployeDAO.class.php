@@ -2,10 +2,9 @@
 /**
  * Description of EmployeDAO.class
  *
- * @author Meryem, Am�lia, Assia et S�bastien
+ * @author Meryem, Am�lia, Assia et Sebastian
  */
-include_once('classes/Database.class.php');
-include_once('classes/Employe.class.php');
+
 class EmployeDAO {
     public static function find($id)
     {

@@ -2,10 +2,9 @@
 /**
  * Description of RestaurantDAO.class
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Amï¿½lia, Assia et Sebastian
  */
-include_once('classes/Database.class.php');
-include_once('classes/Restaurant.class.php');
+
 class RestaurantDAO {
     public static function find($id)
     {

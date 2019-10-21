@@ -1,10 +1,4 @@
 <?php
-require_once('controleur/Action.Interface.php');
-require_once('modele/CompteDAO.class.php');
-require_once('modele/DisponibiliteDAO.class.php');
-require_once('modele/EmployeDAO.class.php');
-require_once('modele/EmployeurDAO.class.php');
-require_once('modele/RestaurantDAO.class.php');
 class LoginAction implements Action
 {
     public function execute()
@@ -75,7 +69,7 @@ class LoginAction implements Action
 
     public function makeJson(){
 
-     /*   $restoCompte = array([
+        $restoCompte = array([
             'nomReto'   => $_SESSION["infoResto"]->getNomRest(),
             'adresse'   => $_SESSION["infoResto"]->getAdresseRest(),
             'province'  => $_SESSION["infoResto"]->getProvinceRest(),
@@ -93,7 +87,7 @@ class LoginAction implements Action
         $json = json_encode($restoCompte, JSON_PRETTY_PRINT);
 
         $file = 'js/user/compte.json';
-        file_put_contents($file, $json);*/
+        file_put_contents($file, $json);
     }
 }
 ?>

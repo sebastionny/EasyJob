@@ -11,7 +11,7 @@ $nbreEtoile=4;
                 <div class="form-group">
                     <input type="file" class="form-control-file" id="exampleFormControlFile1">
                 </div>
-                <button type="submit" class="btn btn-primary ">MODIFIER </button>
+                <button type="submit" class="btn btn-primary ">Changer </button>
             </form>
             <div class="space100 font2 fontGrand3 ">
                 <a href="#" class="btn btn-line1 btn-block color1 ">MON PROFIL</a>
@@ -20,7 +20,6 @@ $nbreEtoile=4;
                 <a href="#" class="btn btn-line1 btn-block color1 ">MES COMMENTAIRES</a>
                 <a href="#" class="btn btn-line1 btn-block color1"> ME DÉCONNECTER</a>
             </div>
-
         </div>
         <section class="col-md-9 lineCote">
             <div class="container">

@@ -1,18 +1,18 @@
 [
     {
-        "nomReto": "Resto",
-        "adresse": "",
-        "province": "",
-        "ville": "",
-        "codePostal": "",
-        "tel": "",
-        "description": ""
+        "nomReto": "Fruits de mer",
+        "adresse": "8890 10e av.",
+        "province": "quebec",
+        "ville": "longueil",
+        "codePostal": "123 546",
+        "tel": "22",
+        "description": "Description du restaurant Fruits de mer"
     },
     {
         "nom": "resto",
         "prenom": "resto",
         "courriel": "re@mail.com",
         "motDePasse": "123",
-        "telCompte": ""
+        "telCompte": "4444"
     }
 ]

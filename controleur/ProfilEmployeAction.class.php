@@ -1,8 +1,4 @@
 <?php
-require_once('controleur/Action.Interface.php');
-require_once('modele/DisponibiliteDAO.class.php');
-require_once('modele/EmployeDAO.class.php');
-require_once('modele/CompteDAO.class.php');
 class ProfilEmployeAction implements Action {
     public function execute(){
 
@@ -34,7 +30,7 @@ class ProfilEmployeAction implements Action {
                 else {
                     $employe->setFonction($_REQUEST["fonction"]);
                     $employe->setExperience($_REQUEST["experience"]);
-                    $employe->setQualite($_REQUEST["description"] . ' Experience ' .' Information de Mois : ' . $_REQUEST["quantiter"]);
+                    $employe->setQualite($_REQUEST["description"] . ' Experience ' .' Information de Mois : ');
                     $eDAO->update($employe);
                 }
             }
@@ -100,9 +96,11 @@ class ProfilEmployeAction implements Action {
                 }
             }
 
-            $_SESSION["infoCompte"]  = $DAOCompte->findById($_SESSION["infoCompte"]->getIdCompte());
-            $_SESSION["infoEmploye"]  = $eDAO->find($employe->getIdEmploye());
-            $_SESSION["dispo"]  = $disDAO->findEmploye($employe->getIdEmploye());
+            
+             $_SESSION["infoCompte"]  = $DAOCompte->findById($_SESSION["infoCompte"]->getIdCompte());
+             $_SESSION["infoEmploye"]  = $eDAO->find($employe->getIdEmploye());
+             $_SESSION["dispo"]  = $disDAO->findEmploye($employe->getIdEmploye());
+            
             return "profilEmploye";
 
         } else{
@@ -130,7 +128,7 @@ class ProfilEmployeAction implements Action {
                 $dObj->setHeureFin($hd[1]);
                 $dObj->setIdEmploye($objEmplo->getIdEmploye());
                 $disDAO->create($dObj);
-                $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
+                $_SESSION["dispo"]  = $dObj;
             }
 
         }
@@ -138,7 +136,7 @@ class ProfilEmployeAction implements Action {
 
 
     public function today($day){
-        $res =  array ("lundi","mardi", "mercredi" , "jeudi" , "vendredi" , "samedi", "dimache");
+        $res =  array ("lundi","mardi", "mercredi" , "jeudi" , "vendredi" , "samedi", "dimanche");
         return $res[$day];
     }
 
@@ -160,7 +158,7 @@ class ProfilEmployeAction implements Action {
         $result = true;
         switch ($section){
             case 1:
-                if(ISSET($_REQUEST['fonction']) == NULL|| ISSET($_REQUEST['quantiter']) == NULL  || ISSET($_REQUEST['description']) == NULL ){
+                if(ISSET($_REQUEST['fonction']) == NULL|| ISSET($_REQUEST['experience']) == NULL  || ISSET($_REQUEST['description']) == NULL ){
                     $_REQUEST["field_messages"]["mesExp"] = "Il faut choisir la fonction et la quantité de mois ou années d'expérience.";
                     $result = false;
                 } break;

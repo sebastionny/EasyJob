@@ -1,7 +1,7 @@
 
  <?php require_once('vues/include/headTest.php'); ?>
 
-       <div class="banner">
+       <div class="bannerHome">
                 <div class="row">
                     <div class="col-col-md-5 offset-md-7">
 
