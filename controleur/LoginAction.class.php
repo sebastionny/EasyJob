@@ -1,10 +1,4 @@
 <?php
-require_once('controleur/Action.Interface.php');
-require_once('modele/CompteDAO.class.php');
-require_once('modele/DisponibiliteDAO.class.php');
-require_once('modele/EmployeDAO.class.php');
-require_once('modele/EmployeurDAO.class.php');
-require_once('modele/RestaurantDAO.class.php');
 class LoginAction implements Action
 {
     public function execute()

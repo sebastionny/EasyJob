@@ -2,10 +2,9 @@
 /**
  * Description of AccepteDAO.class
  *
- * @author Meryem, Amélia, Assia et Sébastien
+ * @author Meryem, Amï¿½lia, Assia et Sebastian
  */
-include_once('classes/Database.class.php');
-include_once('classes/Accepte.class.php');
+
 class AccepteDAO {
     public static function find($idE,$idS)
     {

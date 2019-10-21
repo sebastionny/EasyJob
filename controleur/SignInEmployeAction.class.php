@@ -1,5 +1,4 @@
 <?php
-require_once('controleur/Action.Interface.php');
 class SignInEmployeAction implements Action {
     public function execute(){
      if (!ISSET($_REQUEST["nom"]))
@@ -9,8 +8,7 @@ class SignInEmployeAction implements Action {
             //$_REQUEST["global_message"] = "Le formulaire contient des erreurs. Veuillez les corriger.";
             return "inscriptionEmploye";
         }
-	require_once('modele/CompteDAO.class.php');
-	require_once('modele/EmployeDAO.class.php');
+	
         $cdao = new CompteDAO();
         $compte=new Compte();
 		

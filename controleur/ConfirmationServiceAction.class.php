@@ -1,6 +1,4 @@
 <?php
-require_once('controleur/Action.Interface.php');
-require_once('modele/ServiceDAO.class.php');
 
 class ConfirmationServiceAction implements Action{
     public function execute(){
@@ -43,35 +41,14 @@ class ConfirmationServiceAction implements Action{
                                 Voici l\'information qui corresponde au service : 
                             </p>
                         </div>
-
-
-                        <div class="block-grid mixed-two-up" style="min-width: 320px; max-width: 700px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
-                            <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-
-                                <div class="col num4" style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 232px; width: 233px;">
-                            <div style="width:100% !important;">
-
-                            <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
-
-                            <div text-align="center" class="button-container" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-                            
+                        <div>
                             <a style="color: red" href="https://tallern.com/clientes/easyjob?action=profilEmploye">
-                            <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/btnOffre.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 350px; display: block;" title="Image" width="350">
+                                <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/btnOffre.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 350px; display: block;" title="Image" width="350">
                             </a>
+                        </div>
 
-                            </div>
 
-                            </div>
-
-                            </div>
-                            </div>
-
-                            <div class="col num8" style="display: table-cell; vertical-align: top; min-width: 320px; max-width: 464px; width: 466px;">
-                            <div style="width:100% !important;">
-
-                            <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
-
-                            <div style="font-size: 12px; line-height: 18px; font-family: "Montserrat", "Trebuchet MS", Tahoma,  Tahoma, sans-serif; color: #41133c;">
+                        <div style="font-size: 12px; line-height: 18px; font-family: "Montserrat", "Trebuchet MS", Tahoma,  Tahoma, sans-serif; color: #41133c;">
                             
                             <p><strong>
                                 <span style="line-height: 45px; font-size: 30px;">'
@@ -101,15 +78,8 @@ class ConfirmationServiceAction implements Action{
                             
                             </p>
 
-                            </div>
-
-                            </div>
-
-                            </div>
-                            </div>
-
-                            </div>
                         </div>
+ 
                         <div style=" margin-top: 25px; margin-bottom: 25px;" >
 
                             <p style="font-size: 14px; line-height: 24px; text-align: left; margin: 0;">

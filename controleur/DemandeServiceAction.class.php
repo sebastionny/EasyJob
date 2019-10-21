@@ -1,10 +1,4 @@
 <?php
-require_once('controleur/Action.Interface.php');
-require_once('modele/ServiceDAO.class.php');
-require_once('modele/EmployeDAO.class.php');
-require_once('modele/CompteDAO.class.php');
-
-
 class DemandeServiceAction implements Action{
     public function execute(){
 

@@ -2,7 +2,7 @@
 /**
  * Description of Service
  *
- * @author Meryem, Am�lia, Assia et S�bastien
+ * @author Meryem, Am�lia, Assia et Sebastian
  */
 class Service{
     private $idService;
