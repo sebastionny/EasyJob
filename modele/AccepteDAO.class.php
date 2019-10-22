@@ -60,13 +60,13 @@ class AccepteDAO {
 			$n = 0;
             try {
                
-                $pstmt = $db->prepare("INSERT INTO accepte (fait, etoile, commentaire,idService,idEmploye)".
-                                                  " VALUES (:i,:f,:e,:c,:is,:ie)");
-                $n = $pstmt->execute(array(':f' => $accept->getFait(),
-					   ':e' => $accept->getEtoile(),
-                                           ':c' => $accept->getCommentaire(),
-                                            ':is' => $accept->getIdService(),
-                                            ':ie' => $accept->getIdEmploye()));
+                $pstmt = $db->prepare("INSERT INTO accepte (fait, etoile, commentaire,idEmploye,idService)".
+                                                  " VALUES (:f,:e,:c,:ie,:is)");
+                $n = $pstmt->execute(array( ':f' => $accept->getFait(),
+					                        ':e' => $accept->getEtoile(),
+                                            ':c' => $accept->getCommentaire(),
+                                            ':ie' => $accept->getIdEmploye(),
+                                            ':is' => $accept->getIdService()));
                                             
                 
                 $pstmt->closeCursor();

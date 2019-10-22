@@ -5,23 +5,25 @@ class ProfilEmployeAction implements Action {
         if (!ISSET($_SESSION)) session_start();
         if (ISSET($_SESSION["connected"])){
 
-            $disDAO     = new DisponibiliteDAO();
-            $eDAO       = new EmployeDAO();
-            $DAOCompte  = new CompteDAO();
+            $DAODispo     = new DisponibiliteDAO();
+            $DAOEmploye   = new EmployeDAO();
+            $DAOCompte    = new CompteDAO();
+            $DAOService   = new ServiceDAO();
+            $DAOAccepte   = new AccepteDAO();
 
-
-            $employe = $eDAO->findByIdCompte($_SESSION["infoCompte"]->getidCompte());
+           
+            $employe = $DAOEmploye->findByIdCompte($_SESSION["infoCompte"]->getidCompte());
 
             if(ISSET($_SESSION['dispo']) && sizeof($_SESSION['dispo']) != 0 && ISSET($_REQUEST['saveDispo'])) {
 
                 $Employe = $_SESSION['dispo'][0];
 
                 // Il enlève tous les registres de la table disponibilité qui appartient à  l'employé
-                $disDAO->deleteById($Employe->getIdEmploye());
-                $this->dispoNew($disDAO);
+                $DAODispo->deleteById($Employe->getIdEmploye());
+                $this->dispoNew($DAODispo);
 
             } elseif(ISSET($_REQUEST['saveDispo'])) {
-                $this->dispoNew($disDAO);
+                $this->dispoNew($DAODispo);
             }
 
             if (isset($_REQUEST['mesExperiences'])) {
@@ -31,7 +33,7 @@ class ProfilEmployeAction implements Action {
                     $employe->setFonction($_REQUEST["fonction"]);
                     $employe->setExperience($_REQUEST["experience"]);
                     $employe->setQualite($_REQUEST["description"] . ' Experience ' .' Information de Mois : ');
-                    $eDAO->update($employe);
+                    $DAOEmploye->update($employe);
                 }
             }
 
@@ -41,7 +43,7 @@ class ProfilEmployeAction implements Action {
                 else {
                     $employe->setNomRef($_REQUEST["nomRef"]);
                     $employe->setTelRef($_REQUEST["telRef"]);
-                    $eDAO->update($employe);
+                    $DAOEmploye->update($employe);
                 }
             }
 
@@ -64,7 +66,7 @@ class ProfilEmployeAction implements Action {
                     $employe->setCodePostal($_REQUEST["codePostal"]);
 
                     $DAOCompte->update($compte);
-                    $eDAO->update($employe);
+                    $DAOEmploye->update($employe);
                 }
             }
 
@@ -92,14 +94,28 @@ class ProfilEmployeAction implements Action {
                         echo `<h1> Telechergement imposible!</h1>`;
 
                     $employe->setPhoto($upLoadFileDir .$newFileName);
-                    $eDAO->update($employe);
+                    $DAOEmploye->update($employe);
                 }
+            }
+            // Il enregistre met a jour le service acepter
+            if (isset($_REQUEST['idService'])){
+
+                $s = $DAOService->find($_REQUEST['idService']);
+                $a = new Accepte;
+
+                $this->loadAccepte($a);
+                $DAOAccepte->create($a);
+                
+                $this->serviceAccepte($s);
+                $DAOService->update($s);
+                               
             }
 
             
              $_SESSION["infoCompte"]  = $DAOCompte->findById($_SESSION["infoCompte"]->getIdCompte());
-             $_SESSION["infoEmploye"]  = $eDAO->find($employe->getIdEmploye());
-             $_SESSION["dispo"]  = $disDAO->findEmploye($employe->getIdEmploye());
+             $_SESSION["infoEmploye"]  = $DAOEmploye->find($employe->getIdEmploye());
+             $_SESSION["dispo"]  = $DAODispo->findEmploye($employe->getIdEmploye());
+             $_SESSION["Service"]  = $this->loadMesServices($DAOService);
             
             return "profilEmploye";
 
@@ -109,8 +125,21 @@ class ProfilEmployeAction implements Action {
 
     }
 
+    public function loadAccepte($a){
+        
+        $a->setIdEmploye( (int)$_SESSION["infoEmploye"]->getIdEmploye());
+        $a->setIdService( (int)$_REQUEST['idService']);
+        $a->setFait(0);
+        $a->setEtoile(4);
+        $a->setCommentaire("");
+    }
 
-    public function dispoNew($disDAO){
+    public function serviceAccepte($s){
+        $s->setActive(0);
+    }
+
+
+    public function dispoNew($DAODispo){
         $this->valide();
         if (ISSET($_REQUEST ["jours"])) {
             $days = $_REQUEST ["jours"];
@@ -127,7 +156,7 @@ class ProfilEmployeAction implements Action {
                 $dObj->setHeureDebut($hd[0]);
                 $dObj->setHeureFin($hd[1]);
                 $dObj->setIdEmploye($objEmplo->getIdEmploye());
-                $disDAO->create($dObj);
+                $DAODispo->create($dObj);
                 $_SESSION["dispo"]  = $dObj;
             }
 
@@ -182,6 +211,26 @@ class ProfilEmployeAction implements Action {
                 }break;
         }
         return $result;
+    }
+
+    public function loadMesServices($DAO){
+        $fonction   = $_SESSION['infoEmploye']->getFonction();
+        $experience = (int)$_SESSION['infoEmploye']->getExperience();
+        $active     = 1;
+        return $DAO->findServices($fonction, $experience+1 , $active);
+    }
+
+    public static function getJour($date){
+        $d = strtotime($date);
+        switch (date('w', $d)){
+            case 0: return "dimanche"; break;
+            case 1: return "lundi"; break;
+            case 2: return "mardi"; break;
+            case 3: return "mercredi"; break;
+            case 4: return "jeudi"; break;
+            case 5: return "vendredi"; break;
+            case 6: return "samedi"; break;
+        }  
     }
 
 }
