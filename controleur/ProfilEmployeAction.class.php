@@ -91,7 +91,7 @@ class ProfilEmployeAction implements Action {
                         }else
                             echo `<h1> Ooops, je peux pas placer le fichier</h1>`;
                     }else
-                        echo `<h1> Telechergement imposible!</h1>`;
+                        echo (`<h1> Telechergement imposible!</h1>`);
 
                     $employe->setPhoto($upLoadFileDir .$newFileName);
                     $DAOEmploye->update($employe);
@@ -106,7 +106,6 @@ class ProfilEmployeAction implements Action {
                 $this->loadAccepte($a);
                 $DAOAccepte->create($a);
                 
-                $this->serviceAccepte($s);
                 $DAOService->update($s);
                                
             }
@@ -133,11 +132,6 @@ class ProfilEmployeAction implements Action {
         $a->setEtoile(4);
         $a->setCommentaire("");
     }
-
-    public function serviceAccepte($s){
-        $s->setActive(0);
-    }
-
 
     public function dispoNew($DAODispo){
         $this->valide();

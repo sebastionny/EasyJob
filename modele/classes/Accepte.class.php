@@ -74,10 +74,10 @@ class Accepte{
 	public function loadFromObject($x)
 	{
                 
-        $this->idDispo = $x->fait;
-        $this->jour = $x->etoile;
-        $this->heureDebut =$x->commentaire;
-        $this->heureFin =$x->idService;
+        $this->fait = $x->fait;
+        $this->etoile = $x->etoile;
+        $this->commentaire =$x->commentaire;
+        $this->idService =$x->idService;
         $this->idEmploye = $x->idEmploye;
                }	
 }

@@ -14,7 +14,7 @@
     $dispo    = $_SESSION['dispo'];
     $d='';
     $flat = false;    
-    
+
     foreach ($services as $s){
         $jour = ProfilEmployeAction::getJour($s->getDate());
         $hd   = (int)$s->getHeureDebut();
@@ -23,6 +23,8 @@
         $restoDAO = new RestaurantDAO();
         $r = $restoDAO->findByIdEmployeur($s->getIdEmployeur());
 
+        $accepteDAO = new AccepteDAO();
+        $a = $accepteDAO->find($_SESSION['infoEmploye']->getIdEmploye(),$s->getIdService());
         foreach ($dispo as $d){
             $d_jour = $d->getJour();
             $d_hd = (int)$d->getHeureDebut();
@@ -53,8 +55,11 @@
 
                     <div class="col-sm-12 font2 mt-4">
                         <div class="float-right">
-                            <!--- <a class="btn btn-lg btn-line" href="#"> REFUSER</a> --->
+                            <?php if($a != null && $a->getFait() == 0) {?>
+                                <h3 class="font2 fontGrand3 fontCenter">Demande en attends </h3>
+                            <?php } else{?>
                             <a class="btn btn-lg btn-primary" href="?action=profilEmploye&profil=mesService&idService=<?=$s->getIdService();?>"> ACCEPTER</a>
+                            <?php    }?>
                         </div>
                     </div>
                 </div>

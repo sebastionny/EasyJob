@@ -55,6 +55,29 @@ class ServiceDAO {
             return $service;
     }
 
+    public static function findAllByIdEmployeur($id)
+    {
+            $db = Database::getInstance();
+            $service = Array();
+            try {
+                $pstmt = $db->prepare("SELECT * FROM service WHERE idEmployeur = :x");
+                $pstmt->execute(array(':x' => $id));
+
+                while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
+                {
+                        $s = new Service();
+                        $s->loadFromObject($result);
+                        array_push($service, $s);
+                }
+                $pstmt->closeCursor();
+                $pstmt = NULL;
+                Database::close();
+            }
+            catch (PDOException $ex){
+            }             
+            return $service;
+    }
+
 
     public static function findServices($fonction, $experience , $active)
     {
