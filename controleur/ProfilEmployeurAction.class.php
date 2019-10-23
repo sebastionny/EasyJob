@@ -7,38 +7,75 @@ class ProfilEmployeurAction implements Action {
 
             $restDAO = new RestaurantDAO();
             $compteDAO = new CompteDAO();
-            $employeurDAO = new EmployeurDAO();         
+            $employeurDAO = new EmployeurDAO();
+            $serviceDAO = new ServiceDAO();         
+            $accepteDAO = new AccepteDAO();          
 
             $compte = $compteDAO->findById($_SESSION["infoCompte"]->getIdCompte());
             $employeur = $employeurDAO->find($_SESSION["infoEmployeur"]->getIdEmployeur());
             $restaurant = $restDAO->find($_SESSION["infoResto"]->getIdRest());
+            $service = $serviceDAO->findAllByIdEmployeur($_SESSION["infoEmployeur"]->getIdEmployeur());
+            $AccepteService = $accepteDAO->findAll();
 
-            // Il enregistre la nouvel information du Restaurant
+            // Elle enregistre la nouvel information du Restaurant
             $this->loadInfoResto($restaurant);
             $restDAO->update($restaurant);
 
-            // Il enregistre la nouvel information de la compte du employeur
+            // Elle enregistre la nouvel information de la compte du employeur
             $this->loadInfoCompteEmployeur($compte , $employeur);
             $compteDAO->update($compte);
             $employeurDAO->update($employeur);
 
-            // Il vas charger la photo du profil restaurent
+            // Elle vas charger la photo du profil restaurent
             $this->loadPhotoProfilResto($employeur);
             $employeurDAO->update($employeur);
+
+            // Elle donne tous le services qui appartient au Employeur. Dans la table Accepte. Alors Ca veut dire il sont en attends de reponse
+            $this->loadServiceEnAttends($service, $AccepteService);
+
 
             // recuperation d'information en session pour afficher les donnees!
             $_SESSION["infoResto"] = $restaurant;
             $_SESSION["infoEmployeur"] = $employeur;
             $_SESSION["infoCompte"] = $compte;
+            
 
             return "profilResto";
         }
         return "connecter";
     }
 
-    
+    private function loadServiceEnAttends($s, $a){
+        $idSer = '';
+        $infoSerEmp = array(); 
+        $_SESSION['mesService'] = array();
+        foreach($a as $objA){
+            foreach($s as $objS){
+                if($objA->getIdService() == $objS->getIdService()){
 
-    // Implementation de methodes! ------------------------------------
+                        $infoSer = array(); 
+                        array_push($infoSer, $objS->getIdService());
+                        array_push($infoSer, $objS->getDate());
+                        array_push($infoSer, $objS->getTypeService());
+                        
+                        $_SESSION['mesService'][$objA->getIdService()]['i'] = $infoSer;
+     
+                        $daoEmploye = new EmployeDAO;
+                        $e = $daoEmploye->find($objA->getIdEmploye());
+
+                        if($objA->getIdService() != $idSer) {
+                            $infoSerEmp = array(); 
+                        }
+                        $idSer =  $objA->getIdService();   
+                        array_push($infoSerEmp, $e);
+                        $_SESSION['mesService'][$objA->getIdService()]['e'] = $infoSerEmp;
+                }
+            }
+        }
+        
+        var_dump($_SESSION['mesService']);
+
+    }
 
     private function valideInfo($section){
         $result = true;
@@ -64,8 +101,6 @@ class ProfilEmployeurAction implements Action {
         }
         return $result;
     }
-
-
     private function loadInfoResto($restaurant){
         if (isset($_REQUEST['loadInfoResto'])){
             if (!$this->valideInfo(1))

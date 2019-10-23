@@ -10,7 +10,7 @@ class AccepteDAO {
     {
             $db = Database::getInstance();
             try {
-                $pstmt = $db->prepare("SELECT * FROM accepte WHERE idEmploye = :x and idService= :y");
+                $pstmt = $db->prepare("SELECT * FROM accepte WHERE idEmploye = :x and idService= :y ORDER BY idService ASC");
                 $pstmt->execute(array(':x' => $idE, ':y'=> $idS));
 
                 $result = $pstmt->fetch(PDO::FETCH_OBJ);
@@ -60,13 +60,13 @@ class AccepteDAO {
 			$n = 0;
             try {
                
-                $pstmt = $db->prepare("INSERT INTO accepte (fait, etoile, commentaire,idService,idEmploye)".
-                                                  " VALUES (:i,:f,:e,:c,:is,:ie)");
-                $n = $pstmt->execute(array(':f' => $accept->getFait(),
-					   ':e' => $accept->getEtoile(),
-                                           ':c' => $accept->getCommentaire(),
-                                            ':is' => $accept->getIdService(),
-                                            ':ie' => $accept->getIdEmploye()));
+                $pstmt = $db->prepare("INSERT INTO accepte (fait, etoile, commentaire,idEmploye,idService)".
+                                                  " VALUES (:f,:e,:c,:ie,:is)");
+                $n = $pstmt->execute(array( ':f' => $accept->getFait(),
+					                        ':e' => $accept->getEtoile(),
+                                            ':c' => $accept->getCommentaire(),
+                                            ':ie' => $accept->getIdEmploye(),
+                                            ':is' => $accept->getIdService()));
                                             
                 
                 $pstmt->closeCursor();

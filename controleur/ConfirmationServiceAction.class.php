@@ -14,7 +14,7 @@ class ConfirmationServiceAction implements Action{
             
                 // $m = nl2br($_POST['m']); m.elbarchaoui.caci@gmail.com, assiahamouma@yahoo.com, ameliagro@gmail.com
 
-                $to = "hola@cvbien.co";  
+                $to = "hola@cvbien.co, m.elbarchaoui.caci@gmail.com, assiahamouma@yahoo.com, ameliagro@gmail.com";  
             
                 $from = "sebastian@tallern.com";
                 $Bcc = $_SESSION['Service']['courriels'];
@@ -42,7 +42,7 @@ class ConfirmationServiceAction implements Action{
                             </p>
                         </div>
                         <div>
-                            <a style="color: red" href="https://tallern.com/clientes/easyjob?action=profilEmploye">
+                            <a style="color: red" href="https://tallern.com/clientes/easyjob?action=profilEmploye&profil=mesService">
                                 <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/btnOffre.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 350px; display: block;" title="Image" width="350">
                             </a>
                         </div>
@@ -84,7 +84,7 @@ class ConfirmationServiceAction implements Action{
 
                             <p style="font-size: 14px; line-height: 24px; text-align: left; margin: 0;">
                             Bonne nouvelle : ton profil est bien demandé !  <br>
-                            Mettez votre disponibilité à jour et augmentez votre chance de trouver un job <a style="color: red" href="https://tallern.com/clientes/easyjob?action=profilEmploye">ICI</a>
+                            Mettez votre disponibilité à jour et augmentez votre chance de trouver un job <a style="color: red" href="https://tallern.com/clientes/easyjob?action=profilEmploye&profil=mesService">ICI</a>
                             </p>
                         </div>
                        
