@@ -10,7 +10,6 @@ class ProfilEmployeurAction implements Action {
             $employeurDAO = new EmployeurDAO();
             $serviceDAO = new ServiceDAO();         
             $accepteDAO = new AccepteDAO();          
-            $employeDAO = new EmployeDAO();          
 
             $compte = $compteDAO->findById($_SESSION["infoCompte"]->getIdCompte());
             $employeur = $employeurDAO->find($_SESSION["infoEmployeur"]->getIdEmployeur());
@@ -33,7 +32,6 @@ class ProfilEmployeurAction implements Action {
 
             // Elle donne tous le services qui appartient au Employeur. Dans la table Accepte. Alors Ca veut dire il sont en attends de reponse
             $this->loadServiceEnAttends($service, $AccepteService);
-            //$mesEmployes = $this->loadProfilEmploye($compteDAO, $employeDAO,$mesServices);
 
 
             // recuperation d'information en session pour afficher les donnees!
@@ -48,7 +46,7 @@ class ProfilEmployeurAction implements Action {
     }
 
     private function loadServiceEnAttends($s, $a){
-        
+        $idSer = '';
         $infoSerEmp = array(); 
         $_SESSION['mesService'] = array();
         foreach($a as $objA){
@@ -61,22 +59,22 @@ class ProfilEmployeurAction implements Action {
                         array_push($infoSer, $objS->getTypeService());
                         
                         $_SESSION['mesService'][$objA->getIdService()]['i'] = $infoSer;
-
-                        
+     
                         $daoEmploye = new EmployeDAO;
                         $e = $daoEmploye->find($objA->getIdEmploye());
-                        if( array_key_exists($objA->getIdService(), $_SESSION['mesService'][$objA->getIdService()])) {
-                            var_dump($e);
+
+                        if($objA->getIdService() != $idSer) {
                             $infoSerEmp = array(); 
                         }
-                        var_dump(array_key_exists($objA->getIdService(), $_SESSION['mesService'][$objA->getIdService()]));
+                        $idSer =  $objA->getIdService();   
                         array_push($infoSerEmp, $e);
                         $_SESSION['mesService'][$objA->getIdService()]['e'] = $infoSerEmp;
                 }
             }
         }
-
+        
         var_dump($_SESSION['mesService']);
+
     }
 
     private function valideInfo($section){

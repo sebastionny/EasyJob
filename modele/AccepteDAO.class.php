@@ -10,7 +10,7 @@ class AccepteDAO {
     {
             $db = Database::getInstance();
             try {
-                $pstmt = $db->prepare("SELECT * FROM accepte WHERE idEmploye = :x and idService= :y");
+                $pstmt = $db->prepare("SELECT * FROM accepte WHERE idEmploye = :x and idService= :y ORDER BY idService ASC");
                 $pstmt->execute(array(':x' => $idE, ':y'=> $idS));
 
                 $result = $pstmt->fetch(PDO::FETCH_OBJ);

@@ -60,7 +60,7 @@ class ServiceDAO {
             $db = Database::getInstance();
             $service = Array();
             try {
-                $pstmt = $db->prepare("SELECT * FROM service WHERE idEmployeur = :x");
+                $pstmt = $db->prepare("SELECT * FROM service WHERE idEmployeur = :x ORDER BY idEmployeur ASC");
                 $pstmt->execute(array(':x' => $id));
 
                 while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
