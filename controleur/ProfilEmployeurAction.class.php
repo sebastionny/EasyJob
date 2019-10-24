@@ -14,8 +14,7 @@ class ProfilEmployeurAction implements Action {
             $compte = $compteDAO->findById($_SESSION["infoCompte"]->getIdCompte());
             $employeur = $employeurDAO->find($_SESSION["infoEmployeur"]->getIdEmployeur());
             $restaurant = $restDAO->find($_SESSION["infoResto"]->getIdRest());
-            $service = $serviceDAO->findAllByIdEmployeur($_SESSION["infoEmployeur"]->getIdEmployeur());
-            $AccepteService = $accepteDAO->findAllNotAccept();
+            
 
             // Elle enregistre la nouvel information du Restaurant
             $this->loadInfoResto($restaurant);
@@ -30,10 +29,12 @@ class ProfilEmployeurAction implements Action {
             $this->loadPhotoProfilResto($employeur);
             $employeurDAO->update($employeur);
 
+            // Elle va accepter ou refusser un employer interesser par une demande.
+            $this->changerDemande($serviceDAO, $accepteDAO);
+            
             // Elle donne tous le services qui appartient au Employeur. Dans la table Accepte. Alors Ca veut dire il sont en attends de reponse
-            $this->loadServiceEnAttends($service, $AccepteService);
-
-
+            $this->loadServiceEnAttends($serviceDAO, $accepteDAO);           
+             
             // recuperation d'information en session pour afficher les donnees!
             $_SESSION["infoResto"] = $restaurant;
             $_SESSION["infoEmployeur"] = $employeur;
@@ -45,11 +46,31 @@ class ProfilEmployeurAction implements Action {
         return "connecter";
     }
 
-    private function loadServiceEnAttends($s, $a){
+    private function changerDemande($sDAO, $aDAO){
+        if(isset($_REQUEST['accepter'])){
+            $service = $sDAO->find($_REQUEST['idS']);
+            $service->setActive(0);
+            $sDAO->update($service);
+
+            $accepter = $aDAO->find($_REQUEST['idE'],$_REQUEST['idS']);
+            $accepter->setFait(1);
+            $aDAO->update($accepter);
+        }
+        if(isset($_REQUEST['refuser'])){
+            
+            echo($_REQUEST['idE']);
+        }
+    }
+    private function loadServiceEnAttends($serviceDAO, $accepteDAO){
+        $s = $serviceDAO->findAllByIdEmployeurActive($_SESSION["infoEmployeur"]->getIdEmployeur());
+        $a = $accepteDAO->findAllNotAccept();
+        
         $idSer = '';
         $infoSerEmp = array(); 
         $emp = array(); 
+        
         $_SESSION['mesService'] = array();
+        
         foreach($a as $objA){
             foreach($s as $objS){
                 if($objA->getIdService() == $objS->getIdService()){
@@ -79,7 +100,6 @@ class ProfilEmployeurAction implements Action {
                         array_push($infoSerEmp, $e->getQualite());
                         array_push($infoSerEmp, $e->getPhoto());
                         
-                    
                         array_push($emp, $infoSerEmp);
 
                         $idSer =  $objA->getIdService();   // Il faut savoir s'il id existe déjá
@@ -88,6 +108,7 @@ class ProfilEmployeurAction implements Action {
                 }
             }
         }
+        
     }
     private function valideInfo($section){
         $result = true;

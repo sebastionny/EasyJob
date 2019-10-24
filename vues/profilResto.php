@@ -49,7 +49,7 @@
                     if ($_REQUEST['profil'] == 'mesService')
                         require_once('restoChoisir.php');
                    if ($_REQUEST['profil'] == 'commentaire')
-                        require_once('restoCommentaire.php');
+                       require_once('vues/restoEvaluation.php');
                     if ($_REQUEST['profil'] == 'demande')
                         require_once('service.php');
                 }else

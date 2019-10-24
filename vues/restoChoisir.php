@@ -46,10 +46,14 @@ $nbreEtoile=4;
                                             <p class="font2"><?=$emp[$e][6] ?> </p>
                                             <hr color="white">
                                         </div>
+                                        <form method="POST">
                                         <div class="float-md-right">
-                                            <button type="submit" class="btn btn-outline-primary btn-lg btn-line1 font1" > REFUSER</button>
-                                            <button type="submit" class="btn btn-primary btn-lg font1 "> ACCEPTER</button>
+                                            <input type="hidden" name="idS" value="<?=$ser[$s]['i'][0]?>" >
+                                            <input type="hidden" name="idE" value="<?=$emp[$e][0] ?>" >
+                                            <button type="submit" name="refuser" class="btn btn-outline-primary btn-lg btn-line1 font1" > REFUSER</button>
+                                            <button type="submit" name="accepter" class="btn btn-primary btn-lg font1 "> ACCEPTER</button>
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

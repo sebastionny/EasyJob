@@ -131,12 +131,12 @@ class AccepteDAO {
             $db = Database::getInstance();
 			$n = 0;
             try {
-                $pstmt = $db->prepare("UPDATE accepte SET fait=:f, etoile=:e, commentaire=:c, idService=:is, idEmploye=:ie WHERE idEmploye=:idE and idService=:idS");
-                $n = $pstmt->execute(array(':f' => $accept->getFait(),
-					   ':e' => $accept->getEtoile(),
-                                           ':c' => $accept->getCommentaire(),
-                                           ':idS' => $accept->getIdService(),
-                                           ':idE' => $accept->getIdEmploye()));
+                $pstmt = $db->prepare("UPDATE accepte SET fait=:f, etoile=:e, commentaire=:c, idService=:idS, idEmploye=:idE WHERE idEmploye=:idE and idService=:idS");
+                $n = $pstmt->execute(array( ':f' => $accept->getFait(),
+					                        ':e' => $accept->getEtoile(),
+                                            ':c' => $accept->getCommentaire(),
+                                            ':idS' => $accept->getIdService(),
+                                            ':idE' => $accept->getIdEmploye()));
 
                 $pstmt->closeCursor();
                 $pstmt = NULL;
