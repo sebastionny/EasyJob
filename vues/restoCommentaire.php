@@ -7,32 +7,6 @@
               . " Not to slight a sommelier's dream of a wine list. et goûteux!";
       $nbreEtoile=3;?>
 
-  <!--
-
-         <div class="container-fluid space100 ">
-
-         <div class="row">
-             <div class="col-md-3">
-             <img src="img/pp.jpg" alt="Profil de ..." class="img-thumbnail profil ">
-
-             <form class="space30 fontCenter">
-                <div class="form-group">
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                </div>
-                <button type="submit" class="btn btn-primary ">Changer </button>
-            </form>
-
-            <div class="space100 font2 fontGrand3 ">
-                <a href="#" class="btn btn-line1 btn-block color1 activeLine"> Mon Profil</a>
-                <a href="#" class="btn btn-line1 btn-block color1"> Choisir mes employés</a>
-                <a href="#" class="btn btn-line1 btn-block color1"> Mes offres de service</a>
-                <a href="#" class="btn btn-line1 btn-block color1"> Mes commentaires</a>
-                <a href="#" class="btn btn-line1 btn-block color1"> Me  déconnecter</a>
-            </div>   
-             </div>
-              <section class="col-md-9 lineCote">
-            <div class="container">
-                !-->
                 <div class="col space30 pb-3">
                     <h3 class="font1 fontGrand1 color2">Mes Commentaires</h3>
                 </div>

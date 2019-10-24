@@ -10,7 +10,7 @@ class AccepteDAO {
     {
             $db = Database::getInstance();
             try {
-                $pstmt = $db->prepare("SELECT * FROM accepte WHERE idEmploye = :x and idService= :y");
+                $pstmt = $db->prepare("SELECT * FROM accepte WHERE idEmploye = :x and idService= :y ORDER BY idService ASC");
                 $pstmt->execute(array(':x' => $idE, ':y'=> $idS));
 
                 $result = $pstmt->fetch(PDO::FETCH_OBJ);
@@ -54,19 +54,44 @@ class AccepteDAO {
             }             
             return $accept;
     }
+
+    public static function findAllNotAccept()
+    {
+            $db = Database::getInstance();
+            $accept = Array();
+            try {
+                $pstmt = $db->prepare("SELECT * FROM accepte WHERE fait = 0");
+                $pstmt->execute();
+
+                while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
+                {
+                        $a = new Accepte();
+                        $a->loadFromObject($result);
+                        array_push($accept, $a);
+                }
+                $pstmt->closeCursor();
+                $pstmt = NULL;
+                Database::close();
+            }
+            catch (PDOException $ex){
+            }             
+            return $accept;
+    }
+
+    
     public static function create($accept)
     {
             $db = Database::getInstance();
 			$n = 0;
             try {
                
-                $pstmt = $db->prepare("INSERT INTO accepte (fait, etoile, commentaire,idService,idEmploye)".
-                                                  " VALUES (:i,:f,:e,:c,:is,:ie)");
-                $n = $pstmt->execute(array(':f' => $accept->getFait(),
-					   ':e' => $accept->getEtoile(),
-                                           ':c' => $accept->getCommentaire(),
-                                            ':is' => $accept->getIdService(),
-                                            ':ie' => $accept->getIdEmploye()));
+                $pstmt = $db->prepare("INSERT INTO accepte (fait, etoile, commentaire,idEmploye,idService)".
+                                                  " VALUES (:f,:e,:c,:ie,:is)");
+                $n = $pstmt->execute(array( ':f' => $accept->getFait(),
+					                        ':e' => $accept->getEtoile(),
+                                            ':c' => $accept->getCommentaire(),
+                                            ':ie' => $accept->getIdEmploye(),
+                                            ':is' => $accept->getIdService()));
                                             
                 
                 $pstmt->closeCursor();
@@ -106,12 +131,12 @@ class AccepteDAO {
             $db = Database::getInstance();
 			$n = 0;
             try {
-                $pstmt = $db->prepare("UPDATE accepte SET fait=:f, etoile=:e, commentaire=:c, idService=:is, idEmploye=:ie WHERE idEmploye=:idE and idService=:idS");
-                $n = $pstmt->execute(array(':f' => $accept->getFait(),
-					   ':e' => $accept->getEtoile(),
-                                           ':c' => $accept->getCommentaire(),
-                                           ':idS' => $accept->getIdService(),
-                                           ':idE' => $accept->getIdEmploye()));
+                $pstmt = $db->prepare("UPDATE accepte SET fait=:f, etoile=:e, commentaire=:c, idService=:idS, idEmploye=:idE WHERE idEmploye=:idE and idService=:idS");
+                $n = $pstmt->execute(array( ':f' => $accept->getFait(),
+					                        ':e' => $accept->getEtoile(),
+                                            ':c' => $accept->getCommentaire(),
+                                            ':idS' => $accept->getIdService(),
+                                            ':idE' => $accept->getIdEmploye()));
 
                 $pstmt->closeCursor();
                 $pstmt = NULL;

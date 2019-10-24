@@ -39,6 +39,7 @@
                         <a href="?action=profilEmploye&profil=mesService" class="btn btn-line1 btn-block color1 <?=$activeService?>"> MES SERVICES</a>
                         <a href="?action=profilEmploye&profil=commentaire" class="btn btn-line1 btn-block color1 <?=$activeCommentaire?>"> MES COMMENTAIRES</a>
                         <a href="?action=logout" class="btn btn-line1 btn-block color1"> ME DÉCONNECTER</a>
+                        <a href="?action=logout" class="btn btn-line1 btn-block color1"> DESACTIVER MON COMPTE</a>
                     </div>
                  </div>
              </div>
@@ -53,7 +54,7 @@
                      if ($_REQUEST['profil'] == 'mesService')
                          require_once('vues/include/employe/staffDemandeService.php');
                      if ($_REQUEST['profil'] == 'commentaire')
-                         require_once('vues/include/employe/commentaire.php');
+                        require_once('restoCommentaire.php');
                  }else
                      require_once('vues/include/employe/profil.php');
 

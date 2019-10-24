@@ -36,6 +36,7 @@
                     <a href="?action=profilResto" class="btn btn-line1 btn-block color1 <?=$active?>"> MON PROFIL</a>
                     <a href="?action=profilResto&profil=mesService" class="btn btn-line1 btn-block color1 <?=$activeService?>">CHOISIR MES EMPLOYÉS</a>
                     <a href="?action=profilResto&profil=commentaire" class="btn btn-line1 btn-block color1 <?=$activeCommentaire?>"> MES COMMENTAIRES</a>
+                    <a href="?action=logout" class="btn btn-line1 btn-block color1"> DESACTIVER MON COMPTE</a>
                     <a href="?action=logout" class="btn btn-line1 btn-block color1"> ME DÉCONNECTER</a>
                 </div>
             </div>
@@ -48,7 +49,7 @@
                     if ($_REQUEST['profil'] == 'mesService')
                         require_once('restoChoisir.php');
                    if ($_REQUEST['profil'] == 'commentaire')
-                        require_once('restoCommentaire.php');
+                       require_once('vues/restoEvaluation.php');
                     if ($_REQUEST['profil'] == 'demande')
                         require_once('service.php');
                 }else

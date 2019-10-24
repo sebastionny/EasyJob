@@ -54,6 +54,78 @@ class ServiceDAO {
             }             
             return $service;
     }
+
+    public static function findAllByIdEmployeur($id)
+    {
+            $db = Database::getInstance();
+            $service = Array();
+            try {
+                $pstmt = $db->prepare("SELECT * FROM service WHERE idEmployeur = :x ORDER BY idEmployeur ASC");
+                $pstmt->execute(array(':x' => $id));
+
+                while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
+                {
+                        $s = new Service();
+                        $s->loadFromObject($result);
+                        array_push($service, $s);
+                }
+                $pstmt->closeCursor();
+                $pstmt = NULL;
+                Database::close();
+            }
+            catch (PDOException $ex){
+            }             
+            return $service;
+    }
+
+    public static function findAllByIdEmployeurActive($id)
+    {
+            $db = Database::getInstance();
+            $service = Array();
+            try {
+                $pstmt = $db->prepare("SELECT * FROM service WHERE idEmployeur = :x and active = 1 ORDER BY idEmployeur ASC");
+                $pstmt->execute(array(':x' => $id));
+
+                while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
+                {
+                        $s = new Service();
+                        $s->loadFromObject($result);
+                        array_push($service, $s);
+                }
+                $pstmt->closeCursor();
+                $pstmt = NULL;
+                Database::close();
+            }
+            catch (PDOException $ex){
+            }             
+            return $service;
+    }
+
+
+    public static function findServices($fonction, $experience , $active)
+    {
+            $db = Database::getInstance();
+            $service = Array();
+            try {
+                $pstmt = $db->prepare("SELECT * FROM service where typeService = :s and experience < :e and active = :a");
+                $pstmt->execute( array(':s' => $fonction,':e' => $experience,':a' => $active) );
+
+                while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
+                {
+                        $s = new Service();
+                        $s->loadFromObject($result);
+                        array_push($service, $s);
+                }
+                $pstmt->closeCursor();
+                $pstmt = NULL;
+                Database::close();
+            }
+            catch (PDOException $ex){
+            }             
+            return $service;
+    }
+
+
     public static function create($service)
     {
             $db = Database::getInstance();
