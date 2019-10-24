@@ -54,7 +54,7 @@
                      if ($_REQUEST['profil'] == 'mesService')
                          require_once('vues/include/employe/staffDemandeService.php');
                      if ($_REQUEST['profil'] == 'commentaire')
-                         require_once('vues/include/employe/commentaire.php');
+                        require_once('restoCommentaire.php');
                  }else
                      require_once('vues/include/employe/profil.php');
 

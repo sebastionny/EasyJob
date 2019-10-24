@@ -17,4 +17,5 @@ else
 //On execute l'action du controleur:
 $vue = $action->execute();
 include_once('vues/'.$vue.'.php');
+//include_once('vues/restoEvaluation.php');
 ?>
