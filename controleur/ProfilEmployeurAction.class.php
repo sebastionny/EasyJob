@@ -15,7 +15,7 @@ class ProfilEmployeurAction implements Action {
             $employeur = $employeurDAO->find($_SESSION["infoEmployeur"]->getIdEmployeur());
             $restaurant = $restDAO->find($_SESSION["infoResto"]->getIdRest());
             $service = $serviceDAO->findAllByIdEmployeur($_SESSION["infoEmployeur"]->getIdEmployeur());
-            $AccepteService = $accepteDAO->findAll();
+            $AccepteService = $accepteDAO->findAllNotAccept();
 
             // Elle enregistre la nouvel information du Restaurant
             $this->loadInfoResto($restaurant);
@@ -48,11 +48,11 @@ class ProfilEmployeurAction implements Action {
     private function loadServiceEnAttends($s, $a){
         $idSer = '';
         $infoSerEmp = array(); 
+        $emp = array(); 
         $_SESSION['mesService'] = array();
         foreach($a as $objA){
             foreach($s as $objS){
                 if($objA->getIdService() == $objS->getIdService()){
-
                         $infoSer = array(); 
                         array_push($infoSer, $objS->getIdService());
                         array_push($infoSer, $objS->getDate());
@@ -62,21 +62,33 @@ class ProfilEmployeurAction implements Action {
      
                         $daoEmploye = new EmployeDAO;
                         $e = $daoEmploye->find($objA->getIdEmploye());
+                        $daoCompte = new CompteDAO;
+                        $c = $daoCompte->findById($e->getIdCompte());
 
                         if($objA->getIdService() != $idSer) {
                             $infoSerEmp = array(); 
+                            $emp = array(); 
                         }
-                        $idSer =  $objA->getIdService();   
-                        array_push($infoSerEmp, $e);
-                        $_SESSION['mesService'][$objA->getIdService()]['e'] = $infoSerEmp;
+
+                        array_push($infoSerEmp, $e->getIdEmploye());
+                        array_push($infoSerEmp, $c->getPrenom());
+                        array_push($infoSerEmp, $c->getNom());
+                        array_push($infoSerEmp, $e->getSexe());
+                        array_push($infoSerEmp, $e->getVille());
+                        array_push($infoSerEmp, $e->getExperience());
+                        array_push($infoSerEmp, $e->getQualite());
+                        array_push($infoSerEmp, $e->getPhoto());
+                        
+                    
+                        array_push($emp, $infoSerEmp);
+
+                        $idSer =  $objA->getIdService();   // Il faut savoir s'il id existe déjá
+                        $_SESSION['mesService'][$objA->getIdService()]['e'] = $emp;
+                        $infoSerEmp = array(); 
                 }
             }
         }
-        
-        var_dump($_SESSION['mesService']);
-
     }
-
     private function valideInfo($section){
         $result = true;
         switch ($section){
@@ -116,7 +128,6 @@ class ProfilEmployeurAction implements Action {
             }
         }
     }
-
     private function loadInfoCompteEmployeur($comp, $emp){
         if (isset($_REQUEST['loadInfoCompteResto'])){
             if (!$this->valideInfo(2))
@@ -131,7 +142,6 @@ class ProfilEmployeurAction implements Action {
             }
         }
     }
-
     private function loadPhotoProfilResto($employeur){
         if (isset($_REQUEST['uploadBtn'])){
             if ($this->valideInfo(3))

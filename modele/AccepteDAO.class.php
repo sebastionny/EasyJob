@@ -54,6 +54,31 @@ class AccepteDAO {
             }             
             return $accept;
     }
+
+    public static function findAllNotAccept()
+    {
+            $db = Database::getInstance();
+            $accept = Array();
+            try {
+                $pstmt = $db->prepare("SELECT * FROM accepte WHERE fait = 0");
+                $pstmt->execute();
+
+                while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
+                {
+                        $a = new Accepte();
+                        $a->loadFromObject($result);
+                        array_push($accept, $a);
+                }
+                $pstmt->closeCursor();
+                $pstmt = NULL;
+                Database::close();
+            }
+            catch (PDOException $ex){
+            }             
+            return $accept;
+    }
+
+    
     public static function create($accept)
     {
             $db = Database::getInstance();
