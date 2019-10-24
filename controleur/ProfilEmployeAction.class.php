@@ -32,7 +32,7 @@ class ProfilEmployeAction implements Action {
                 else {
                     $employe->setFonction($_REQUEST["fonction"]);
                     $employe->setExperience($_REQUEST["experience"]);
-                    $employe->setQualite($_REQUEST["description"] . ' Experience ' .' Information de Mois : ');
+                    $employe->setQualite($_REQUEST["description"]);
                     $DAOEmploye->update($employe);
                 }
             }
