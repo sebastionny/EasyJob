@@ -6,10 +6,10 @@
         <div class="container " >
 
                 <div class="row space100">
-                    <div class="col-md-4">
+                    <div class="col-md-4 no-mobile">
                         <img class="img-fluid" src="img/couriel2.jpg" />
                     </div>
-                     <div class="col-md-8 space100 " >
+                     <div class="col-md-8 col-sm-12 space100 " >
                         <h4 class="font1 fontGrand2 color2"> Bonjour </h4>
                          <div class="font2 fontGrand4 ">
 

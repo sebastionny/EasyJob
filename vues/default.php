@@ -5,9 +5,9 @@
                 <div class="row">
                     <div class="col-col-md-5 offset-md-7">
                         <h2 class="font2 color1">Avez-vous besoin d'un <br>
-                            employé à la dernière minute?<span class="color2">PAS DE PANIQUE!!</span></h2>
+                            employé à la dernière minute?<br><span class="color2">PAS DE PANIQUE!!</span></h2>
                         <h1 class="font1 fontGrand1 color1">Notre application va vous aidez en quelques minutes</h1>
-                        <a class="btn btn-primary  btn-lg font1 btn-line space30" href="#">OFFRIR MES SERVICES</a>
+                        <a class="btn btn-primary  btn-lg font1 btn-line space30" href="?action=connecter">OFFRIR MES SERVICES</a>
                     </div>
                 </div>
          </div>
@@ -49,7 +49,7 @@
                                
                         <div class="col-md-4 ">
                             <div class="item">
-                                <img src="img/rest1.jpg" width="40%" class="rounded-circle" alt="TACOS">
+                                <img src="img/rest1.jpg" class="rounded-circle" alt="TACOS">
                                 <div class="color1">
                                     <h5 class="font1 fontGrand2">Restaurant TACOS</h5>
                                     <p class="font2">Cherche 3 plongeurs</p>
@@ -59,7 +59,7 @@
 
                         <div class="col-md-4 ">
                             <div class="item">
-                                <img src="img/rest2.jpg" width="40%" class="rounded-circle" alt="ZIKA">
+                                <img src="img/rest2.jpg" class="rounded-circle" alt="ZIKA">
                                 <div class="color1">
                                     <h5 class="font1 fontGrand2">Restaurant ZIKA</h5>
                                     <p class="font2">Cherche 1 chef cuisinier</p>
@@ -69,7 +69,7 @@
 
                         <div class="col-md-4 ">
                             <div class="item">
-                                <img src="img/rest3.jpg" width="40%" class="rounded-circle" alt="HOTS">
+                                <img src="img/rest3.jpg" class="rounded-circle" alt="HOTS">
                                 <div class="color1">
                                     <h5 class="font1 fontGrand2">Restaurant HOTS</h5>
                                     <p class="font2">Cherche 10 serveurs</p>

@@ -10,11 +10,14 @@
                     <div class="profil">
                         <img src="<?=$_SESSION['infoEmployeur']->getPhoto()?>" alt="<?=$_SESSION['infoCompte']->getPrenom()?>" class="img-fluid ">
                     </div>
-                    <form action="" method="post" enctype="multipart/form-data" class="space30 fontCenter">
-                        <div class="form-group">
-                            <input type="file" class="form-control-file" name="photoProfilFile">
+                    <form action="?action=profilResto" method="post" enctype="multipart/form-data" class="space30 fontCenter">
+                    <?php if (ISSET($_REQUEST["field_messages"]["upPhoto"]))
+                            echo "<br/><span class=\"warningMessage font2\">".$_REQUEST["field_messages"]["upPhoto"]."</span>";
+                        ?>     
+                    <div class="form-group">
+                            <input type="file" class="form-control-file font2 " name="photoProfilFile">
                         </div>
-                        <button type="submit" class="btn btn-primary " name="uploadBtn" value="photoProfil">MODIFIER </button>
+                        <button type="submit" class="btn btn-primary font2 " name="uploadBtn" value="photoProfil">MODIFIER </button>
                     </form>
                 <?php
                     }else

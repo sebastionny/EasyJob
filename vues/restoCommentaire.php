@@ -25,7 +25,7 @@
                         
                                     <hr class="color1">
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-8 etoile">
                                             <div>
                                                 <?php
                                                 for($i=0;$i< $nbreEtoile;$i++){

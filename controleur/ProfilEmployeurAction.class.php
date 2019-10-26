@@ -166,7 +166,8 @@ class ProfilEmployeurAction implements Action {
     private function loadPhotoProfilResto($employeur){
         if (isset($_REQUEST['uploadBtn'])){
             if ($this->valideInfo(3))
-            { return "profilEmploye";}
+            { $_REQUEST["field_messages"]["upPhoto"] = "Il faut choisir une image (.img, .png, .gif).";
+                return "profilEmploye";}
             else {
                 $fileTmpPath = $_FILES['photoProfilFile']['tmp_name'];
                 $fileName = $_FILES['photoProfilFile']['name'];

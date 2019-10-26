@@ -2,11 +2,11 @@
     <div class="container-fluid ">
             <div class="banner">
                     <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-lg-8 col-md-6 col-sm-12">
 
                             </div>
-                            <div class="col-md-6">
-                                <div class="col-col-md-5 offset-md-6">
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="col-sm-12">
                                         <?php require_once('vues/include/usager/connectionUsager.php');?>
                                 </div>
                             </div>

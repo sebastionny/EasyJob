@@ -32,9 +32,7 @@ class LoginAction implements Action
                 $_SESSION["infoCompte"]  = $user;
                 $_SESSION["infoEmploye"] = $objEmplo;
                 $_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
-                if(isset($_SESSION["dispo"])){
-                    //$_SESSION["dispo"]  = $disDAO->findEmploye($objEmplo->getIdEmploye());
-                }
+
                 // ------------------- fin
                 return "profilEmploye";
             } else {

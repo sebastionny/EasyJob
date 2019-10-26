@@ -248,8 +248,9 @@ header .btn-line{
 .resto .item > img{
     display: block;
     position: absolute;
-    margin-top: -50px;
-    margin-left: -100px;
+    top: -35px;
+    left: -10px;
+    width: 105px!important;
 }
 
 .date.form_date.form-control {
@@ -361,6 +362,10 @@ section.col-md-9  .rounded:hover  {
     left: -10px;
 }
 
+.etoile img {
+    max-width: 33px;
+}
+
 .blockCommentaire{
     background: #fff;
     border-radius: 10px;
@@ -425,26 +430,66 @@ section.col-md-9  .rounded:hover  {
 
     
 @media (max-width: 450px) {
- 
-    .resto .item{
-        width: 70%;
-        margin: 20px 13%;
+
+    .no-mobile{
+        display: none;
     }
-    .resto .item img {
-        top: 6px;
-        left: 52px;
+    .resto .item{
+        width: 90%;
+        margin: 20px;
+    }
+    .resto .item > img{
+        top: -20px;
+        left: 15px;
+        max-width: 90px;
     }
     .callAction{
-        width: 72%;
-        margin-left: 13%;
+        width: 95%;
+        margin-left: 4%;
+        margin-top: 22px;
     }
     footer img {
-        width: 95%;
+        width: 80%;
+    }
+    footer {
+        padding: 50px;
     }
     .banner {
         padding: 35px;
         background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(238, 49, 104, 0.5)), url("../img/bannerBlack.jpg");
     }
+
+    /* Vue Default */
+    .bannerHome {
+        padding: 50px;
+    }
+
+    .resto .item, .callAction {
+        display: block;
+        background: #41133c;
+        padding: 49px 10px 20px 20px;
+        border-radius: 5px 20px 5px 30px;
+    }
+
+    /* Fin Vue Default */
+    /* Vue Connection */
+    .banner2 {
+        padding: 20px
+    }
+    /* FIN Vue Connection */
+
+    .col-md-9 .container .p-3{
+        padding: 10px!important;
+        padding-top: 20px!important;
+    }
+
+    .commentaire > img {
+        max-width: 75px;
+    }
+    .commentaire{
+        padding-top: 30px;
+    }
+
 
 }
 /**************css sur le fieldset de formulaire connectionUsager by Mery*******************************************/
@@ -452,6 +497,7 @@ fieldset {
     padding:0 30px 30px 30px;
     margin-bottom:10px;
     border:1px solid white;
-    width: 310px;
+    min-width: 270px;
+    max-width: 330px;
 }
 /**************css sur le fieldset de formulaire connectionUsager by Mery*******************************************/

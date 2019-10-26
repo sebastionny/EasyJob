@@ -15,7 +15,6 @@ class ProfilEmployeAction implements Action {
             $employe = $DAOEmploye->findByIdCompte($_SESSION["infoCompte"]->getidCompte());
 
             if(ISSET($_SESSION['dispo']) && sizeof($_SESSION['dispo']) != 0 && ISSET($_REQUEST['saveDispo'])) {
-
                 $Employe = $_SESSION['dispo'][0];
 
                 // Il enlève tous les registres de la table disponibilité qui appartient à  l'employé
@@ -72,7 +71,8 @@ class ProfilEmployeAction implements Action {
 
             if (isset($_REQUEST['uploadBtn'])){
                 if ($this->valideInfoCompte(4))
-                { return "profilEmploye";}
+                {   $_REQUEST["field_messages"]["upPhoto"] = "Il faut choisir une image (.img, .png, .gif).";                    
+                    return "profilEmploye";}
                 else {
                     $fileTmpPath = $_FILES['photoProfilFile']['tmp_name'];
                     $fileName = $_FILES['photoProfilFile']['name'];
@@ -81,20 +81,18 @@ class ProfilEmployeAction implements Action {
                     $fileNameCmps = explode(".", $fileName);
                     $fileExtension = strtolower(end($fileNameCmps));
                     $newFileName = $employe->getIdEmploye().'.' . $fileExtension;
-                    $extention =  array('jpg', 'gif' , 'png');
+                    $extention =  array('jpeg', 'jpg', 'gif' , 'png');
 
                     if (in_array($fileExtension, $extention)){
                         $upLoadFileDir = 'img/profil/';
                         $dest_path = $upLoadFileDir . $newFileName;
                         if (move_uploaded_file($fileTmpPath, $dest_path)){
-                            $employe->setPhoto($dest_path);
+                            $employe->setPhoto($upLoadFileDir .$newFileName);
+                            $DAOEmploye->update($employe);
                         }else
                             echo `<h1> Ooops, je peux pas placer le fichier</h1>`;
                     }else
-                        echo (`<h1> Telechergement imposible!</h1>`);
-
-                    $employe->setPhoto($upLoadFileDir .$newFileName);
-                    $DAOEmploye->update($employe);
+                        $_REQUEST["field_messages"]["upPhoto"] = "Il faut choisir une image (.img, .png, .gif)."; 
                 }
             }
             // Il enregistre met a jour le service acepter
@@ -156,7 +154,6 @@ class ProfilEmployeAction implements Action {
 
         }
     }
-
 
     public function today($day){
         $res =  array ("lundi","mardi", "mercredi" , "jeudi" , "vendredi" , "samedi", "dimanche");

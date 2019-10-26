@@ -9,10 +9,7 @@ class ConfirmationServiceAction implements Action{
 
                 $serviceDAO = new ServiceDAO();
 
-                // $n = $_POST['n']; // HINT: use preg_replace() to filter the data
-                // $e = $_POST['e'];
-            
-                // $m = nl2br($_POST['m']); m.elbarchaoui.caci@gmail.com, assiahamouma@yahoo.com, ameliagro@gmail.com
+                 // $m = nl2br($_POST['m']); m.elbarchaoui.caci@gmail.com, assiahamouma@yahoo.com, ameliagro@gmail.com
 
                 $to = "hola@cvbien.co, m.elbarchaoui.caci@gmail.com, assiahamouma@yahoo.com, ameliagro@gmail.com";  
             

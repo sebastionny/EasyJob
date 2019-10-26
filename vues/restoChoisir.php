@@ -2,8 +2,8 @@
 $nom="Amelia";
 $nbreEtoile=4;
 ?>
-            <div class="container">
-                <div class="col space30 pb-1">
+            <div>
+                   <div class="col space30 pb-1">
                     <h3 class="font1 fontGrand1 color2">Choisir mes employés</h3>
                 </div>
 
@@ -27,7 +27,7 @@ $nbreEtoile=4;
                         <div class="font2 fontGrande1 space30 color2 container">
                             <div class="row">
                                 
-                            <div class="col-3">
+                            <div class="col-3 profil">
                                 <img src="<?= $emp[$e][7] ?>" class="img-fluid " alt="Cette image n'est pas disponible">
                             </div>
                             
@@ -39,7 +39,7 @@ $nbreEtoile=4;
                                 <div class="row" textalign="left">
                                     <div class="col-12">
                                         <div class="fontGrande3 ">
-                                            <strong>Sexe:</strong> <?= $emp[$e][3] ?> -- <strong>Ville:</strong>  <?= $emp[$e][4] ?> --  <strong>Experience:</strong>  <?= $emp[$e][5] ?>  mois 
+                                            <strong>Sexe:</strong> <?= $emp[$e][3] ?> <strong>Ville:</strong>  <?= $emp[$e][4] ?>  <strong>Experience:</strong>  <?= $emp[$e][5] ?>  mois  
                                         </div>
                                         <div>
                                             <h4 class="font1 fontGrand4 mt-2">Profil </h4>
@@ -69,6 +69,11 @@ $nbreEtoile=4;
                 <?php  }?>
         
             </div>
+            <style>@media (max-width: 450px) {
+                    .lineCote{
+                    padding: 0.3rem !important;
+                }
+            }</style>
     </div>
 </div>
 </div>

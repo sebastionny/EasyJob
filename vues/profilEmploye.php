@@ -14,25 +14,30 @@
                          <div class="profil">
                             <img src="<?=$_SESSION['infoEmploye']->getPhoto()?>" alt="<?=$_SESSION['infoCompte']->getPrenom()?>" class="img-fluid ">
                          </div>
-                         <form action="" method="post" enctype="multipart/form-data" class="space30 fontCenter">
-                             <div class="form-group">
-                                 <input type="file" class="form-control-file" name="photoProfilFile">
+                         <form action="?action=profilEmploye" method="post" enctype="multipart/form-data" class="space30 fontCenter">
+                         <?php if (ISSET($_REQUEST["field_messages"]["upPhoto"]))
+                            echo "<br/><span class=\"warningMessage font2\">".$_REQUEST["field_messages"]["upPhoto"]."</span>";
+                        ?>   
+                         <div class="form-group">
+                                 <input type="file" class="form-control-file font2" name="photoProfilFile">
                              </div>
-                             <button type="submit" class="btn btn-primary " name="uploadBtn" value="photoProfil">Changer </button>
+                             <button type="submit" class="btn btn-primary font2" name="uploadBtn" value="photoProfil">Changer</button>
                          </form>
+                         
 
-                     <?php }else {  ?>
-                         <img src="<?=$_SESSION['infoEmploye']->getPhoto()?>" alt="<?=$_SESSION['infoCompte']->getPrenom()?>" class="img-thumbnail profil ">
-                     <?php }
-                     $activeService = $activeCommentaire = $active = '';
-                     if (isset($_REQUEST['profil'])){
-                         if ($_REQUEST['profil'] == 'mesService')
-                             $activeService = 'activeLine';
-                         if ($_REQUEST['profil'] == 'commentaire')
-                             $activeCommentaire = 'activeLine';
-                     }else
-                         $active = 'activeLine';
-                     ?>
+                     <?php
+                            $activeService = $activeCommentaire = $active = '';
+                            if (isset($_REQUEST['profil'])){
+                                if ($_REQUEST['profil'] == 'mesService')
+                                    $activeService = 'activeLine';
+                                if ($_REQUEST['profil'] == 'commentaire')
+                                    $activeCommentaire = 'activeLine';
+                            }else{
+                                $active = 'activeLine';
+                                }
+                    }else {  ?>
+                         <h1> HOLAAAAAAA ERROR EN SESSION CONNECTED </h1>
+                     <?php } ?>
 
                     <div class="space100 font2 fontGrand3 ">
                         <a href="?action=profilEmploye" class="btn btn-line1 btn-block color1 <?=$active?>"> MON PROFIL</a>
@@ -45,11 +50,7 @@
              </div>
 
              <section class="col-md-9 lineCote">
-                 <div class="container">
-
                  <?php
-                 if (!ISSET($_SESSION)) session_start();
-
                  if (isset($_REQUEST['profil'])){
                      if ($_REQUEST['profil'] == 'mesService')
                          require_once('vues/include/employe/staffDemandeService.php');
@@ -57,10 +58,7 @@
                         require_once('restoCommentaire.php');
                  }else
                      require_once('vues/include/employe/profil.php');
-
                 ?>
-
-                </div>
              </section>
 
          </div>
