@@ -34,7 +34,7 @@
 <br/>
             <div class="form-group">
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-12">
                         <input name="action" value="connecter" type="hidden" />
                         <button type="submit" class="btn btn-primary font2 btn-block"> SE CONNECTER  </button>
         </fieldset>

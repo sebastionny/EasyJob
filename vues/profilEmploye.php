@@ -43,8 +43,8 @@
                         <a href="?action=profilEmploye" class="btn btn-line1 btn-block color1 <?=$active?>"> MON PROFIL</a>
                         <a href="?action=profilEmploye&profil=mesService" class="btn btn-line1 btn-block color1 <?=$activeService?>"> MES SERVICES</a>
                         <a href="?action=profilEmploye&profil=commentaire" class="btn btn-line1 btn-block color1 <?=$activeCommentaire?>"> MES COMMENTAIRES</a>
-                        <a href="?action=logout" class="btn btn-line1 btn-block color1"> ME DÉCONNECTER</a>
                         <a href="?action=desactiver" class="btn btn-line1 btn-block color1"> DESACTIVER MON COMPTE</a>
+                        <a href="?action=logout" class="btn btn-line1 btn-block color1"> ME DÉCONNECTER</a>
                     </div>
                  </div>
              </div>

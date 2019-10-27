@@ -446,7 +446,9 @@ section.col-md-9  .rounded:hover  {
     .resto .item > img{
         top: -20px;
         left: 15px;
-        max-width: 90px;
+        max-width: 70px;
+        margin-top: 20px;
+        margin-left: 0px;
     }
     .callAction{
         width: 95%;

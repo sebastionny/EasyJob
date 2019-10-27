@@ -50,7 +50,6 @@ class LoginAction implements Action
             }
     }
 
-
     public function valide()
     {
         $result = true;
