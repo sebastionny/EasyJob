@@ -40,7 +40,7 @@
                     <a href="?action=profilResto&profil=mesService" class="btn btn-line1 btn-block color1 <?=$activeService?>">CHOISIR MES EMPLOYÉS</a>
                     <a href="?action=profilResto&profil=commentaire" class="btn btn-line1 btn-block color1 <?=$activeCommentaire?>"> MES COMMENTAIRES</a>
                     <a href="?action=logout" class="btn btn-line1 btn-block color1"> DESACTIVER MON COMPTE</a>
-                    <a href="?action=logout" class="btn btn-line1 btn-block color1"> ME DÉCONNECTER</a>
+                    <a href="?action=desactiver" class="btn btn-line1 btn-block color1"> ME DÉCONNECTER</a>
                 </div>
             </div>
         </div>

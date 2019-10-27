@@ -34,6 +34,12 @@ class ActionBuilder{
             case "contactUs":
                 return new ContactUsAction();
                 break;
+            case "desactiver":
+                return new DesactiverAction();
+                break;
+            case "desativerUser":
+                return new ConfirmationDesactiverAction();
+                break;
             default :
                 return new DefaultAction();
         }

@@ -79,6 +79,36 @@ class AccepteDAO {
             return $accept;
     }
 
+    public static function findAlltAccept($id)
+    {
+        $db = Database::getInstance();
+        $accept = Array();
+        $serv = Array();
+        try {
+            $pstmt = $db->prepare("SELECT *
+                   FROM accepte
+                   JOIN service
+                   ON service.idService= accepte.idService
+                   WHERE accepte.idEmploye = :x");
+
+            $pstmt->execute(array(':x' => $id));
+
+            while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
+            {
+                $a = new Accepte();
+                $b= new Service ();
+                $a->loadFromObject($result);
+                array_push($accept,$a);
+            }
+            $pstmt->closeCursor();
+            $pstmt = NULL;
+            Database::close();
+        }
+        catch (PDOException $ex){
+        }
+        return $accept;
+    }
+
     public static function findAllNotAccept()
     {
             $db = Database::getInstance();

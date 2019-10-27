@@ -6,6 +6,30 @@
  */
 
 class ServiceDAO {
+    public static function findById($id)
+    {
+        $db = Database::getInstance();
+        $serv = Array();
+        try {
+            $pstmt = $db->prepare("SELECT * FROM service  WHERE idService = :x");
+            $pstmt->execute(array(':x' => $id));
+            while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
+            {
+
+                $b= new Service ();
+                $b->loadFromObject($result);
+                array_push($serv,$b);
+            }
+            $pstmt->closeCursor();
+            $pstmt = NULL;
+            Database::close();
+        }
+        catch (PDOException $ex){
+        }
+        return $serv;
+    }
+
+
     public static function find($id)
     {
             $db = Database::getInstance();
