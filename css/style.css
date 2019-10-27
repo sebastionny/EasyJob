@@ -245,12 +245,17 @@ header .btn-line{
 .resto .item  .color1{
     padding-left: 10px;
 }
-.resto .item > img{
-    display: block;
+.resto .item > img {
+    /* display: block;
     position: absolute;
     top: -35px;
     left: -10px;
-    width: 105px!important;
+    width: 105px!important; */
+    display: block;
+    position: absolute;
+    width: 90px!important;
+    margin-top: -40px;
+    margin-left: -90px;
 }
 
 .date.form_date.form-control {

@@ -9,7 +9,7 @@
     ?>
     <form action="" method="post">
         <fieldset>
-            <legend class="color1 font2 fontGrand4"> &nbsp;&nbsp;&nbsp;CONNECTEZ VOUS : </legend>
+            <legend class="color1 font2 fontGrand4"> &nbsp;&nbsp;&nbsp;CONNECTEZ VOUS </legend>
 <br/>
             <div class="form-group input-group">
                 <div class="input-group-prepend">

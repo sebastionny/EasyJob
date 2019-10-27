@@ -52,7 +52,7 @@
                                 </button>
                                         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                                             <a class="nav-link btn login activeLine" href="?action=demandeService"> DEMANDER UN SERVICE <?= $_SESSION["connected"]; ?>  </a>
-                                            <a class="nav-link btn login" href="?action=profilResto"> MON PROFIL <?= $_SESSION["connected"]; ?>  </a>
+                                            <a class="nav-link btn login" href="?action=profilResto"> MON PROFIL </a>
                                             <a class="nav-link btn login"  href="?action=logout">ME DÉCONNECTER</a>
                                         </div>
                         <?php }else{ ?>
@@ -63,7 +63,7 @@
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
-                                        <a class="nav-link btn login" href="?action=profilEmploye"> MON PROFIL <?= $_SESSION["connected"]; ?>  </a>
+                                        <a class="nav-link btn login" href="?action=profilEmploye"> MON PROFIL  </a>
                                             <a class="nav-link btn login"  href="?action=logout">ME DÉCONNECTER</a>
                                         </div>
                             

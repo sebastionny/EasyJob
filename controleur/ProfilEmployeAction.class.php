@@ -10,6 +10,7 @@ class ProfilEmployeAction implements Action {
             $DAOCompte    = new CompteDAO();
             $DAOService   = new ServiceDAO();
             $DAOAccepte   = new AccepteDAO();
+            $DAOEmployeur = new EmployeurDAO();
 
            
             $employe = $DAOEmploye->findByIdCompte($_SESSION["infoCompte"]->getidCompte());
@@ -95,16 +96,56 @@ class ProfilEmployeAction implements Action {
                         $_REQUEST["field_messages"]["upPhoto"] = "Il faut choisir une image (.img, .png, .gif)."; 
                 }
             }
+            
             // Il enregistre met a jour le service acepter
             if (isset($_REQUEST['idService'])){
 
                 $s = $DAOService->find($_REQUEST['idService']);
                 $a = new Accepte;
 
-                $this->loadAccepte($a);
-                $DAOAccepte->create($a);
+                // $this->loadAccepte($a);
+                // $DAOAccepte->create($a);
+                // $DAOService->update($s);
                 
-                $DAOService->update($s);
+                $r = $DAOEmployeur->find($s->getIdEmployeur()); 
+                $c = $DAOCompte->findById($r->getIdCompte());
+               
+                $msg = '<html> 
+                <body style="font-size: 17px; line-height: 14px; font-family: Helvetica, sans-serif; color: #41133c;"> 
+    
+                <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/EMAIL.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 700px; display: block;" title="Header" width="700">
+    
+    
+                <div >
+                    <p style="font-size: 18px;">Hey Salut!,</p>
+                    <p style="font-size: 18px;">On a une belle nouvelle pour toi</p>
+    
+                </div>
+    
+                <div style="font-size: 18px;" >
+                       On a bien trouvé un nouveau candidat pour ton service. <br>
+                </div>
+    
+                <div style="margin-top: 25px; margin-bottom: 25px;">
+                    <a href="https://tallern.com/clientes/easyjob?action=profilResto&profil=mesService">
+                        <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/btnEmploye.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 150px; display: block;" title="Image" width="150">
+                    </a>
+                </div>
+    
+     
+                <div style=" font-size: 18px; line-height: 24px; text-align: left; margin: 0;">
+                    Bonne nouvelle : ton service est bien demandé ! 
+                </div>
+               
+                <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/signagure.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 350px; display: block;" title="Image" width="350">
+            
+    
+            </body> 
+            </html>  ';
+                $subject = $c->getPrenom() . ', on a trouvé un employé pour ton restaurant';
+
+                $send = new SendEmail;
+                //$send::send(,$c->getCourriel(),);
                                
             }
 

@@ -32,6 +32,30 @@ class AccepteDAO {
             }             
             return NULL;
     }
+    public static function findByEmploye($idE)
+    {
+            $db = Database::getInstance();
+            try {
+                $pstmt = $db->prepare("SELECT * FROM accepte WHERE idEmploye = :x ORDER BY idService ASC");
+                $pstmt->execute(array(':x' => $idE));
+
+                $result = $pstmt->fetch(PDO::FETCH_OBJ);
+
+                while ($result = $pstmt->fetch(PDO::FETCH_OBJ))
+                {
+                        $a = new Accepte();
+                        $a->loadFromObject($result);
+                        array_push($accept, $a);
+                }
+                $pstmt->closeCursor();
+                $pstmt = NULL;
+                Database::close();
+            }
+            catch (PDOException $ex){
+            }             
+            return $accept;
+    }
+
     public static function findAll()
     {
             $db = Database::getInstance();

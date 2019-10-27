@@ -29,11 +29,14 @@ class ProfilEmployeurAction implements Action {
             $this->loadPhotoProfilResto($employeur);
             $employeurDAO->update($employeur);
 
+            // Elle va finir la demande de service
+            $this->closeDemande($serviceDAO);
+
             // Elle va accepter ou refusser un employer interesser par une demande.
             $this->changerDemande($serviceDAO, $accepteDAO);
             
             // Elle donne tous le services qui appartient au Employeur. Dans la table Accepte. Alors Ca veut dire il sont en attends de reponse
-            $this->loadServiceEnAttends($serviceDAO, $accepteDAO);           
+            $this->loadServiceEnAttends($serviceDAO, $accepteDAO);
              
             // recuperation d'information en session pour afficher les donnees!
             $_SESSION["infoResto"] = $restaurant;
@@ -46,24 +49,29 @@ class ProfilEmployeurAction implements Action {
         return "connecter";
     }
 
+    private function closeDemande($serviceDAO){
+        if(isset($_REQUEST['closeDemande'])){
+            $service = $serviceDAO->find($_REQUEST['idS']);
+            $service->setActive(0);
+            $serviceDAO->update($service);
+            $_REQUEST["field_messages"]["closeDemande"] = "Le ". $_REQUEST['idS'] . " service a été fermé.";
+
+        }
+    }
     private function changerDemande($sDAO, $aDAO){
         if(isset($_REQUEST['accepter'])){
-            $service = $sDAO->find($_REQUEST['idS']);
-            $service->setActive(0);
-            $sDAO->update($service);
-
             $accepter = $aDAO->find($_REQUEST['idE'],$_REQUEST['idS']);
             $accepter->setFait(1);
             $aDAO->update($accepter);
         }
         if(isset($_REQUEST['refuser'])){
-            
-            echo($_REQUEST['idE']);
+            $accepter = $aDAO->find($_REQUEST['idE'],$_REQUEST['idS']);
+            $aDAO->delete($accepter);
         }
     }
     private function loadServiceEnAttends($serviceDAO, $accepteDAO){
         $s = $serviceDAO->findAllByIdEmployeurActive($_SESSION["infoEmployeur"]->getIdEmployeur());
-        $a = $accepteDAO->findAllNotAccept();
+        $a = $accepteDAO->findAll();
         
         $idSer = '';
         $infoSerEmp = array(); 
@@ -99,6 +107,7 @@ class ProfilEmployeurAction implements Action {
                         array_push($infoSerEmp, $e->getExperience());
                         array_push($infoSerEmp, $e->getQualite());
                         array_push($infoSerEmp, $e->getPhoto());
+                        array_push($infoSerEmp, $objA->getFait());
                         
                         array_push($emp, $infoSerEmp);
 

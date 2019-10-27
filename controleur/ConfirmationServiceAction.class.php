@@ -40,7 +40,7 @@ class ConfirmationServiceAction implements Action{
                         </div>
                         <div>
                             <a style="color: red" href="https://tallern.com/clientes/easyjob?action=profilEmploye&profil=mesService">
-                                <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/btnOffre.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 350px; display: block;" title="Image" width="350">
+                                <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/btnOffre.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 150px; display: block;" title="Image" width="150">
                             </a>
                         </div>
 

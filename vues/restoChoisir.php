@@ -2,10 +2,15 @@
 $nom="Amelia";
 $nbreEtoile=4;
 ?>
+            <?php if (ISSET($_REQUEST["field_messages"]["closeDemande"]))
+                    echo "<br/><span class=\"alert alert-success float-sm-right \">".$_REQUEST["field_messages"]["closeDemande"]."</span>";
+                ?><br/>
             <div>
                    <div class="col space30 pb-1">
                     <h3 class="font1 fontGrand1 color2">Choisir mes employés</h3>
                 </div>
+
+                
 
                 <?php 
                     $ser = $_SESSION['mesService'];
@@ -46,6 +51,8 @@ $nbreEtoile=4;
                                             <p class="font2"><?=$emp[$e][6] ?> </p>
                                             <hr color="white">
                                         </div>
+
+                                        <?php if( $emp[$e][8] == 0){?>
                                         <form method="POST">
                                         <div class="float-md-right">
                                             <input type="hidden" name="idS" value="<?=$ser[$s]['i'][0]?>" >
@@ -54,6 +61,9 @@ $nbreEtoile=4;
                                             <button type="submit" name="accepter" class="btn btn-primary btn-lg font1 "> ACCEPTER</button>
                                         </div>
                                         </form>
+                                        <?php } else{?>
+                                            <div class="font2  fontGrand4"> Employé déjà pris </div>
+                                        <?php }?>
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +71,14 @@ $nbreEtoile=4;
                         </div> 
                         <?php }?>
 
-                </div>
+                        <form method="POST">
+                        <div class="float-sm-left">
+                            <input type="hidden" name="idS" value="<?=$ser[$s]['i'][0]?>" >
+                            <button type="submit" name="closeDemande" class="btn btn-primary btn-lg font1 "> TERMINER SERVICE</button>
+                        </div>
+                        </form>
+                
+                    </div>
                 <?php }
     
                 if($flat == false){ ?>

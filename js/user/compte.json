@@ -1,18 +1,18 @@
 [
     {
-        "nomReto": "Resto Arroz Frito",
-        "adresse": "8880",
+        "nomReto": "Fruits de mer",
+        "adresse": "8890 10e av.",
         "province": "quebec",
         "ville": "longueil",
-        "codePostal": "h1h1h1h",
-        "tel": "123456",
-        "description": "dsfgsdfg\r\nsd\r\nfg\r\nsdfg"
+        "codePostal": "123 546",
+        "tel": "22",
+        "description": "Description du restaurant Fruits de mer"
     },
     {
-        "nom": "Romero",
-        "prenom": "Katherine",
-        "courriel": "re@taller.com",
+        "nom": "resto",
+        "prenom": "resto",
+        "courriel": "re@mail.com",
         "motDePasse": "123",
-        "telCompte": ""
+        "telCompte": "4444"
     }
 ]

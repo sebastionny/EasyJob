@@ -22,10 +22,6 @@ class DemandeServiceAction implements Action{
         return "connecter";
     }
 
-
-
-
-
     private function employesDispo($servicedao){
 
         $date = explode(" ", $_REQUEST['txtDateService']);
@@ -88,8 +84,6 @@ class DemandeServiceAction implements Action{
         $s->setIdEmployeur($_SESSION['infoEmployeur']->getIdEmployeur());
         return $s;
     }
-
-
 
     public function valide($section)
     {

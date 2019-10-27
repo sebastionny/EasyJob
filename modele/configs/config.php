@@ -1,6 +1,7 @@
 <?php
 /**
- * Description of CompteDAO.class
+ * Description of CompteDAO.class talle1sn_crose talle1sn_EJOB
+ * 
  *
  * @author Meryem, Am�lia, Assia et Sebastian
  */

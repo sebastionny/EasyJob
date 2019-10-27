@@ -30,11 +30,10 @@
             $d_hd = (int)$d->getHeureDebut();
             $d_hf = (int)$d->getHeureFin();
 
-            if( $jour == $d_jour && $d_hd <= $hd && $d_hf >= $hf ) {
+            if( $jour == $d_jour && $d_hd <= $hd && $d_hf >= $hf  ) {
                 $flat = true;  
     
     ?>
-
         <div class="item color1">
             <img src="img/resto3.png" class="img-fluid" alt="Cette image n'est pas disponible">
             <div class="color1">
@@ -57,9 +56,11 @@
                         <div class="float-right">
                             <?php if($a != null && $a->getFait() == 0) {?>
                                 <h3 class="font2 fontGrand3 fontCenter">Demande en attende </h3>
-                            <?php } else{?>
-                            <a class="btn btn-lg btn-primary" href="?action=profilEmploye&profil=mesService&idService=<?=$s->getIdService();?>"> ACCEPTER</a>
-                            <?php    }?>
+                            <?php } elseif($a != null && $a->getFait() == 1){?>
+                                <h3 class="font2 fontGrand3 fontCenter">Service accepté </h3>
+                            <?php }else {?>
+                                <a class="btn btn-lg btn-primary" href="?action=profilEmploye&profil=mesService&idService=<?=$s->getIdService();?>"> ACCEPTER</a>
+                            <?php }?>
                         </div>
                     </div>
                 </div>
@@ -75,12 +76,5 @@
         <h3 class="font2 fontGrand2 fontCenter">On n'a pas des offres. selon ton disponibilité </h3>
 
     <?php    }?>
-    
-
-
-
-
     </div>
-
-
 </div>
