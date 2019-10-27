@@ -32,8 +32,8 @@ class ProfilEmployeurAction implements Action {
             // Elle va finir la demande de service
             $this->closeDemande($serviceDAO);
 
-            // Elle va accepter ou refusser un employer interesser par une demande.
-            $this->changerDemande($serviceDAO, $accepteDAO);
+            // Elle va accepter ou refusser un employer interesser par une demande et confirme avec courriel.
+            $this->changerDemande($serviceDAO, $accepteDAO, $compteDAO, $restDAO );
             
             // Elle donne tous le services qui appartient au Employeur. Dans la table Accepte. Alors Ca veut dire il sont en attends de reponse
             $this->loadServiceEnAttends($serviceDAO, $accepteDAO);
@@ -58,11 +58,18 @@ class ProfilEmployeurAction implements Action {
 
         }
     }
-    private function changerDemande($sDAO, $aDAO){
+    private function changerDemande($sDAO, $aDAO, $cDAO, $rDAO){
         if(isset($_REQUEST['accepter'])){
             $accepter = $aDAO->find($_REQUEST['idE'],$_REQUEST['idS']);
             $accepter->setFait(1);
             $aDAO->update($accepter);
+
+            $employe = $cDAO->findById($_REQUEST['idEComp']);
+            $service = $sDAO->find($_REQUEST['idS']);
+            $resto = $rDAO->findByIdEmployeur($service->getIdEmployeur());
+                     
+
+            $this->mailRestoEmploye($employe, $service, $resto);
         }
         if(isset($_REQUEST['refuser'])){
             $accepter = $aDAO->find($_REQUEST['idE'],$_REQUEST['idS']);
@@ -108,6 +115,7 @@ class ProfilEmployeurAction implements Action {
                         array_push($infoSerEmp, $e->getQualite());
                         array_push($infoSerEmp, $e->getPhoto());
                         array_push($infoSerEmp, $objA->getFait());
+                        array_push($infoSerEmp, $c->getIdCompte());
                         
                         array_push($emp, $infoSerEmp);
 
@@ -200,6 +208,58 @@ class ProfilEmployeurAction implements Action {
                 $employeur->setPhoto($upLoadFileDir .$newFileName);
             }
         }
+    }
+    private function mailRestoEmploye($employe, $service , $resto){
+        //var_dump($_SESSION);
+        $courriels = $employe->getCourriel() . ' , ' . $_SESSION['connected'];
+        $suject = 'EasyJob vous confirme les coordonnées du service! ';
+        $msg = '<!DOCTYPE html>
+        <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+        </head>
+        <body style="font-size: 17px; font-family: Helvetica, sans-serif; color: #41133c;"> 
+
+        <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/EMAIL.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 700px; display: block;" title="Header" width="700">
+
+        <div >
+        
+            <p style="font-size: 18px;">Hey Salut, <strong>'. $employe->getPrenom() .' </strong> ton service sera à <strong><span style=" color: #ee3168; ">'. $resto->getNomRest() . '<span></strong> </p>
+            <p style="font-size: 18px;"> Voici les coordonnées du service à la date '. $service->getDate() .'</p>
+
+        </div>
+
+        <div style="font-size: 18px;" >
+        <strong>Prénom et nom employé:</strong> ' . $employe->getPrenom() . ' '. $employe->getNom() .'. <br>
+        <strong>Heure de debut:</strong> '. $service->getHeureDebut(). ' H . <br>
+        <strong>Heure de fin:</strong> '. $service->getHeureFin(). ' H . <br>
+        <strong>Remuneration:</strong> $ '. $service->getRemuneration(). ' . <br>
+        <strong>Description:</strong> '. $service->getDescription(). ' H . <br>
+        
+        </div>
+
+        <div style="font-size: 18px;" >
+        <strong>Information du Restaurant</strong> <br><br>
+        <strong>Téléphone: </strong>'. $resto->getTelRest(). '. <br>
+        <strong>Adresse:</strong> '. $resto->getAdresseRest(). '. <br>
+        <strong>Ville:</strong> '. $resto->getVilleRest(). ' . <br>
+        <strong>Code Postal:</strong> '. $resto->getCodePostalRest(). ' . <br>
+        <strong>Courriel:</strong> ' . $_SESSION['connected'] . ' <br>
+
+        </div>
+ 
+        <div style=" font-size: 18px; line-height: 24px; text-align: left; margin: 0;">
+            Merci d avoir utilisé notre service.
+        </div>
+       
+        <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/signagure.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 350px; display: block;" title="Image" width="350">
+    
+
+    </body> 
+    </html>  ';
+
+        SendEmail::send($msg , $courriels , $suject );
     }
 }
 ?>

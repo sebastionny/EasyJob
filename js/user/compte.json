@@ -1,18 +1,18 @@
 [
     {
-        "nomReto": "Fruits de mer",
-        "adresse": "8890 10e av.",
+        "nomReto": "Riz Cantonesse",
+        "adresse": "3300 Rue vide",
         "province": "quebec",
-        "ville": "longueil",
-        "codePostal": "123 546",
-        "tel": "22",
-        "description": "Description du restaurant Fruits de mer"
+        "ville": "laval",
+        "codePostal": "6666",
+        "tel": "444444545",
+        "description": "sdfgsdfgsdfg\r\nsdfg\r\nsdfg\r\nsd\r\nfgsdfg"
     },
     {
-        "nom": "resto",
-        "prenom": "resto",
-        "courriel": "re@mail.com",
+        "nom": "Don",
+        "prenom": "Chin",
+        "courriel": "me@mail.com",
         "motDePasse": "123",
-        "telCompte": "4444"
+        "telCompte": "2222222"
     }
 ]

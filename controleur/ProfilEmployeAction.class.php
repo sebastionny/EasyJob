@@ -103,18 +103,22 @@ class ProfilEmployeAction implements Action {
                 $s = $DAOService->find($_REQUEST['idService']);
                 $a = new Accepte;
 
-                // $this->loadAccepte($a);
-                // $DAOAccepte->create($a);
-                // $DAOService->update($s);
+                $this->loadAccepte($a);
+                $DAOAccepte->create($a);
+                $DAOService->update($s);
                 
                 $r = $DAOEmployeur->find($s->getIdEmployeur()); 
                 $c = $DAOCompte->findById($r->getIdCompte());
                
-                $msg = '<html> 
+                $msg = '<!DOCTYPE html>
+                <html lang="fr">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+                </head>
                 <body style="font-size: 17px; line-height: 14px; font-family: Helvetica, sans-serif; color: #41133c;"> 
     
                 <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/EMAIL.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 700px; display: block;" title="Header" width="700">
-    
     
                 <div >
                     <p style="font-size: 18px;">Hey Salut!,</p>
@@ -127,11 +131,10 @@ class ProfilEmployeAction implements Action {
                 </div>
     
                 <div style="margin-top: 25px; margin-bottom: 25px;">
-                    <a href="https://tallern.com/clientes/easyjob?action=profilResto&profil=mesService">
+                    <a style="color: red" href="https://tallern.com/clientes/easyjob?action=profilResto&profil=mesService">
                         <img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="https://tallern.com/clientes/easyjob/img/btnEmploye.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 150px; display: block;" title="Image" width="150">
                     </a>
-                </div>
-    
+                </div>   
      
                 <div style=" font-size: 18px; line-height: 24px; text-align: left; margin: 0;">
                     Bonne nouvelle : ton service est bien demandé ! 
@@ -145,10 +148,8 @@ class ProfilEmployeAction implements Action {
                 $subject = $c->getPrenom() . ', on a trouvé un employé pour ton restaurant';
 
                 $send = new SendEmail;
-                //$send::send(,$c->getCourriel(),);
-                               
+                $send->send($msg,$c->getCourriel(), $subject);       
             }
-
             
              $_SESSION["infoCompte"]  = $DAOCompte->findById($_SESSION["infoCompte"]->getIdCompte());
              $_SESSION["infoEmploye"]  = $DAOEmploye->find($employe->getIdEmploye());
