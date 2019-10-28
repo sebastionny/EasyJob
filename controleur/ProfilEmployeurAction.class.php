@@ -5,6 +5,11 @@ class ProfilEmployeurAction implements Action {
         if (!ISSET($_SESSION)) session_start();
         if (ISSET($_SESSION["connected"])){
 
+            //*************assia***************
+            $_SESSION["empFait"]=null;
+            $_SESSION["accepteCom"]=null;
+            //***********************************************************
+
             $restDAO = new RestaurantDAO();
             $compteDAO = new CompteDAO();
             $employeurDAO = new EmployeurDAO();
@@ -42,6 +47,75 @@ class ProfilEmployeurAction implements Action {
             $_SESSION["infoResto"] = $restaurant;
             $_SESSION["infoEmployeur"] = $employeur;
             $_SESSION["infoCompte"] = $compte;
+            $_SESSION["commentaireAjouter"]="";
+		
+		$_SESSION["serviceFait"]=$serviceDAO->findServiceFaitByidEmp($_SESSION["infoEmployeur"]->getIdEmployeur());
+		
+			if(isset($_SESSION["serviceFait"])){
+			
+			$idS=$_SESSION["serviceFait"]->getIdService();
+			//recuperer l'employe a partir de id service
+			//ma jointure select employe.* from employe inner join accepte on accepte.idEmploye=employe.idEmploye where idService=$_SESSION["serviceFait"]
+			
+			$emp=$serviceDAO->findEmpFaitByidSer($_SESSION["serviceFait"]->getIdService());
+			
+			$idEmp=$emp->getIdEmploye();//recuperer le accepte a partir du id service et employeur
+			$_SESSION["accepteCom"]=$serviceDAO->findAccept($idS,$idEmp);
+		 
+			//recuperer le nom et le prenom de l'employe a partir du code 
+			
+			$_SESSION["empFait"]=$compteDAO->findById($emp->getIdCompte());
+			
+//quand je clique sur le bouton valider
+			}else{
+				
+				
+				$_SESSION["pas"]="";
+			}
+			
+			
+			
+			
+			
+			
+			
+
+			if(isset($_REQUEST['valider'])){
+				 if (ISSET($_REQUEST["commentaire"]))
+				 {
+					 if (!$this->valide())
+        {
+            
+          
+			
+			return "profilResto";
+        }else{
+			
+		
+			$com=$_REQUEST["commentaire"];
+		
+			$etoile=$_REQUEST["etoiles"];
+			
+			$accepteCom=$serviceDAO->findAccept($idS,$idEmp);
+			
+		
+			
+			$accepteCom->setCommentaire($com);
+			$accepteCom->setEtoile($etoile);
+			$accepteDAO->update($accepteCom);
+			
+				  $_SESSION["commentaireAjouter"]= "Votre commentaire a ete ajoute Merci!!";
+				 $_SESSION["accepteCom"]=$serviceDAO->findAccept($idS,$idEmp);
+$_SESSION["serviceFait"]=null;
+	$_SESSION["accepteCom"]=null;
+		$_SESSION["empFait"]=null;				 
+		return "profilResto";
+		
+		}
+				 }
+				
+				
+			}
             
 
             return "profilResto";
@@ -260,6 +334,18 @@ class ProfilEmployeurAction implements Action {
     </html>  ';
 
         SendEmail::send($msg , $courriels , $suject );
+    }
+    public function valide()
+    {
+
+        $result = true;
+        if ($_REQUEST['commentaire'] == "")
+        {
+            $_REQUEST["field_messages"]["commentaire"] = "faite entrez un petit commentaire SVP !!!";
+            $result = false;
+        }
+		 
+        return $result;
     }
 }
 ?>

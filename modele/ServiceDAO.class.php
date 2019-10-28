@@ -250,4 +250,93 @@ public static function findDispo($jour,$fonction,$experience,$ville,$Hdebut,$Hfi
             return $service;
     }
 
+    //***********************assia*************************************
+	///recuperer le service a partir du id employeur
+	
+	 public static function findServiceFaitByidEmp($id)
+     {
+             $db = Database::getInstance();
+             try {
+                 $pstmt = $db->prepare("select service.* from service inner join accepte on accepte.idService=service.idService where service.idEmployeur=:x and accepte.fait=1 and accepte.commentaire='' ");
+                 $pstmt->execute(array(':x' => $id));
+ 
+                 $result = $pstmt->fetch(PDO::FETCH_OBJ);
+ 
+                 if ($result)
+                 {
+                     $s = new Service();
+                     $s->loadFromObject($result);
+                     $pstmt->closeCursor();
+                     $pstmt = NULL;
+                     Database::close();
+                     return $s;
+                 }
+                 $pstmt->closeCursor();
+                 $pstmt = NULL;
+                 Database::close();
+             }
+             catch (PDOException $ex){
+             }             
+             return NULL;
+     }
+     
+     //recuperer l'employe a partir du id service
+     
+ public static function findEmpFaitByidSer($id)
+     {
+             $db = Database::getInstance();
+             try {
+                 $pstmt = $db->prepare("select employe.* from employe inner join accepte on accepte.idEmploye=employe.idEmploye where idService=:x and accepte.commentaire=''");
+                 $pstmt->execute(array(':x' => $id));
+ 
+                 $result = $pstmt->fetch(PDO::FETCH_OBJ);
+ 
+                 if ($result)
+                 {
+                     $e = new Employe();
+                     $e->loadFromObject($result);
+                     $pstmt->closeCursor();
+                     $pstmt = NULL;
+                     Database::close();
+                     return $e;
+                 }
+                 $pstmt->closeCursor();
+                 $pstmt = NULL;
+                 Database::close();
+             }
+             catch (PDOException $ex){
+             }             
+             return NULL;
+     }
+ //recuperer l'accepte a partir du id emp et id service et fait=1
+ public static function findAccept($idS,$idEmp)
+     {
+             $db = Database::getInstance();
+             try {
+                 $pstmt = $db->prepare("select * from accepte where idService=:x and idEmploye=:y and fait=1 and accepte.commentaire=''");
+                 $pstmt->execute(array(':x' => $idS ,
+                                       ':y' => $idEmp));
+ 
+                 $result = $pstmt->fetch(PDO::FETCH_OBJ);
+ 
+                 if ($result)
+                 {
+                     $a = new Accepte();
+                     $a->loadFromObject($result);
+                     $pstmt->closeCursor();
+                     $pstmt = NULL;
+                     Database::close();
+                     return $a;
+                 }
+                 $pstmt->closeCursor();
+                 $pstmt = NULL;
+                 Database::close();
+             }
+             catch (PDOException $ex){
+             }             
+             return NULL;
+     }
+     
+     //**********************************************************
+
 }
