@@ -1,4 +1,4 @@
-<h3 class="color1">Créer votre compte</h3>
+<h3 class="color1">Créez votre compte</h3>
 <h4 class="color1">Je cherche une offre</h4>
 <?php  if (ISSET($_REQUEST["global_message"]))
     $msg="<span class=\"warningMessage\">".$_REQUEST["global_message"]."</span>";

@@ -144,7 +144,7 @@
             "Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"
         ];
         var date = new Date();
-        var getToday = dayNames[date.getDay()]+' '+date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
+        var getToday = dayNames[date.getDay()]+' '+date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
         return getToday;
     }
 

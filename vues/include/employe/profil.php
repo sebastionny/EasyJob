@@ -1,8 +1,8 @@
                     
                 <div class="row justify-content-center">
-                <!-- Section mon disponibilité -->
+                <!-- Section ma disponibilité -->
                 <div class=" shadow-lg p-3 mb-5 bg-white rounded col-md-12 col-lg-10 ">
-                         <h2 class="font2 fontGrande2 fontCenter space30 col-md-12 color2">Mon disponibilité</h2>
+                         <h2 class="font2 fontGrande2 fontCenter space30 col-md-12 color2">Ma disponibilité</h2>
                          <div class="container">
 
                             <div class="justify-content-center">
@@ -113,7 +113,7 @@
                         </div>
                     </div>
                 </div>
-                    <!-- Section mon disponibilité FIN -->
+                    <!-- Section ma disponibilité FIN -->
 
                     <!-- Section mon Resto -->
                      <div class=" shadow-lg p-3 mb-5 bg-white rounded col-md-12 col-lg-10 ">

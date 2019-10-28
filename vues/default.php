@@ -22,7 +22,7 @@
 
                         <ul>
                             <li>L'inscription est gratuite, rapide et hyper facile. </li>
-                            <li>Le poste vous intéresse mais vous n'êtes pa4s disponible tout de suite. </li>
+                            <li>Le poste vous intéresse mais vous n'êtes pas disponible tout de suite. </li>
                             <li>L'intermédiaire entre nous et vous est absent.</li>
                             <li>La bonne gestion du temps au travail personnel en dehors des heures de cours.</li>
                             <li>Adapter vos activités à des temps nouveaux et plus contraignants. </li>
@@ -34,8 +34,8 @@
                         <ul>
                             <li>Inscrivez-vous pour trouvez rapidement des employés potentiels. </li>
                             <li>Lancez votre demande de service en ligne maintenant.</li>
-                            <li>Toute les disponibilités pour une offre d'emploi seront bien adaptés.</li>
-                            <li>Faire vite pour faire face à la pénurie de main-d’œuvre d'une facon inteligent.</li>
+                            <li>Toutes les disponibilités pour une offre d'emploi seront bien adaptées.</li>
+                            <li>Faire vite pour faire face à la pénurie de main-d’œuvre d'une façon intelligente.</li>
                         </ul>
                  </div>
              </div>
@@ -129,7 +129,7 @@
                                     <h5 class="font1 fontGrand2">Vous <br>
                                             souhaitez <br>
                                             publier une <br>
-                                            offre d'emplois?</h5>
+                                            offre d'emploi?</h5>
                                 </div>
                             </div>
                         </div>

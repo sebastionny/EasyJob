@@ -4,14 +4,14 @@
             <div class="row">
                 <div class="col-md-8 col-sm-12  order-md-first order-last" >
                         <h1 class="font1 fontGrand1 color1">Bienvenue</h1>                
-                        <h2 class="font2 color1">Créer votre compte et postuler une offre, c'est rapide et supper facile!<br/><br/>
+                        <h2 class="font2 color1">Créez votre compte et postulez une offre, c'est rapide et super facile!<br/><br/>
                     
                         <div class="form-group input-group liste">
                             
                         <h4 class="font2 color1">
-                        <img src="./img/xHover.png")>Enregistrer l'information du restaurant<br/><br/>
-                        <img src="./img/xHover.png")>Sélectionner la profession que vous cherchez avec vos critères<br/><br/>
-                        <img src="./img/xHover.png")>En quelques minutes nous vous suggèrons des employés potentiels
+                        <img src="./img/xHover.png">Enregistrer l'information du restaurant<br/><br/>
+                        <img src="./img/xHover.png">Sélectionner la profession que vous cherchez avec vos critères<br/><br/>
+                        <img src="./img/xHover.png">En quelques minutes nous vous suggèrons des employés potentiels
                         </h4>
 
                         </div>

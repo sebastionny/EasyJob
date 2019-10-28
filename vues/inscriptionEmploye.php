@@ -4,13 +4,13 @@
                     <div class="row">
                             <div class="col-md-8 col-sm-12  order-md-first order-last">
                                         <h1 class="font1 fontGrand1 color1">Bienvenue</h1>
-                                        <h2 class="font2 color1">Créer votre compte et recevez des offres, c'est rapide et supper facile!<br/><br/><br/>
+                                        <h2 class="font2 color1">Créez votre compte et recevez des offres, c'est rapide et super facile!<br/><br/><br/>
 
                                     <div class="form-group input-group">
                                         <h4 class="font2 color1">
-                                            <img src="./img/xHover.png")>Enregistrer vos informations<br/><br/>
-                                            <img src="./img/xHover.png")>Décrire vos éxperiences et enregistrer vos disponibilités<br/><br/>
-                                            <img src="./img/xHover.png")>Voilà nous allons vous envoyer des offres de service
+                                            <img src="./img/xHover.png">Enregistrer vos informations<br/><br/>
+                                            <img src="./img/xHover.png">Décrire vos éxperiences et enregistrer vos disponibilités<br/><br/>
+                                            <img src="./img/xHover.png">Voilà nous allons vous envoyer des offres de service
                                         </h4>
                                     </div>
 
